@@ -299,7 +299,7 @@ NDR_ASTNode* NDR_ASTStackPop(NDR_ASTNodeStack* ndrstack){
 
 
 //  Need to allocate memory according to code file or else there may not be enough memory
-NDR_ASTNode* PreOrderTraversal(NDR_ASTNode* head){
+NDR_ASTNode* NDR_ASTPreOrderTraversal(NDR_ASTNode* head){
 
     static NDR_ASTNode** preOrder;
     static size_t currentPreDepthNode;
@@ -374,7 +374,7 @@ NDR_ASTNode* PreOrderTraversal(NDR_ASTNode* head){
 
 }
 
-NDR_ASTNode* InOrderTraversal(NDR_ASTNode* head){
+NDR_ASTNode* NDR_ASTInOrderTraversal(NDR_ASTNode* head){
 
     static NDR_ASTNode** inOrder;
     static size_t currentInDepthNode;
@@ -454,7 +454,7 @@ NDR_ASTNode* InOrderTraversal(NDR_ASTNode* head){
     }
 }
 
-NDR_ASTNode* PostOrderTraversal(NDR_ASTNode* head){
+NDR_ASTNode* NDR_ASTPostOrderTraversal(NDR_ASTNode* head){
 
     static NDR_ASTNode** postOrder;
     static size_t currentPostDepthNode;
@@ -522,7 +522,7 @@ NDR_ASTNode* PostOrderTraversal(NDR_ASTNode* head){
     }
 }
 
-NDR_ASTNode* BreadthFirstTraversal(NDR_ASTNode* head){
+NDR_ASTNode* NDR_ASTBreadthFirstTraversal(NDR_ASTNode* head){
 
     static NDR_ASTNode** breadthOrder;
     static size_t currentBreadthNode;
