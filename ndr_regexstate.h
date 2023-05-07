@@ -5,7 +5,7 @@
 
 #define PCRE2_STATIC
 #define PCRE2_CODE_UNIT_WIDTH 8
-#include "regex_engines/PCRE2/pcre2.h"
+#include "regex_engines/include/pcre2.h"
 
 //typedef struct NDR_RegexState NDR_RegexState;
 
