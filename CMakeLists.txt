@@ -1,18 +1,18 @@
-cmake_minimum_required(VERSION 3.00)
+cmake_minimum_required(VERSION 3.22)
 
-project(ndr_lap
-    VERSION 0.1
+project(NDR_LAP
+    VERSION 1.0.0
     DESCRIPTION "NDR Lexer and Parser"
     LANGUAGES C)
 
+include(ExternalProject)
 
-add_library(ndr_astnode STATIC ndr_astnode.c)
-add_library(ndr_astnodequeue STATIC ndr_astnodequeue.c)
-add_library(ndr_astnodestack STATIC ndr_astnodestack.c)
-add_library(ndr_asttokeninformation STATIC ndr_asttokeninformation.c)
-add_library(ndr_fileprocessor STATIC ndr_fileprocessor.c)
-add_library(ndr_lexer STATIC ndr_lexer.c)
-add_library(ndr_parser STATIC ndr_parser.c)
-add_library(ndr_regexstate STATIC ndr_regexstate.c)
-add_library(ndr_sequenceinformation STATIC ndr_sequenceinformation.c)
-add_library(ndr_tokeninformation STATIC ndr_tokeninformation.c)
+set(EXTERNAL_INSTALL_LOCATION ${CMAKE_BINARY_DIR}/external)
+
+
+ExternalProject_Add(pcre2
+ GIT_REPOSITORY https://github.com/PCRE2Project/pcre2.git
+  CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${CMAKE_SOURCE_DIR}/regex_engines
+)
+
+add_library(ndr_lap STATIC ndr_astnode.c ndr_asttokeninformation.c ndr_fileprocessor.c ndr_lexer.c ndr_parser.c ndr_regexstate.c ndr_sequenceinformation.c ndr_tokeninformation.c)
