@@ -18,7 +18,7 @@
 #ifdef PCRRE2_REGEX_ENGINE
 #define PCRE2_STATIC
 #define PCRE2_CODE_UNIT_WIDTH 8
-#include "regex_engines/PCRE2/pcre2.h"
+#include "regex_engines/include/pcre2.h"
 #endif // PCRRE2_REGEX_ENGINE
 #ifdef NDR_REGEX_ENGINE
 #include "NDR_REGEX.h"
@@ -1296,7 +1296,7 @@ void findItems(char* string, int* indices){
     int current = 2;
     bool ended = false;
 
-    int escapes[strlen(string)];
+    int* escapes = malloc(sizeof(int) * strlen(string));
     findEscaped(string, escapes, strlen(string));
     for(size_t x = 0; x < strlen(string)-1; x++){
         if(string[x+1] == ',' && containsInt(escapes, x+1) == false){
