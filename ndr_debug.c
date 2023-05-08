@@ -15,7 +15,7 @@ bool R = false;
 // PT is the toggle for printing the parseTable
 bool PT = false;
 
-void Set_Toggles(int argc, char* argv[]){
+void NDR_Set_Toggles(int argc, char* argv[]){
     for (int i = 1; i < argc; i++){
         if (strcmp(argv[i], "--ST") == 0)
             ST = true;
