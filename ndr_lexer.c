@@ -1414,6 +1414,6 @@ void NDR_PrintTokenTableLocations(){
     printf("\n\n************** Token Locations ****************\n\n");
 
     for(size_t i = 0; i < NDR_TIGetNumberOfTokens(TIWrapper); i++){
-        printf("%s: line - %i  --- column - %i\n", NDR_TIGetTokenInfo(TIWrapper, i)->token, NDR_TIGetTokenInfo(TIWrapper, i)->lineNumber, NDR_TIGetTokenInfo(TIWrapper, i)->columnNumber);
+        printf("%s: line - %u  --- column - %u\n", NDR_TIGetTokenInfo(TIWrapper, i)->token, (unsigned int) NDR_TIGetTokenInfo(TIWrapper, i)->lineNumber, (unsigned int) NDR_TIGetTokenInfo(TIWrapper, i)->columnNumber);
     }
 }

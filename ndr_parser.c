@@ -114,13 +114,13 @@ int NDR_Configure_Parser(char* fileName){
 
         for(size_t x = 0; x < NDR_GetNumberOfTokens(NDR_GetLine(fileInfo, i)); x++){
             if(!verifyParseTokens(NDR_GetToken(NDR_GetLine(fileInfo, i), x), currentToken, PSRepresentation)){
-                printf("Error parsing parser config file at line %i\n", parserLineNumber);
+                printf("Error parsing parser config file at line %u\n", (unsigned int) parserLineNumber);
                 return 1;
             }
         }
 
         if(NDR_GetNumberOfSequences(PIWrapper) > 0 && NDR_FindSequenceBeforeLast(PIWrapper, NDR_GetLastSequenceInfo(PIWrapper)->sequence) != -1){
-            printf("A duplicate parsing string \"%s\" has been found on line %i\n", NDR_GetLastSequenceInfo(PIWrapper)->sequence, PIWrapper->numSequences);
+            printf("A duplicate parsing string \"%s\" has been found on line %u\n", NDR_GetLastSequenceInfo(PIWrapper)->sequence, (unsigned int) PIWrapper->numSequences);
             return 1;
         }
 
@@ -631,9 +631,9 @@ void NDR_PrintModifiedTokenTable(){
     for(size_t i = 0; i < NDR_GetNumberOfTreeTokens(TTIWrapper); i++){
         printf("%s  ---   ", NDR_GetTreeTokenInfo(TTIWrapper, i)->tokenInfo->token);
         printf("%s  ---   ", NDR_GetTreeTokenInfo(TTIWrapper, i)->tokenInfo->keyword);
-        printf("%i  ---   ", NDR_GetTreeTokenInfo(TTIWrapper, i)->tokenInfo->lineNumber);
-        printf("%i  ---   ", NDR_GetTreeTokenInfo(TTIWrapper, i)->tokenInfo->columnNumber);
-        printf("%i", NDR_GetTreeTokenInfo(TTIWrapper, i)->nodeNumber);
+        printf("%u  ---   ", (unsigned int) NDR_GetTreeTokenInfo(TTIWrapper, i)->tokenInfo->lineNumber);
+        printf("%u  ---   ", (unsigned int) NDR_GetTreeTokenInfo(TTIWrapper, i)->tokenInfo->columnNumber);
+        printf("%u", (unsigned int) NDR_GetTreeTokenInfo(TTIWrapper, i)->nodeNumber);
         printf("\n");
     }
 }
