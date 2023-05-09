@@ -162,12 +162,6 @@ static bool AUTO_TRIM = false;
 static bool MATCH_ALL = true;
 static bool MATCH_ALL_isSeen = false;
 
-extern bool ST;
-extern bool TT;
-extern bool TL;
-extern bool M;
-extern bool R;
-extern bool PT;
 
 static NDR_RegexStateWrapper* RSWrapper = NULL;
 
@@ -272,7 +266,7 @@ int NDR_Configure_Lexer(char* fileName){
                     printf("\nError compiling symbol regex \"%s\" for keyword \"%s\" found on line %i\n", extractedStrings[counts], NDR_RSGetKeyword(NDR_RSGetLastRegexState(RSWrapper)), lexerLineNumber);
                     return 1;
                 }
-                else if (R == true){
+                else if(NDR_R == true){
                     printf("Success for token \"%s\" for keyword %s\n", extractedStrings[counts], NDR_RSGetKeyword(NDR_RSGetLastRegexState(RSWrapper)));
                 }
                 free(extractedStrings[counts]);
@@ -357,7 +351,7 @@ int NDR_Configure_Lexer(char* fileName){
         printf("\nMissing end state Token around line %i\n", lexerLineNumber);
         return 1;
     }
-    if (ST == true){
+    if (NDR_ST == true){
         NDR_PrintSymbolTable();
     }
 
@@ -384,18 +378,18 @@ int CompareUsingRegex(TokenMatchingState* matchingState, int RSIndex, int RegInd
         return 1;
     }
     else if(matchingState->matchValue == PCRE2_ERROR_NOMATCH){
-        if (M == true)
+        if (NDR_M == true)
             printf("No match for \"%s\", using regex %s\n", getMatchToken(matchingState), NDR_RSGetStartRegex(NDR_RSGetRegexState(RSWrapper, RSIndex), RegIndex));
     }
     else if(matchingState->matchValue == PCRE2_ERROR_PARTIAL && matchingState->highestMatchSeen == NOMATCH){
-        if (M == true)
+        if (NDR_M == true)
             printf("Partial Match for %s, using regex %s\n", getMatchToken(matchingState), NDR_RSGetStartRegex(NDR_RSGetRegexState(RSWrapper, RSIndex), RegIndex));
 
         calcBackTrack(matchingState, matchingState->ch);
         AcknowledgePotentialMatch(matchingState);
     }
     else if (matchingState->matchValue == 1){
-        if (M == true)
+        if (NDR_M == true)
             printf("Match success for %s, using regex %s\n", getMatchToken(matchingState), NDR_RSGetStartRegex(NDR_RSGetRegexState(RSWrapper, RSIndex), RegIndex));
 
         if (IsBestMatch(matchingState, RSIndex) == true)
@@ -437,10 +431,10 @@ int NDR_Lex(char* fileName){
     int lineNumber = 1;
     int columnNumber = 1;
 
-    if (R == true)
+    if (NDR_R == true)
         printf("\n\n************** Regex Symbol Compilation ****************\n\n");
 
-    if (M == true){
+    if (NDR_M == true){
         printf("\n\n************** Text File Matching ****************\n\n");
         printf("line 1 ------------- column 1\n");
     }
@@ -485,7 +479,7 @@ int NDR_Lex(char* fileName){
             InitializeTokenMatchingState(endMatchingState);
 
             while(ch != EOF){
-                if (M == true)
+                if (NDR_M == true)
                     printf("Currently matching: %s\n", getMatchToken(matchingState));
 
                 ch = fgetc(code);
@@ -538,7 +532,7 @@ int NDR_Lex(char* fileName){
                         fseek(code, -1, SEEK_CUR);
                         updatefilePosition(&lineNumber, &columnNumber, getMatchToken(endMatchingState));
 
-                        if (M == true)
+                        if (NDR_M == true)
                             printf("\nline %i ------------- column %i\n", lineNumber, columnNumber);
 
                         break;
@@ -597,7 +591,7 @@ int NDR_Lex(char* fileName){
             strcpy(getMatchToken(matchingState), "");
             matchingState->indexOfBestMatch = 0;
 
-            if (M == true)
+            if (NDR_M == true)
                 printf("\nline %i ------------- column %i\n", lineNumber, columnNumber);
         }
         else if(completeMatchFound(matchingState) == true){
@@ -629,7 +623,7 @@ int NDR_Lex(char* fileName){
 
 
 
-            if (M == true)
+            if (NDR_M == true)
                 printf("\nline %i ------------- column %i\n", lineNumber, columnNumber);
         }
         if(hasMatchingStarted(matchingState) && matchingState->ch == EOF){
@@ -650,9 +644,9 @@ int NDR_Lex(char* fileName){
         printf("\nNo text was matched during parsing of the source file.\n");
         return 1;
     }
-    if (TT == true)
+    if (NDR_TT == true)
         NDR_PrintTokenTable();
-    if (TL == true)
+    if (NDR_TL == true)
         NDR_PrintTokenTableLocations();
 
 

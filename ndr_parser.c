@@ -96,13 +96,6 @@ static bool sContainsInt(int* arr, int index);
 //static int getLongestParseSequence();
 static void copyTTToMT();
 
-extern bool ST;
-extern bool TT;
-extern bool TL;
-extern bool M;
-extern bool R;
-extern bool PT;
-
 static NDR_SequenceInformationWrapper* PIWrapper = NULL;
 extern NDR_TokenInformationWrapper* TIWrapper;
 static NDR_TreeTokenInfoWrapper* TTIWrapper = NULL;
@@ -182,7 +175,7 @@ int NDR_Configure_Parser(char* fileName){
         return 1;
     }
 
-    if (PT == true)
+    if (NDR_PT == true)
         NDR_PrintParseTable();
 
     fclose(parserConfigFile);
@@ -360,7 +353,7 @@ bool compareTokenToParsingTable(){
             }
 
         }
-        if (TT == true)
+        if (NDR_TT == true)
             NDR_PrintModifiedTokenTable();
     }
 

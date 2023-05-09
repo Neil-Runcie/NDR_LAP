@@ -37,6 +37,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef NDRPARSER_H
 #define NDRPARSER_H
 
+#include "ndr_astnode.h"
+
+extern NDR_ASTNode* NDR_ASThead;
+
 int NDR_Configure_Parser(char* fileName);
 int NDR_Parse();
 

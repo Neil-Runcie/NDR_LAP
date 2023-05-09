@@ -39,31 +39,31 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "ndr_debug.h"
 
 // ST is the toggle for printing the symbolTable
-bool ST = false;
+bool NDR_ST = false;
 // TT is the toggle for printing the tokenTable
-bool TT = false;
+bool NDR_TT = false;
 // TL is the toggle for printing the tokenLocations
-bool TL = false;
+bool NDR_TL = false;
 // M is the toggle for printing the matching process during the parsing process
-bool M = false;
+bool NDR_M = false;
 // R is the toggle for regex symbol compilation
-bool R = false;
+bool NDR_R = false;
 // PT is the toggle for printing the parseTable
-bool PT = false;
+bool NDR_PT = false;
 
 void NDR_Set_Toggles(int argc, char* argv[]){
     for (int i = 1; i < argc; i++){
         if (strcmp(argv[i], "--ST") == 0)
-            ST = true;
+            NDR_ST = true;
         if (strcmp(argv[i], "--TT") == 0)
-            TT = true;
+            NDR_TT = true;
         if (strcmp(argv[i], "--TL") == 0)
-            TL = true;
+            NDR_TL = true;
         if (strcmp(argv[i], "--M") == 0)
-            M = true;
+            NDR_M = true;
         if (strcmp(argv[i], "--R") == 0)
-            R = true;
+            NDR_R = true;
         if (strcmp(argv[i], "--PT") == 0)
-            PT = true;
+            NDR_PT = true;
     }
 }
