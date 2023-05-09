@@ -6,7 +6,22 @@ This graph shows which files directly or indirectly include this file\+:
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{ndr__debug_8h_afb0b623a5f91b7e0b17103a0a7ac8f46}{NDR\+\_\+\+Set\+\_\+\+Toggles}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em NDR\+\_\+\+Set\+\_\+\+Toggles allows for toggles to be set through command line arguments that will print debugging information used in the NDR\+\_\+\+Configure\+\_\+\+Lexer, NDR\+\_\+\+Configure\+\_\+\+Parser, NDR\+\_\+\+Lexer, NDR\+\_\+\+Parser functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{ndr__debug_8h_a520894a937eec247184400af129cd2ec}{NDR\+\_\+\+ST}}
+\begin{DoxyCompactList}\small\item\em ST is the toggle for printing the symbol\+Table. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{ndr__debug_8h_a3d29bb414321b023d6cfee8dc44e67a9}{NDR\+\_\+\+TT}}
+\begin{DoxyCompactList}\small\item\em TT is the toggle for printing the token\+Table. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{ndr__debug_8h_ad1aa9f38707f63ebd9a79a0db350525d}{NDR\+\_\+\+TL}}
+\begin{DoxyCompactList}\small\item\em TL is the toggle for printing the token\+Locations. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{ndr__debug_8h_a0664d541b71f5d54e948d0de9c1cf01e}{NDR\+\_\+M}}
+\begin{DoxyCompactList}\small\item\em M is the toggle for printing the matching process during the parsing process. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{ndr__debug_8h_a8a599a5f07674f66605603c3806426fc}{NDR\+\_\+R}}
+\begin{DoxyCompactList}\small\item\em R is the toggle for regex symbol compilation. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{ndr__debug_8h_aa5b3b4b1719147e10957f07481e1fbd0}{NDR\+\_\+\+PT}}
+\begin{DoxyCompactList}\small\item\em PT is the toggle for printing the parse\+Table. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
@@ -15,4 +30,78 @@ void \mbox{\hyperlink{ndr__debug_8h_afb0b623a5f91b7e0b17103a0a7ac8f46}{NDR\+\_\+
 \index{NDR\_Set\_Toggles@{NDR\_Set\_Toggles}!ndr\_debug.h@{ndr\_debug.h}}
 \doxysubsubsection{\texorpdfstring{NDR\_Set\_Toggles()}{NDR\_Set\_Toggles()}}
 {\footnotesize\ttfamily void NDR\+\_\+\+Set\+\_\+\+Toggles (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+NDR\+\_\+\+Set\+\_\+\+Toggles allows for toggles to be set through command line arguments that will print debugging information used in the NDR\+\_\+\+Configure\+\_\+\+Lexer, NDR\+\_\+\+Configure\+\_\+\+Parser, NDR\+\_\+\+Lexer, NDR\+\_\+\+Parser functions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & represents the number of toggles present \\
+\hline
+{\em argv} & is a list of strings. The strings can be any of the provided toggles. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{ndr__debug_8h_a0664d541b71f5d54e948d0de9c1cf01e}\label{ndr__debug_8h_a0664d541b71f5d54e948d0de9c1cf01e}} 
+\index{ndr\_debug.h@{ndr\_debug.h}!NDR\_M@{NDR\_M}}
+\index{NDR\_M@{NDR\_M}!ndr\_debug.h@{ndr\_debug.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_M}{NDR\_M}}
+{\footnotesize\ttfamily bool NDR\+\_\+M\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+M is the toggle for printing the matching process during the parsing process. 
+
+\mbox{\Hypertarget{ndr__debug_8h_aa5b3b4b1719147e10957f07481e1fbd0}\label{ndr__debug_8h_aa5b3b4b1719147e10957f07481e1fbd0}} 
+\index{ndr\_debug.h@{ndr\_debug.h}!NDR\_PT@{NDR\_PT}}
+\index{NDR\_PT@{NDR\_PT}!ndr\_debug.h@{ndr\_debug.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_PT}{NDR\_PT}}
+{\footnotesize\ttfamily bool NDR\+\_\+\+PT\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+PT is the toggle for printing the parse\+Table. 
+
+\mbox{\Hypertarget{ndr__debug_8h_a8a599a5f07674f66605603c3806426fc}\label{ndr__debug_8h_a8a599a5f07674f66605603c3806426fc}} 
+\index{ndr\_debug.h@{ndr\_debug.h}!NDR\_R@{NDR\_R}}
+\index{NDR\_R@{NDR\_R}!ndr\_debug.h@{ndr\_debug.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_R}{NDR\_R}}
+{\footnotesize\ttfamily bool NDR\+\_\+R\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+R is the toggle for regex symbol compilation. 
+
+\mbox{\Hypertarget{ndr__debug_8h_a520894a937eec247184400af129cd2ec}\label{ndr__debug_8h_a520894a937eec247184400af129cd2ec}} 
+\index{ndr\_debug.h@{ndr\_debug.h}!NDR\_ST@{NDR\_ST}}
+\index{NDR\_ST@{NDR\_ST}!ndr\_debug.h@{ndr\_debug.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_ST}{NDR\_ST}}
+{\footnotesize\ttfamily bool NDR\+\_\+\+ST\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+ST is the toggle for printing the symbol\+Table. 
+
+\mbox{\Hypertarget{ndr__debug_8h_ad1aa9f38707f63ebd9a79a0db350525d}\label{ndr__debug_8h_ad1aa9f38707f63ebd9a79a0db350525d}} 
+\index{ndr\_debug.h@{ndr\_debug.h}!NDR\_TL@{NDR\_TL}}
+\index{NDR\_TL@{NDR\_TL}!ndr\_debug.h@{ndr\_debug.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_TL}{NDR\_TL}}
+{\footnotesize\ttfamily bool NDR\+\_\+\+TL\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+TL is the toggle for printing the token\+Locations. 
+
+\mbox{\Hypertarget{ndr__debug_8h_a3d29bb414321b023d6cfee8dc44e67a9}\label{ndr__debug_8h_a3d29bb414321b023d6cfee8dc44e67a9}} 
+\index{ndr\_debug.h@{ndr\_debug.h}!NDR\_TT@{NDR\_TT}}
+\index{NDR\_TT@{NDR\_TT}!ndr\_debug.h@{ndr\_debug.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_TT}{NDR\_TT}}
+{\footnotesize\ttfamily bool NDR\+\_\+\+TT\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+TT is the toggle for printing the token\+Table. 
 

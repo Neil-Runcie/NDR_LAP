@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>NDR Lexer And Parser: ndr_parser.h File Reference</title>
+<title>NDR Lexer and Parser: ndr_parser.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">NDR Lexer And Parser
+   <div id="projectname">NDR Lexer and Parser
    &#160;<span id="projectnumber">0.1.0</span>
    </div>
    <div id="projectbrief">A lexical analysis tool and parsing tool</div>
@@ -64,12 +64,19 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">ndr_parser.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><div class="dynheader">
+<div class="textblock"><code>#include &quot;<a class="el" href="ndr__astnode_8h_source.html">ndr_astnode.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for ndr_parser.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="ndr__parser_8h__incl.png" border="0" usemap="#andr__parser_8h" alt=""/></div>
+</div>
+</div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="ndr__parser_8h__dep__incl.png" border="0" usemap="#andr__parser_8hdep" alt=""/></div>
@@ -80,13 +87,23 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a0858e18f15cb2fdf5e630f22ee639c6f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__parser_8h.html#a0858e18f15cb2fdf5e630f22ee639c6f">NDR_Configure_Parser</a> (char *fileName)</td></tr>
+<tr class="memdesc:a0858e18f15cb2fdf5e630f22ee639c6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure the parser based on a text input file so that the parser is aware of the allowed parsing sequences.  <a href="ndr__parser_8h.html#a0858e18f15cb2fdf5e630f22ee639c6f">More...</a><br /></td></tr>
 <tr class="separator:a0858e18f15cb2fdf5e630f22ee639c6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acab1bceff7113e08a604f2b848bc765f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__parser_8h.html#acab1bceff7113e08a604f2b848bc765f">NDR_Parse</a> ()</td></tr>
+<tr class="memdesc:acab1bceff7113e08a604f2b848bc765f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare the sequences configured in function NDR_Configure_Parser with the text found in a provided code file.  <a href="ndr__parser_8h.html#acab1bceff7113e08a604f2b848bc765f">More...</a><br /></td></tr>
 <tr class="separator:acab1bceff7113e08a604f2b848bc765f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78181158fbd5f6aab8ae628059778d14"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__parser_8h.html#a78181158fbd5f6aab8ae628059778d14">NDR_PrintParseTable</a> ()</td></tr>
+<tr class="memdesc:a78181158fbd5f6aab8ae628059778d14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print all of the sequences and associated keywords found during parsing.  <a href="ndr__parser_8h.html#a78181158fbd5f6aab8ae628059778d14">More...</a><br /></td></tr>
 <tr class="separator:a78181158fbd5f6aab8ae628059778d14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa379a3445685d39d5d17dfb10196d08"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__parser_8h.html#aaa379a3445685d39d5d17dfb10196d08">NDR_PrintModifiedTokenTable</a> ()</td></tr>
+<tr class="memdesc:aaa379a3445685d39d5d17dfb10196d08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the final state of the parsing process of comparing tokens to the parsing sequences.  <a href="ndr__parser_8h.html#aaa379a3445685d39d5d17dfb10196d08">More...</a><br /></td></tr>
 <tr class="separator:aaa379a3445685d39d5d17dfb10196d08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a32999b67de0a109bd67f43a5f6c21763"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structNDR__ASTNode.html">NDR_ASTNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__parser_8h.html#a32999b67de0a109bd67f43a5f6c21763">NDR_ASThead</a></td></tr>
+<tr class="memdesc:a32999b67de0a109bd67f43a5f6c21763"><td class="mdescLeft">&#160;</td><td class="mdescRight">NDR_ASThead points to the head of the Abstract Syntax Tree generated by the NDR_Parse function.  <a href="ndr__parser_8h.html#a32999b67de0a109bd67f43a5f6c21763">More...</a><br /></td></tr>
+<tr class="separator:a32999b67de0a109bd67f43a5f6c21763"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a0858e18f15cb2fdf5e630f22ee639c6f"></a>
@@ -105,6 +122,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Configure the parser based on a text input file so that the parser is aware of the allowed parsing sequences. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fileName</td><td>in the name of a text file filled with allowd parsing sequences </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Thes success status of the function. 0 for success and non-zero for error </dd></dl>
+
 </div>
 </div>
 <a id="acab1bceff7113e08a604f2b848bc765f"></a>
@@ -121,6 +147,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Compare the sequences configured in function NDR_Configure_Parser with the text found in a provided code file. </p>
+<dl class="section return"><dt>Returns</dt><dd>The success status of the function. 0 for success and non-zero for error </dd></dl>
 
 </div>
 </div>
@@ -139,6 +168,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Print the final state of the parsing process of comparing tokens to the parsing sequences. </p>
+
 </div>
 </div>
 <a id="a78181158fbd5f6aab8ae628059778d14"></a>
@@ -155,6 +186,33 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Print all of the sequences and associated keywords found during parsing. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a32999b67de0a109bd67f43a5f6c21763"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32999b67de0a109bd67f43a5f6c21763">&#9670;&nbsp;</a></span>NDR_ASThead</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structNDR__ASTNode.html">NDR_ASTNode</a>* NDR_ASThead</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>NDR_ASThead points to the head of the Abstract Syntax Tree generated by the NDR_Parse function. </p>
 
 </div>
 </div>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>NDR Lexer And Parser: ndr_lexer.h File Reference</title>
+<title>NDR Lexer and Parser: ndr_lexer.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">NDR Lexer And Parser
+   <div id="projectname">NDR Lexer and Parser
    &#160;<span id="projectnumber">0.1.0</span>
    </div>
    <div id="projectbrief">A lexical analysis tool and parsing tool</div>
@@ -80,14 +80,19 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ab844db49a5f5d2f3a0323db9732c75d8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__lexer_8h.html#ab844db49a5f5d2f3a0323db9732c75d8">NDR_Configure_Lexer</a> (char *fileName)</td></tr>
+<tr class="memdesc:ab844db49a5f5d2f3a0323db9732c75d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure the lexer based on a text input file so that the lexer is aware of the allowed tokens.  <a href="ndr__lexer_8h.html#ab844db49a5f5d2f3a0323db9732c75d8">More...</a><br /></td></tr>
 <tr class="separator:ab844db49a5f5d2f3a0323db9732c75d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a172bde251ec2485e02bd34952cd31ebd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__lexer_8h.html#a172bde251ec2485e02bd34952cd31ebd">NDR_Lex</a> (char *fileName)</td></tr>
+<tr class="memdesc:a172bde251ec2485e02bd34952cd31ebd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare the tokens configured in function NDR_Configure_Lexer with the text found in a provided code file.  <a href="ndr__lexer_8h.html#a172bde251ec2485e02bd34952cd31ebd">More...</a><br /></td></tr>
 <tr class="separator:a172bde251ec2485e02bd34952cd31ebd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a8528a594f416e888de4488e4baafab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__lexer_8h.html#a3a8528a594f416e888de4488e4baafab">NDR_PrintSymbolTable</a> ()</td></tr>
+<tr class="memdesc:a3a8528a594f416e888de4488e4baafab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print all of the tokens and associated regex found during parsing.  <a href="ndr__lexer_8h.html#a3a8528a594f416e888de4488e4baafab">More...</a><br /></td></tr>
 <tr class="separator:a3a8528a594f416e888de4488e4baafab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a343178a3fa2d06bccdb05ec358056533"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__lexer_8h.html#a343178a3fa2d06bccdb05ec358056533">NDR_PrintTokenTable</a> ()</td></tr>
+<tr class="memdesc:a343178a3fa2d06bccdb05ec358056533"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print all of the toekns and associated keywords found during parsing.  <a href="ndr__lexer_8h.html#a343178a3fa2d06bccdb05ec358056533">More...</a><br /></td></tr>
 <tr class="separator:a343178a3fa2d06bccdb05ec358056533"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f125d9036153505eac0fe6905fabeea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__lexer_8h.html#a1f125d9036153505eac0fe6905fabeea">NDR_PrintTokenTableLocations</a> ()</td></tr>
+<tr class="memdesc:a1f125d9036153505eac0fe6905fabeea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print all of the toekn locations of tokens found during parsing.  <a href="ndr__lexer_8h.html#a1f125d9036153505eac0fe6905fabeea">More...</a><br /></td></tr>
 <tr class="separator:a1f125d9036153505eac0fe6905fabeea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -107,6 +112,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Configure the lexer based on a text input file so that the lexer is aware of the allowed tokens. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fileName</td><td>in the name of a text file filled with allowd tokens </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Thes success status of the function. 0 for success and non-zero for error </dd></dl>
+
 </div>
 </div>
 <a id="a172bde251ec2485e02bd34952cd31ebd"></a>
@@ -125,6 +139,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Compare the tokens configured in function NDR_Configure_Lexer with the text found in a provided code file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fileName</td><td>is the name of a provided code file that is to be processed </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The success status of the function. 0 for success and non-zero for error </dd></dl>
+
 </div>
 </div>
 <a id="a3a8528a594f416e888de4488e4baafab"></a>
@@ -141,6 +164,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Print all of the tokens and associated regex found during parsing. </p>
 
 </div>
 </div>
@@ -159,6 +184,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Print all of the toekns and associated keywords found during parsing. </p>
+
 </div>
 </div>
 <a id="a1f125d9036153505eac0fe6905fabeea"></a>
@@ -175,6 +202,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Print all of the toekn locations of tokens found during parsing. </p>
 
 </div>
 </div>

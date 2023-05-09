@@ -37,11 +37,24 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef NDRLEXER_H
 #define NDRLEXER_H
 
+/** @brief Configure the lexer based on a text input file so that the lexer is aware of the allowed tokens
+* 
+* @param fileName in the name of a text file filled with allowd tokens
+* @return Thes success status of the function. 0 for success and non-zero for error
+*/
 int NDR_Configure_Lexer(char* fileName);
+/** @brief Compare the tokens configured in function NDR_Configure_Lexer with the text found in a provided code file
+*
+* @param fileName is the name of a provided code file that is to be processed
+* @return The success status of the function. 0 for success and non-zero for error
+*/
 int NDR_Lex(char* fileName);
 
+/** @brief Print all of the tokens and associated regex found during parsing */
 void NDR_PrintSymbolTable();
+/** @brief Print all of the toekns and associated keywords found during parsing */
 void NDR_PrintTokenTable();
+/** @brief Print all of the toekn locations of tokens found during parsing */
 void NDR_PrintTokenTableLocations();
 
 #endif
