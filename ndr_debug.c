@@ -55,15 +55,15 @@ void NDR_Set_Toggles(int argc, char* argv[]){
     for (int i = 1; i < argc; i++){
         if (strcmp(argv[i], "--ST") == 0)
             NDR_ST = true;
-        if (strcmp(argv[i], "--TT") == 0)
+        else if (strcmp(argv[i], "--TT") == 0)
             NDR_TT = true;
-        if (strcmp(argv[i], "--TL") == 0)
+        else if (strcmp(argv[i], "--TL") == 0)
             NDR_TL = true;
-        if (strcmp(argv[i], "--M") == 0)
+        else if (strcmp(argv[i], "--M") == 0)
             NDR_M = true;
-        if (strcmp(argv[i], "--R") == 0)
+        else if (strcmp(argv[i], "--R") == 0)
             NDR_R = true;
-        if (strcmp(argv[i], "--PT") == 0)
+        else if (strcmp(argv[i], "--PT") == 0)
             NDR_PT = true;
     }
 }
