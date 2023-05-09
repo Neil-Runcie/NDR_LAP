@@ -1,0 +1,390 @@
+\hypertarget{ndr__astnode_8h}{}\doxysection{ndr\+\_\+astnode.\+h File Reference}
+\label{ndr__astnode_8h}\index{ndr\_astnode.h@{ndr\_astnode.h}}
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+Include dependency graph for ndr\+\_\+astnode.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}}
+\item 
+struct \mbox{\hyperlink{structNDR__ASTNodeHolder}{NDR\+\_\+\+ASTNode\+Holder}}
+\item 
+struct \mbox{\hyperlink{structNDR__ASTNodeQueue}{NDR\+\_\+\+ASTNode\+Queue}}
+\item 
+struct \mbox{\hyperlink{structNDR__ASTNodeStack}{NDR\+\_\+\+ASTNode\+Stack}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} \mbox{\hyperlink{ndr__astnode_8h_a0fd67e18e6205d5de241012edd6b232a}{NDR\+\_\+\+ASTNode}}
+\item 
+typedef struct \mbox{\hyperlink{structNDR__ASTNodeHolder}{NDR\+\_\+\+ASTNode\+Holder}} \mbox{\hyperlink{ndr__astnode_8h_a31383fba7c44d3d57f9f2302f0a53ad7}{NDR\+\_\+\+ASTNode\+Holder}}
+\item 
+typedef struct \mbox{\hyperlink{structNDR__ASTNodeQueue}{NDR\+\_\+\+ASTNode\+Queue}} \mbox{\hyperlink{ndr__astnode_8h_a4e4d139c2e97016fdbda8f762ec727b3}{NDR\+\_\+\+ASTNode\+Queue}}
+\item 
+typedef struct \mbox{\hyperlink{structNDR__ASTNodeStack}{NDR\+\_\+\+ASTNode\+Stack}} \mbox{\hyperlink{ndr__astnode_8h_af05bda9197f6e60a542acea25a5dcf24}{NDR\+\_\+\+ASTNode\+Stack}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{ndr__astnode_8h_a47fc893078237f9a0b3995fbe661f197}{NDR\+\_\+\+Init\+ASTNode\+Holder}} (\mbox{\hyperlink{structNDR__ASTNodeHolder}{NDR\+\_\+\+ASTNode\+Holder}} $\ast$node\+Wrapper)
+\item 
+void \mbox{\hyperlink{ndr__astnode_8h_ac31b548c84e704831e463435c0d96113}{NDR\+\_\+\+Init\+ASTNode}} (\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$node)
+\item 
+void \mbox{\hyperlink{ndr__astnode_8h_aa6d30d1bd6c009779a1605cf38c85a8e}{NDR\+\_\+\+Free\+ASTNode\+Holder}} (\mbox{\hyperlink{structNDR__ASTNodeHolder}{NDR\+\_\+\+ASTNode\+Holder}} $\ast$node\+Wrapper)
+\item 
+void \mbox{\hyperlink{ndr__astnode_8h_a6b655fb194983dcad7113a3023d95fe1}{NDR\+\_\+\+Free\+ASTNode}} (\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$node)
+\item 
+void \mbox{\hyperlink{ndr__astnode_8h_a2336dfecf3694073706649c115601dc9}{NDR\+\_\+\+Destroy\+ASTTree}} (\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$head)
+\item 
+void \mbox{\hyperlink{ndr__astnode_8h_a45e9c560a16306771cbcb3dd7a93d7ae}{NDR\+\_\+\+Add\+New\+ASTNode}} (\mbox{\hyperlink{structNDR__ASTNodeHolder}{NDR\+\_\+\+ASTNode\+Holder}} $\ast$node\+Wrapper, \mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$node\+To\+Add)
+\item 
+void \mbox{\hyperlink{ndr__astnode_8h_ace78c78cb3b11f19a3c15c7d93b84f16}{NDR\+\_\+\+Add\+Child\+ASTNode}} (\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$node, \mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$node\+To\+Add)
+\item 
+void \mbox{\hyperlink{ndr__astnode_8h_a5a9fd85d9ccc26a479d3d826b5df3a28}{NDR\+\_\+\+Set\+ASTNode\+Keyword}} (\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$node, char $\ast$keyword)
+\item 
+void \mbox{\hyperlink{ndr__astnode_8h_a92b0447946ae9ccf2567900679f9b0d5}{NDR\+\_\+\+Set\+ASTNode\+Token}} (\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$node, char $\ast$token)
+\item 
+void \mbox{\hyperlink{ndr__astnode_8h_a7070981c72f4bc9c414d90e0a47e61ad}{NDR\+\_\+\+Set\+ASTNode\+Order\+Number}} (\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$node, size\+\_\+t order\+Number)
+\item 
+void \mbox{\hyperlink{ndr__astnode_8h_ae5877dab9cc3ef569539408aeb872c57}{NDR\+\_\+\+Set\+ASTNode\+Node\+Type}} (\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$node, size\+\_\+t node\+Type)
+\item 
+void \mbox{\hyperlink{ndr__astnode_8h_a559e417076247ed6eaa8c7829d43f407}{NDR\+\_\+\+Set\+ASTNode\+Line\+Number}} (\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$node, size\+\_\+t line\+Number)
+\item 
+void \mbox{\hyperlink{ndr__astnode_8h_a662d88fcae2ddb711b2849db67262bd6}{NDR\+\_\+\+Set\+ASTNode\+Column\+Number}} (\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$node, size\+\_\+t column\+Number)
+\item 
+void \mbox{\hyperlink{ndr__astnode_8h_a05264280e9664398ad5668b59915feaa}{NDR\+\_\+\+Inc\+ASTTotal\+Node}} (\mbox{\hyperlink{structNDR__ASTNodeHolder}{NDR\+\_\+\+ASTNode\+Holder}} $\ast$node\+Wrapper)
+\item 
+char $\ast$ \mbox{\hyperlink{ndr__astnode_8h_a237acfd420b3b6675b2e8e4952688e2f}{NDR\+\_\+\+Get\+ASTNode\+Keyword}} (\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$node)
+\item 
+char $\ast$ \mbox{\hyperlink{ndr__astnode_8h_a94abb2fd0ff50038c49043eb275589df}{NDR\+\_\+\+Get\+ASTNode\+Token}} (\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$node)
+\item 
+size\+\_\+t \mbox{\hyperlink{ndr__astnode_8h_ae1d5c4fbe5d9e15cebcd711cee1e7658}{NDR\+\_\+\+Get\+ASTNode\+Order\+Number}} (\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$node)
+\item 
+size\+\_\+t \mbox{\hyperlink{ndr__astnode_8h_a9760c701fa21413d7e825eafa940c2e0}{NDR\+\_\+\+Get\+ASTNode\+Node\+Type}} (\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$node)
+\item 
+size\+\_\+t \mbox{\hyperlink{ndr__astnode_8h_a530e4c64242ce4f36e4b351b48778cd9}{NDR\+\_\+\+Get\+ASTNode\+Line\+Number}} (\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$node)
+\item 
+size\+\_\+t \mbox{\hyperlink{ndr__astnode_8h_a6261f7739ba8dfb617215cca94106a42}{NDR\+\_\+\+Get\+ASTNode\+Column\+Number}} (\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$node)
+\item 
+\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$ \mbox{\hyperlink{ndr__astnode_8h_ae05fb1e04a84211b824aa9ab8bce08c6}{NDR\+\_\+\+Get\+ASTNode}} (\mbox{\hyperlink{structNDR__ASTNodeHolder}{NDR\+\_\+\+ASTNode\+Holder}} $\ast$node\+Wrapper, size\+\_\+t index)
+\item 
+size\+\_\+t \mbox{\hyperlink{ndr__astnode_8h_acbaf7a671d5fe327da78dadce4963d2f}{NDR\+\_\+\+Get\+Total\+ASTTree\+Nodes}} (\mbox{\hyperlink{structNDR__ASTNodeHolder}{NDR\+\_\+\+ASTNode\+Holder}} $\ast$node\+Wrapper)
+\item 
+size\+\_\+t \mbox{\hyperlink{ndr__astnode_8h_a0aea70ed426308c1bf4012410230a545}{NDR\+\_\+\+Get\+Number\+Of\+ASTNodes}} (\mbox{\hyperlink{structNDR__ASTNodeHolder}{NDR\+\_\+\+ASTNode\+Holder}} $\ast$node\+Wrapper)
+\item 
+void \mbox{\hyperlink{ndr__astnode_8h_aa4f98b1dc12307eca1768e60cae7277e}{NDR\+\_\+\+Init\+ASTQueue}} (\mbox{\hyperlink{structNDR__ASTNodeQueue}{NDR\+\_\+\+ASTNode\+Queue}} $\ast$ndrqueue)
+\item 
+void \mbox{\hyperlink{ndr__astnode_8h_a1a2a0d52ba56fb33b7de0cfca3679af9}{NDR\+\_\+\+Free\+ASTQueue}} (\mbox{\hyperlink{structNDR__ASTNodeQueue}{NDR\+\_\+\+ASTNode\+Queue}} $\ast$ndrqueue)
+\item 
+size\+\_\+t \mbox{\hyperlink{ndr__astnode_8h_a0311f5cc1f26b33fd66459a9d87ab0eb}{NDR\+\_\+\+ASTQSize}} (\mbox{\hyperlink{structNDR__ASTNodeQueue}{NDR\+\_\+\+ASTNode\+Queue}} $\ast$ndrqueue)
+\item 
+bool \mbox{\hyperlink{ndr__astnode_8h_a939ca5a4d33bed28da3fc23e990695f2}{NDR\+\_\+\+ASTQIs\+Empty}} (\mbox{\hyperlink{structNDR__ASTNodeQueue}{NDR\+\_\+\+ASTNode\+Queue}} $\ast$ndrqueue)
+\item 
+\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$ \mbox{\hyperlink{ndr__astnode_8h_a4e00e0e4cb7d1b7f732f6d5effdb6807}{NDR\+\_\+\+ASTQFront}} (\mbox{\hyperlink{structNDR__ASTNodeQueue}{NDR\+\_\+\+ASTNode\+Queue}} $\ast$ndrqueue)
+\item 
+void \mbox{\hyperlink{ndr__astnode_8h_aea81961f8c16bc6072bb2ea98a297312}{NDR\+\_\+\+ASTQEnqueue}} (\mbox{\hyperlink{structNDR__ASTNodeQueue}{NDR\+\_\+\+ASTNode\+Queue}} $\ast$ndrqueue, \mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$node)
+\item 
+\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$ \mbox{\hyperlink{ndr__astnode_8h_abc3b113c5578bb05b03c1ede85ddaa88}{NDR\+\_\+\+ASTQDequeue}} (\mbox{\hyperlink{structNDR__ASTNodeQueue}{NDR\+\_\+\+ASTNode\+Queue}} $\ast$ndrqueue)
+\item 
+void \mbox{\hyperlink{ndr__astnode_8h_ac89a6993a7b7c0af94b2e30ccaaef68b}{NDR\+\_\+\+Init\+ASTStack}} (\mbox{\hyperlink{structNDR__ASTNodeStack}{NDR\+\_\+\+ASTNode\+Stack}} $\ast$ndrstack)
+\item 
+void \mbox{\hyperlink{ndr__astnode_8h_af5a58d1d0c665185e4bed2d917ea4829}{NDR\+\_\+\+Free\+ASTStack}} (\mbox{\hyperlink{structNDR__ASTNodeStack}{NDR\+\_\+\+ASTNode\+Stack}} $\ast$ndrstack)
+\item 
+size\+\_\+t \mbox{\hyperlink{ndr__astnode_8h_a1c5861db9aaccd1ed74ac566425eef9a}{NDR\+\_\+\+ASTStack\+Size}} (\mbox{\hyperlink{structNDR__ASTNodeStack}{NDR\+\_\+\+ASTNode\+Stack}} $\ast$ndrstack)
+\item 
+bool \mbox{\hyperlink{ndr__astnode_8h_a4b7d395fde5db04c1e4efea52c567a7d}{NDR\+\_\+\+ASTStack\+Is\+Empty}} (\mbox{\hyperlink{structNDR__ASTNodeStack}{NDR\+\_\+\+ASTNode\+Stack}} $\ast$ndrstack)
+\item 
+void \mbox{\hyperlink{ndr__astnode_8h_aee388bd6f69603149429e179305eba4c}{NDR\+\_\+\+ASTStack\+Push}} (\mbox{\hyperlink{structNDR__ASTNodeStack}{NDR\+\_\+\+ASTNode\+Stack}} $\ast$ndrstack, \mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$node)
+\item 
+\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$ \mbox{\hyperlink{ndr__astnode_8h_ace70f0123db376c990534bb2fa91a83a}{NDR\+\_\+\+ASTStack\+Peek}} (\mbox{\hyperlink{structNDR__ASTNodeStack}{NDR\+\_\+\+ASTNode\+Stack}} $\ast$ndrstack)
+\item 
+\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$ \mbox{\hyperlink{ndr__astnode_8h_a1cafa29ca8613c1c1d11d682324d5592}{NDR\+\_\+\+ASTStack\+Pop}} (\mbox{\hyperlink{structNDR__ASTNodeStack}{NDR\+\_\+\+ASTNode\+Stack}} $\ast$ndrstack)
+\item 
+\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$ \mbox{\hyperlink{ndr__astnode_8h_af91f82aa968b96e76c9ee3ebf931f619}{NDR\+\_\+\+ASTPre\+Order\+Traversal}} (\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$head)
+\item 
+\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$ \mbox{\hyperlink{ndr__astnode_8h_ab9770986adbc7c51719b5b406c51edca}{NDR\+\_\+\+ASTIn\+Order\+Traversal}} (\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$head)
+\item 
+\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$ \mbox{\hyperlink{ndr__astnode_8h_a1b3139caf9f6b76054cdcafec542a370}{NDR\+\_\+\+ASTPost\+Order\+Traversal}} (\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$head)
+\item 
+\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$ \mbox{\hyperlink{ndr__astnode_8h_a433966da400f73dbffcacc9e23537021}{NDR\+\_\+\+ASTBreadth\+First\+Traversal}} (\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$head)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{ndr__astnode_8h_a0fd67e18e6205d5de241012edd6b232a}\label{ndr__astnode_8h_a0fd67e18e6205d5de241012edd6b232a}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_ASTNode@{NDR\_ASTNode}}
+\index{NDR\_ASTNode@{NDR\_ASTNode}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_ASTNode}{NDR\_ASTNode}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} \mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}}}
+
+\mbox{\Hypertarget{ndr__astnode_8h_a31383fba7c44d3d57f9f2302f0a53ad7}\label{ndr__astnode_8h_a31383fba7c44d3d57f9f2302f0a53ad7}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_ASTNodeHolder@{NDR\_ASTNodeHolder}}
+\index{NDR\_ASTNodeHolder@{NDR\_ASTNodeHolder}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_ASTNodeHolder}{NDR\_ASTNodeHolder}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structNDR__ASTNodeHolder}{NDR\+\_\+\+ASTNode\+Holder}} \mbox{\hyperlink{structNDR__ASTNodeHolder}{NDR\+\_\+\+ASTNode\+Holder}}}
+
+\mbox{\Hypertarget{ndr__astnode_8h_a4e4d139c2e97016fdbda8f762ec727b3}\label{ndr__astnode_8h_a4e4d139c2e97016fdbda8f762ec727b3}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_ASTNodeQueue@{NDR\_ASTNodeQueue}}
+\index{NDR\_ASTNodeQueue@{NDR\_ASTNodeQueue}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_ASTNodeQueue}{NDR\_ASTNodeQueue}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structNDR__ASTNodeQueue}{NDR\+\_\+\+ASTNode\+Queue}} \mbox{\hyperlink{structNDR__ASTNodeQueue}{NDR\+\_\+\+ASTNode\+Queue}}}
+
+\mbox{\Hypertarget{ndr__astnode_8h_af05bda9197f6e60a542acea25a5dcf24}\label{ndr__astnode_8h_af05bda9197f6e60a542acea25a5dcf24}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_ASTNodeStack@{NDR\_ASTNodeStack}}
+\index{NDR\_ASTNodeStack@{NDR\_ASTNodeStack}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_ASTNodeStack}{NDR\_ASTNodeStack}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structNDR__ASTNodeStack}{NDR\+\_\+\+ASTNode\+Stack}} \mbox{\hyperlink{structNDR__ASTNodeStack}{NDR\+\_\+\+ASTNode\+Stack}}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ndr__astnode_8h_ace78c78cb3b11f19a3c15c7d93b84f16}\label{ndr__astnode_8h_ace78c78cb3b11f19a3c15c7d93b84f16}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_AddChildASTNode@{NDR\_AddChildASTNode}}
+\index{NDR\_AddChildASTNode@{NDR\_AddChildASTNode}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_AddChildASTNode()}{NDR\_AddChildASTNode()}}
+{\footnotesize\ttfamily void NDR\+\_\+\+Add\+Child\+ASTNode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$}]{node,  }\item[{\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$}]{node\+To\+Add }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ndr__astnode_8h_a45e9c560a16306771cbcb3dd7a93d7ae}\label{ndr__astnode_8h_a45e9c560a16306771cbcb3dd7a93d7ae}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_AddNewASTNode@{NDR\_AddNewASTNode}}
+\index{NDR\_AddNewASTNode@{NDR\_AddNewASTNode}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_AddNewASTNode()}{NDR\_AddNewASTNode()}}
+{\footnotesize\ttfamily void NDR\+\_\+\+Add\+New\+ASTNode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNodeHolder}{NDR\+\_\+\+ASTNode\+Holder}} $\ast$}]{node\+Wrapper,  }\item[{\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$}]{node\+To\+Add }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ndr__astnode_8h_a433966da400f73dbffcacc9e23537021}\label{ndr__astnode_8h_a433966da400f73dbffcacc9e23537021}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_ASTBreadthFirstTraversal@{NDR\_ASTBreadthFirstTraversal}}
+\index{NDR\_ASTBreadthFirstTraversal@{NDR\_ASTBreadthFirstTraversal}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_ASTBreadthFirstTraversal()}{NDR\_ASTBreadthFirstTraversal()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}}$\ast$ NDR\+\_\+\+ASTBreadth\+First\+Traversal (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$}]{head }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ndr__astnode_8h_ab9770986adbc7c51719b5b406c51edca}\label{ndr__astnode_8h_ab9770986adbc7c51719b5b406c51edca}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_ASTInOrderTraversal@{NDR\_ASTInOrderTraversal}}
+\index{NDR\_ASTInOrderTraversal@{NDR\_ASTInOrderTraversal}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_ASTInOrderTraversal()}{NDR\_ASTInOrderTraversal()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}}$\ast$ NDR\+\_\+\+ASTIn\+Order\+Traversal (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$}]{head }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ndr__astnode_8h_a1b3139caf9f6b76054cdcafec542a370}\label{ndr__astnode_8h_a1b3139caf9f6b76054cdcafec542a370}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_ASTPostOrderTraversal@{NDR\_ASTPostOrderTraversal}}
+\index{NDR\_ASTPostOrderTraversal@{NDR\_ASTPostOrderTraversal}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_ASTPostOrderTraversal()}{NDR\_ASTPostOrderTraversal()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}}$\ast$ NDR\+\_\+\+ASTPost\+Order\+Traversal (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$}]{head }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ndr__astnode_8h_af91f82aa968b96e76c9ee3ebf931f619}\label{ndr__astnode_8h_af91f82aa968b96e76c9ee3ebf931f619}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_ASTPreOrderTraversal@{NDR\_ASTPreOrderTraversal}}
+\index{NDR\_ASTPreOrderTraversal@{NDR\_ASTPreOrderTraversal}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_ASTPreOrderTraversal()}{NDR\_ASTPreOrderTraversal()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}}$\ast$ NDR\+\_\+\+ASTPre\+Order\+Traversal (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$}]{head }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ndr__astnode_8h_abc3b113c5578bb05b03c1ede85ddaa88}\label{ndr__astnode_8h_abc3b113c5578bb05b03c1ede85ddaa88}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_ASTQDequeue@{NDR\_ASTQDequeue}}
+\index{NDR\_ASTQDequeue@{NDR\_ASTQDequeue}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_ASTQDequeue()}{NDR\_ASTQDequeue()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}}$\ast$ NDR\+\_\+\+ASTQDequeue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNodeQueue}{NDR\+\_\+\+ASTNode\+Queue}} $\ast$}]{ndrqueue }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ndr__astnode_8h_aea81961f8c16bc6072bb2ea98a297312}\label{ndr__astnode_8h_aea81961f8c16bc6072bb2ea98a297312}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_ASTQEnqueue@{NDR\_ASTQEnqueue}}
+\index{NDR\_ASTQEnqueue@{NDR\_ASTQEnqueue}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_ASTQEnqueue()}{NDR\_ASTQEnqueue()}}
+{\footnotesize\ttfamily void NDR\+\_\+\+ASTQEnqueue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNodeQueue}{NDR\+\_\+\+ASTNode\+Queue}} $\ast$}]{ndrqueue,  }\item[{\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ndr__astnode_8h_a4e00e0e4cb7d1b7f732f6d5effdb6807}\label{ndr__astnode_8h_a4e00e0e4cb7d1b7f732f6d5effdb6807}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_ASTQFront@{NDR\_ASTQFront}}
+\index{NDR\_ASTQFront@{NDR\_ASTQFront}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_ASTQFront()}{NDR\_ASTQFront()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}}$\ast$ NDR\+\_\+\+ASTQFront (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNodeQueue}{NDR\+\_\+\+ASTNode\+Queue}} $\ast$}]{ndrqueue }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ndr__astnode_8h_a939ca5a4d33bed28da3fc23e990695f2}\label{ndr__astnode_8h_a939ca5a4d33bed28da3fc23e990695f2}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_ASTQIsEmpty@{NDR\_ASTQIsEmpty}}
+\index{NDR\_ASTQIsEmpty@{NDR\_ASTQIsEmpty}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_ASTQIsEmpty()}{NDR\_ASTQIsEmpty()}}
+{\footnotesize\ttfamily bool NDR\+\_\+\+ASTQIs\+Empty (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNodeQueue}{NDR\+\_\+\+ASTNode\+Queue}} $\ast$}]{ndrqueue }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ndr__astnode_8h_a0311f5cc1f26b33fd66459a9d87ab0eb}\label{ndr__astnode_8h_a0311f5cc1f26b33fd66459a9d87ab0eb}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_ASTQSize@{NDR\_ASTQSize}}
+\index{NDR\_ASTQSize@{NDR\_ASTQSize}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_ASTQSize()}{NDR\_ASTQSize()}}
+{\footnotesize\ttfamily size\+\_\+t NDR\+\_\+\+ASTQSize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNodeQueue}{NDR\+\_\+\+ASTNode\+Queue}} $\ast$}]{ndrqueue }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ndr__astnode_8h_a4b7d395fde5db04c1e4efea52c567a7d}\label{ndr__astnode_8h_a4b7d395fde5db04c1e4efea52c567a7d}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_ASTStackIsEmpty@{NDR\_ASTStackIsEmpty}}
+\index{NDR\_ASTStackIsEmpty@{NDR\_ASTStackIsEmpty}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_ASTStackIsEmpty()}{NDR\_ASTStackIsEmpty()}}
+{\footnotesize\ttfamily bool NDR\+\_\+\+ASTStack\+Is\+Empty (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNodeStack}{NDR\+\_\+\+ASTNode\+Stack}} $\ast$}]{ndrstack }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ndr__astnode_8h_ace70f0123db376c990534bb2fa91a83a}\label{ndr__astnode_8h_ace70f0123db376c990534bb2fa91a83a}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_ASTStackPeek@{NDR\_ASTStackPeek}}
+\index{NDR\_ASTStackPeek@{NDR\_ASTStackPeek}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_ASTStackPeek()}{NDR\_ASTStackPeek()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}}$\ast$ NDR\+\_\+\+ASTStack\+Peek (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNodeStack}{NDR\+\_\+\+ASTNode\+Stack}} $\ast$}]{ndrstack }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ndr__astnode_8h_a1cafa29ca8613c1c1d11d682324d5592}\label{ndr__astnode_8h_a1cafa29ca8613c1c1d11d682324d5592}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_ASTStackPop@{NDR\_ASTStackPop}}
+\index{NDR\_ASTStackPop@{NDR\_ASTStackPop}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_ASTStackPop()}{NDR\_ASTStackPop()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}}$\ast$ NDR\+\_\+\+ASTStack\+Pop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNodeStack}{NDR\+\_\+\+ASTNode\+Stack}} $\ast$}]{ndrstack }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ndr__astnode_8h_aee388bd6f69603149429e179305eba4c}\label{ndr__astnode_8h_aee388bd6f69603149429e179305eba4c}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_ASTStackPush@{NDR\_ASTStackPush}}
+\index{NDR\_ASTStackPush@{NDR\_ASTStackPush}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_ASTStackPush()}{NDR\_ASTStackPush()}}
+{\footnotesize\ttfamily void NDR\+\_\+\+ASTStack\+Push (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNodeStack}{NDR\+\_\+\+ASTNode\+Stack}} $\ast$}]{ndrstack,  }\item[{\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ndr__astnode_8h_a1c5861db9aaccd1ed74ac566425eef9a}\label{ndr__astnode_8h_a1c5861db9aaccd1ed74ac566425eef9a}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_ASTStackSize@{NDR\_ASTStackSize}}
+\index{NDR\_ASTStackSize@{NDR\_ASTStackSize}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_ASTStackSize()}{NDR\_ASTStackSize()}}
+{\footnotesize\ttfamily size\+\_\+t NDR\+\_\+\+ASTStack\+Size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNodeStack}{NDR\+\_\+\+ASTNode\+Stack}} $\ast$}]{ndrstack }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ndr__astnode_8h_a2336dfecf3694073706649c115601dc9}\label{ndr__astnode_8h_a2336dfecf3694073706649c115601dc9}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_DestroyASTTree@{NDR\_DestroyASTTree}}
+\index{NDR\_DestroyASTTree@{NDR\_DestroyASTTree}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_DestroyASTTree()}{NDR\_DestroyASTTree()}}
+{\footnotesize\ttfamily void NDR\+\_\+\+Destroy\+ASTTree (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$}]{head }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ndr__astnode_8h_a6b655fb194983dcad7113a3023d95fe1}\label{ndr__astnode_8h_a6b655fb194983dcad7113a3023d95fe1}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_FreeASTNode@{NDR\_FreeASTNode}}
+\index{NDR\_FreeASTNode@{NDR\_FreeASTNode}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_FreeASTNode()}{NDR\_FreeASTNode()}}
+{\footnotesize\ttfamily void NDR\+\_\+\+Free\+ASTNode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ndr__astnode_8h_aa6d30d1bd6c009779a1605cf38c85a8e}\label{ndr__astnode_8h_aa6d30d1bd6c009779a1605cf38c85a8e}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_FreeASTNodeHolder@{NDR\_FreeASTNodeHolder}}
+\index{NDR\_FreeASTNodeHolder@{NDR\_FreeASTNodeHolder}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_FreeASTNodeHolder()}{NDR\_FreeASTNodeHolder()}}
+{\footnotesize\ttfamily void NDR\+\_\+\+Free\+ASTNode\+Holder (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNodeHolder}{NDR\+\_\+\+ASTNode\+Holder}} $\ast$}]{node\+Wrapper }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ndr__astnode_8h_a1a2a0d52ba56fb33b7de0cfca3679af9}\label{ndr__astnode_8h_a1a2a0d52ba56fb33b7de0cfca3679af9}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_FreeASTQueue@{NDR\_FreeASTQueue}}
+\index{NDR\_FreeASTQueue@{NDR\_FreeASTQueue}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_FreeASTQueue()}{NDR\_FreeASTQueue()}}
+{\footnotesize\ttfamily void NDR\+\_\+\+Free\+ASTQueue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNodeQueue}{NDR\+\_\+\+ASTNode\+Queue}} $\ast$}]{ndrqueue }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ndr__astnode_8h_af5a58d1d0c665185e4bed2d917ea4829}\label{ndr__astnode_8h_af5a58d1d0c665185e4bed2d917ea4829}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_FreeASTStack@{NDR\_FreeASTStack}}
+\index{NDR\_FreeASTStack@{NDR\_FreeASTStack}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_FreeASTStack()}{NDR\_FreeASTStack()}}
+{\footnotesize\ttfamily void NDR\+\_\+\+Free\+ASTStack (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNodeStack}{NDR\+\_\+\+ASTNode\+Stack}} $\ast$}]{ndrstack }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ndr__astnode_8h_ae05fb1e04a84211b824aa9ab8bce08c6}\label{ndr__astnode_8h_ae05fb1e04a84211b824aa9ab8bce08c6}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_GetASTNode@{NDR\_GetASTNode}}
+\index{NDR\_GetASTNode@{NDR\_GetASTNode}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_GetASTNode()}{NDR\_GetASTNode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}}$\ast$ NDR\+\_\+\+Get\+ASTNode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNodeHolder}{NDR\+\_\+\+ASTNode\+Holder}} $\ast$}]{node\+Wrapper,  }\item[{size\+\_\+t}]{index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ndr__astnode_8h_a6261f7739ba8dfb617215cca94106a42}\label{ndr__astnode_8h_a6261f7739ba8dfb617215cca94106a42}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_GetASTNodeColumnNumber@{NDR\_GetASTNodeColumnNumber}}
+\index{NDR\_GetASTNodeColumnNumber@{NDR\_GetASTNodeColumnNumber}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_GetASTNodeColumnNumber()}{NDR\_GetASTNodeColumnNumber()}}
+{\footnotesize\ttfamily size\+\_\+t NDR\+\_\+\+Get\+ASTNode\+Column\+Number (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ndr__astnode_8h_a237acfd420b3b6675b2e8e4952688e2f}\label{ndr__astnode_8h_a237acfd420b3b6675b2e8e4952688e2f}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_GetASTNodeKeyword@{NDR\_GetASTNodeKeyword}}
+\index{NDR\_GetASTNodeKeyword@{NDR\_GetASTNodeKeyword}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_GetASTNodeKeyword()}{NDR\_GetASTNodeKeyword()}}
+{\footnotesize\ttfamily char$\ast$ NDR\+\_\+\+Get\+ASTNode\+Keyword (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ndr__astnode_8h_a530e4c64242ce4f36e4b351b48778cd9}\label{ndr__astnode_8h_a530e4c64242ce4f36e4b351b48778cd9}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_GetASTNodeLineNumber@{NDR\_GetASTNodeLineNumber}}
+\index{NDR\_GetASTNodeLineNumber@{NDR\_GetASTNodeLineNumber}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_GetASTNodeLineNumber()}{NDR\_GetASTNodeLineNumber()}}
+{\footnotesize\ttfamily size\+\_\+t NDR\+\_\+\+Get\+ASTNode\+Line\+Number (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ndr__astnode_8h_a9760c701fa21413d7e825eafa940c2e0}\label{ndr__astnode_8h_a9760c701fa21413d7e825eafa940c2e0}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_GetASTNodeNodeType@{NDR\_GetASTNodeNodeType}}
+\index{NDR\_GetASTNodeNodeType@{NDR\_GetASTNodeNodeType}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_GetASTNodeNodeType()}{NDR\_GetASTNodeNodeType()}}
+{\footnotesize\ttfamily size\+\_\+t NDR\+\_\+\+Get\+ASTNode\+Node\+Type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ndr__astnode_8h_ae1d5c4fbe5d9e15cebcd711cee1e7658}\label{ndr__astnode_8h_ae1d5c4fbe5d9e15cebcd711cee1e7658}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_GetASTNodeOrderNumber@{NDR\_GetASTNodeOrderNumber}}
+\index{NDR\_GetASTNodeOrderNumber@{NDR\_GetASTNodeOrderNumber}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_GetASTNodeOrderNumber()}{NDR\_GetASTNodeOrderNumber()}}
+{\footnotesize\ttfamily size\+\_\+t NDR\+\_\+\+Get\+ASTNode\+Order\+Number (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ndr__astnode_8h_a94abb2fd0ff50038c49043eb275589df}\label{ndr__astnode_8h_a94abb2fd0ff50038c49043eb275589df}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_GetASTNodeToken@{NDR\_GetASTNodeToken}}
+\index{NDR\_GetASTNodeToken@{NDR\_GetASTNodeToken}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_GetASTNodeToken()}{NDR\_GetASTNodeToken()}}
+{\footnotesize\ttfamily char$\ast$ NDR\+\_\+\+Get\+ASTNode\+Token (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ndr__astnode_8h_a0aea70ed426308c1bf4012410230a545}\label{ndr__astnode_8h_a0aea70ed426308c1bf4012410230a545}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_GetNumberOfASTNodes@{NDR\_GetNumberOfASTNodes}}
+\index{NDR\_GetNumberOfASTNodes@{NDR\_GetNumberOfASTNodes}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_GetNumberOfASTNodes()}{NDR\_GetNumberOfASTNodes()}}
+{\footnotesize\ttfamily size\+\_\+t NDR\+\_\+\+Get\+Number\+Of\+ASTNodes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNodeHolder}{NDR\+\_\+\+ASTNode\+Holder}} $\ast$}]{node\+Wrapper }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ndr__astnode_8h_acbaf7a671d5fe327da78dadce4963d2f}\label{ndr__astnode_8h_acbaf7a671d5fe327da78dadce4963d2f}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_GetTotalASTTreeNodes@{NDR\_GetTotalASTTreeNodes}}
+\index{NDR\_GetTotalASTTreeNodes@{NDR\_GetTotalASTTreeNodes}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_GetTotalASTTreeNodes()}{NDR\_GetTotalASTTreeNodes()}}
+{\footnotesize\ttfamily size\+\_\+t NDR\+\_\+\+Get\+Total\+ASTTree\+Nodes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNodeHolder}{NDR\+\_\+\+ASTNode\+Holder}} $\ast$}]{node\+Wrapper }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ndr__astnode_8h_a05264280e9664398ad5668b59915feaa}\label{ndr__astnode_8h_a05264280e9664398ad5668b59915feaa}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_IncASTTotalNode@{NDR\_IncASTTotalNode}}
+\index{NDR\_IncASTTotalNode@{NDR\_IncASTTotalNode}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_IncASTTotalNode()}{NDR\_IncASTTotalNode()}}
+{\footnotesize\ttfamily void NDR\+\_\+\+Inc\+ASTTotal\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNodeHolder}{NDR\+\_\+\+ASTNode\+Holder}} $\ast$}]{node\+Wrapper }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ndr__astnode_8h_ac31b548c84e704831e463435c0d96113}\label{ndr__astnode_8h_ac31b548c84e704831e463435c0d96113}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_InitASTNode@{NDR\_InitASTNode}}
+\index{NDR\_InitASTNode@{NDR\_InitASTNode}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_InitASTNode()}{NDR\_InitASTNode()}}
+{\footnotesize\ttfamily void NDR\+\_\+\+Init\+ASTNode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ndr__astnode_8h_a47fc893078237f9a0b3995fbe661f197}\label{ndr__astnode_8h_a47fc893078237f9a0b3995fbe661f197}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_InitASTNodeHolder@{NDR\_InitASTNodeHolder}}
+\index{NDR\_InitASTNodeHolder@{NDR\_InitASTNodeHolder}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_InitASTNodeHolder()}{NDR\_InitASTNodeHolder()}}
+{\footnotesize\ttfamily void NDR\+\_\+\+Init\+ASTNode\+Holder (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNodeHolder}{NDR\+\_\+\+ASTNode\+Holder}} $\ast$}]{node\+Wrapper }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ndr__astnode_8h_aa4f98b1dc12307eca1768e60cae7277e}\label{ndr__astnode_8h_aa4f98b1dc12307eca1768e60cae7277e}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_InitASTQueue@{NDR\_InitASTQueue}}
+\index{NDR\_InitASTQueue@{NDR\_InitASTQueue}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_InitASTQueue()}{NDR\_InitASTQueue()}}
+{\footnotesize\ttfamily void NDR\+\_\+\+Init\+ASTQueue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNodeQueue}{NDR\+\_\+\+ASTNode\+Queue}} $\ast$}]{ndrqueue }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ndr__astnode_8h_ac89a6993a7b7c0af94b2e30ccaaef68b}\label{ndr__astnode_8h_ac89a6993a7b7c0af94b2e30ccaaef68b}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_InitASTStack@{NDR\_InitASTStack}}
+\index{NDR\_InitASTStack@{NDR\_InitASTStack}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_InitASTStack()}{NDR\_InitASTStack()}}
+{\footnotesize\ttfamily void NDR\+\_\+\+Init\+ASTStack (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNodeStack}{NDR\+\_\+\+ASTNode\+Stack}} $\ast$}]{ndrstack }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ndr__astnode_8h_a662d88fcae2ddb711b2849db67262bd6}\label{ndr__astnode_8h_a662d88fcae2ddb711b2849db67262bd6}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_SetASTNodeColumnNumber@{NDR\_SetASTNodeColumnNumber}}
+\index{NDR\_SetASTNodeColumnNumber@{NDR\_SetASTNodeColumnNumber}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_SetASTNodeColumnNumber()}{NDR\_SetASTNodeColumnNumber()}}
+{\footnotesize\ttfamily void NDR\+\_\+\+Set\+ASTNode\+Column\+Number (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$}]{node,  }\item[{size\+\_\+t}]{column\+Number }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ndr__astnode_8h_a5a9fd85d9ccc26a479d3d826b5df3a28}\label{ndr__astnode_8h_a5a9fd85d9ccc26a479d3d826b5df3a28}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_SetASTNodeKeyword@{NDR\_SetASTNodeKeyword}}
+\index{NDR\_SetASTNodeKeyword@{NDR\_SetASTNodeKeyword}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_SetASTNodeKeyword()}{NDR\_SetASTNodeKeyword()}}
+{\footnotesize\ttfamily void NDR\+\_\+\+Set\+ASTNode\+Keyword (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$}]{node,  }\item[{char $\ast$}]{keyword }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ndr__astnode_8h_a559e417076247ed6eaa8c7829d43f407}\label{ndr__astnode_8h_a559e417076247ed6eaa8c7829d43f407}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_SetASTNodeLineNumber@{NDR\_SetASTNodeLineNumber}}
+\index{NDR\_SetASTNodeLineNumber@{NDR\_SetASTNodeLineNumber}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_SetASTNodeLineNumber()}{NDR\_SetASTNodeLineNumber()}}
+{\footnotesize\ttfamily void NDR\+\_\+\+Set\+ASTNode\+Line\+Number (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$}]{node,  }\item[{size\+\_\+t}]{line\+Number }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ndr__astnode_8h_ae5877dab9cc3ef569539408aeb872c57}\label{ndr__astnode_8h_ae5877dab9cc3ef569539408aeb872c57}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_SetASTNodeNodeType@{NDR\_SetASTNodeNodeType}}
+\index{NDR\_SetASTNodeNodeType@{NDR\_SetASTNodeNodeType}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_SetASTNodeNodeType()}{NDR\_SetASTNodeNodeType()}}
+{\footnotesize\ttfamily void NDR\+\_\+\+Set\+ASTNode\+Node\+Type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$}]{node,  }\item[{size\+\_\+t}]{node\+Type }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ndr__astnode_8h_a7070981c72f4bc9c414d90e0a47e61ad}\label{ndr__astnode_8h_a7070981c72f4bc9c414d90e0a47e61ad}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_SetASTNodeOrderNumber@{NDR\_SetASTNodeOrderNumber}}
+\index{NDR\_SetASTNodeOrderNumber@{NDR\_SetASTNodeOrderNumber}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_SetASTNodeOrderNumber()}{NDR\_SetASTNodeOrderNumber()}}
+{\footnotesize\ttfamily void NDR\+\_\+\+Set\+ASTNode\+Order\+Number (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$}]{node,  }\item[{size\+\_\+t}]{order\+Number }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ndr__astnode_8h_a92b0447946ae9ccf2567900679f9b0d5}\label{ndr__astnode_8h_a92b0447946ae9ccf2567900679f9b0d5}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_SetASTNodeToken@{NDR\_SetASTNodeToken}}
+\index{NDR\_SetASTNodeToken@{NDR\_SetASTNodeToken}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_SetASTNodeToken()}{NDR\_SetASTNodeToken()}}
+{\footnotesize\ttfamily void NDR\+\_\+\+Set\+ASTNode\+Token (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$}]{node,  }\item[{char $\ast$}]{token }\end{DoxyParamCaption})}
+

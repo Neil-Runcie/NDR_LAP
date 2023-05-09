@@ -1,0 +1,286 @@
+\hypertarget{ndr__fileprocessor_8h}{}\doxysection{ndr\+\_\+fileprocessor.\+h File Reference}
+\label{ndr__fileprocessor_8h}\index{ndr\_fileprocessor.h@{ndr\_fileprocessor.h}}
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+Include dependency graph for ndr\+\_\+fileprocessor.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structNDR__LineInformation}{NDR\+\_\+\+Line\+Information}}
+\begin{DoxyCompactList}\small\item\em provides information about a single line (ended by a newline character) within a file \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structNDR__FileInformation}{NDR\+\_\+\+File\+Information}}
+\begin{DoxyCompactList}\small\item\em provides information about the contents of an entire file \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structNDR__LineInformation}{NDR\+\_\+\+Line\+Information}} \mbox{\hyperlink{ndr__fileprocessor_8h_a8e75900e3041d08dff00254d5796fad5}{NDR\+\_\+\+Line\+Information}}
+\item 
+typedef struct \mbox{\hyperlink{structNDR__FileInformation}{NDR\+\_\+\+File\+Information}} \mbox{\hyperlink{ndr__fileprocessor_8h_a1e4ed3dc78c80de05b17fc859456b7a7}{NDR\+\_\+\+File\+Information}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{ndr__fileprocessor_8h_a0765270bd15f43831146782bdc3e5291}{NDR\+\_\+\+Free\+File\+Information}} (\mbox{\hyperlink{structNDR__FileInformation}{NDR\+\_\+\+File\+Information}} $\ast$file\+Info)
+\begin{DoxyCompactList}\small\item\em A destructor style function for freeing the memory used within the \mbox{\hyperlink{structNDR__FileInformation}{NDR\+\_\+\+File\+Information}} structure. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{ndr__fileprocessor_8h_a1a0b1238d3831a81b2eae3fac1b805f5}{NDR\+\_\+\+Process\+File}} (char $\ast$file\+Name, \mbox{\hyperlink{structNDR__FileInformation}{NDR\+\_\+\+File\+Information}} $\ast$file\+Info, char $\ast$separator)
+\begin{DoxyCompactList}\small\item\em A provided file will be processed and the information about the file will be stored in a \mbox{\hyperlink{structNDR__FileInformation}{NDR\+\_\+\+File\+Information}} structure. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ndr__fileprocessor_8h_a4db4dda6c889c401d0a9ec0570df532b}{NDR\+\_\+\+Print\+File\+Information}} (\mbox{\hyperlink{structNDR__FileInformation}{NDR\+\_\+\+File\+Information}} $\ast$file\+Info)
+\begin{DoxyCompactList}\small\item\em A provided \mbox{\hyperlink{structNDR__FileInformation}{NDR\+\_\+\+File\+Information}} structure will have all file tokens printed for visual viewing. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{ndr__fileprocessor_8h_a170e67cdcd51e901852584369ed497ea}{NDR\+\_\+\+Get\+Number\+Of\+Lines}} (\mbox{\hyperlink{structNDR__FileInformation}{NDR\+\_\+\+File\+Information}} $\ast$file\+Info)
+\begin{DoxyCompactList}\small\item\em The number of lines found in the associated file will be returned. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{ndr__fileprocessor_8h_aacdb0f70fd302221483fd18c5561c2cf}{NDR\+\_\+\+Get\+Longest\+Token\+Amount}} (\mbox{\hyperlink{structNDR__FileInformation}{NDR\+\_\+\+File\+Information}} $\ast$file\+Info)
+\begin{DoxyCompactList}\small\item\em Gets the number of tokens from the line with the most tokens$\ast$. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{ndr__fileprocessor_8h_ae45c316d38da8abf104fff7884f41da6}{NDR\+\_\+\+Get\+Longest\+Line\+Length}} (\mbox{\hyperlink{structNDR__FileInformation}{NDR\+\_\+\+File\+Information}} $\ast$file\+Info)
+\begin{DoxyCompactList}\small\item\em Gets the length of the longest line found in the file. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{ndr__fileprocessor_8h_a05d2622bd0a48b193cfcff1226434d7e}{NDR\+\_\+\+Error\+During\+Processing}} (\mbox{\hyperlink{structNDR__FileInformation}{NDR\+\_\+\+File\+Information}} $\ast$file\+Info)
+\begin{DoxyCompactList}\small\item\em Allows users to tell if there was an error in the file during processing. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structNDR__LineInformation}{NDR\+\_\+\+Line\+Information}} $\ast$ \mbox{\hyperlink{ndr__fileprocessor_8h_a78dcf6e93ac161670a817ffaff4b5599}{NDR\+\_\+\+Get\+Line}} (\mbox{\hyperlink{structNDR__FileInformation}{NDR\+\_\+\+File\+Information}} $\ast$file\+Info, int index)
+\begin{DoxyCompactList}\small\item\em Gets a line from the associated file. \end{DoxyCompactList}\item 
+char $\ast$$\ast$ \mbox{\hyperlink{ndr__fileprocessor_8h_a018db053f7083ec8027e04089b29b710}{NDR\+\_\+\+Get\+Tokens}} (\mbox{\hyperlink{structNDR__LineInformation}{NDR\+\_\+\+Line\+Information}} $\ast$line\+Info)
+\begin{DoxyCompactList}\small\item\em Gets all of the tokens associated with a single line. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{ndr__fileprocessor_8h_a27732d0e997ea60dca078d8b6bdc018b}{NDR\+\_\+\+Get\+Token}} (\mbox{\hyperlink{structNDR__LineInformation}{NDR\+\_\+\+Line\+Information}} $\ast$line\+Info, int index)
+\begin{DoxyCompactList}\small\item\em Gets a single token from a single line. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{ndr__fileprocessor_8h_a3915eb98f22a21e291c2c1ac9516a0cb}{NDR\+\_\+\+Get\+Original\+Line}} (\mbox{\hyperlink{structNDR__LineInformation}{NDR\+\_\+\+Line\+Information}} $\ast$line\+Info)
+\begin{DoxyCompactList}\small\item\em Gets the original line seen in the file. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{ndr__fileprocessor_8h_a376996e083c576ba2253ee4a9210a336}{NDR\+\_\+\+Get\+Number\+Of\+Tokens}} (\mbox{\hyperlink{structNDR__LineInformation}{NDR\+\_\+\+Line\+Information}} $\ast$line\+Info)
+\begin{DoxyCompactList}\small\item\em Gets the number of tokens associated with the given line. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{ndr__fileprocessor_8h_a1e4ed3dc78c80de05b17fc859456b7a7}\label{ndr__fileprocessor_8h_a1e4ed3dc78c80de05b17fc859456b7a7}} 
+\index{ndr\_fileprocessor.h@{ndr\_fileprocessor.h}!NDR\_FileInformation@{NDR\_FileInformation}}
+\index{NDR\_FileInformation@{NDR\_FileInformation}!ndr\_fileprocessor.h@{ndr\_fileprocessor.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_FileInformation}{NDR\_FileInformation}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structNDR__FileInformation}{NDR\+\_\+\+File\+Information}} \mbox{\hyperlink{structNDR__FileInformation}{NDR\+\_\+\+File\+Information}}}
+
+\mbox{\Hypertarget{ndr__fileprocessor_8h_a8e75900e3041d08dff00254d5796fad5}\label{ndr__fileprocessor_8h_a8e75900e3041d08dff00254d5796fad5}} 
+\index{ndr\_fileprocessor.h@{ndr\_fileprocessor.h}!NDR\_LineInformation@{NDR\_LineInformation}}
+\index{NDR\_LineInformation@{NDR\_LineInformation}!ndr\_fileprocessor.h@{ndr\_fileprocessor.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_LineInformation}{NDR\_LineInformation}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structNDR__LineInformation}{NDR\+\_\+\+Line\+Information}} \mbox{\hyperlink{structNDR__LineInformation}{NDR\+\_\+\+Line\+Information}}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ndr__fileprocessor_8h_a05d2622bd0a48b193cfcff1226434d7e}\label{ndr__fileprocessor_8h_a05d2622bd0a48b193cfcff1226434d7e}} 
+\index{ndr\_fileprocessor.h@{ndr\_fileprocessor.h}!NDR\_ErrorDuringProcessing@{NDR\_ErrorDuringProcessing}}
+\index{NDR\_ErrorDuringProcessing@{NDR\_ErrorDuringProcessing}!ndr\_fileprocessor.h@{ndr\_fileprocessor.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_ErrorDuringProcessing()}{NDR\_ErrorDuringProcessing()}}
+{\footnotesize\ttfamily bool NDR\+\_\+\+Error\+During\+Processing (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__FileInformation}{NDR\+\_\+\+File\+Information}} $\ast$}]{file\+Info }\end{DoxyParamCaption})}
+
+
+
+Allows users to tell if there was an error in the file during processing. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Info} & is a structure that has been previously used with NDR\+\_\+\+Process\+File \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether an error was found during processing 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ndr__fileprocessor_8h_a0765270bd15f43831146782bdc3e5291}\label{ndr__fileprocessor_8h_a0765270bd15f43831146782bdc3e5291}} 
+\index{ndr\_fileprocessor.h@{ndr\_fileprocessor.h}!NDR\_FreeFileInformation@{NDR\_FreeFileInformation}}
+\index{NDR\_FreeFileInformation@{NDR\_FreeFileInformation}!ndr\_fileprocessor.h@{ndr\_fileprocessor.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_FreeFileInformation()}{NDR\_FreeFileInformation()}}
+{\footnotesize\ttfamily void NDR\+\_\+\+Free\+File\+Information (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__FileInformation}{NDR\+\_\+\+File\+Information}} $\ast$}]{file\+Info }\end{DoxyParamCaption})}
+
+
+
+A destructor style function for freeing the memory used within the \mbox{\hyperlink{structNDR__FileInformation}{NDR\+\_\+\+File\+Information}} structure. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Info} & is a NDR\+\_\+\+File\+Information$\ast$ that has been previously used with NDR\+\_\+\+Initialize\+File\+Information \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{ndr__fileprocessor_8h_a78dcf6e93ac161670a817ffaff4b5599}\label{ndr__fileprocessor_8h_a78dcf6e93ac161670a817ffaff4b5599}} 
+\index{ndr\_fileprocessor.h@{ndr\_fileprocessor.h}!NDR\_GetLine@{NDR\_GetLine}}
+\index{NDR\_GetLine@{NDR\_GetLine}!ndr\_fileprocessor.h@{ndr\_fileprocessor.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_GetLine()}{NDR\_GetLine()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structNDR__LineInformation}{NDR\+\_\+\+Line\+Information}}$\ast$ NDR\+\_\+\+Get\+Line (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__FileInformation}{NDR\+\_\+\+File\+Information}} $\ast$}]{file\+Info,  }\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Gets a line from the associated file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line\+Info} & is a structure that is part of a \mbox{\hyperlink{structNDR__FileInformation}{NDR\+\_\+\+File\+Information}} structure that has been previously used with NDR\+\_\+\+Process\+File \\
+\hline
+{\em index} & is a reference to the line wanted from within the file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+information about a specific line within the file 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ndr__fileprocessor_8h_ae45c316d38da8abf104fff7884f41da6}\label{ndr__fileprocessor_8h_ae45c316d38da8abf104fff7884f41da6}} 
+\index{ndr\_fileprocessor.h@{ndr\_fileprocessor.h}!NDR\_GetLongestLineLength@{NDR\_GetLongestLineLength}}
+\index{NDR\_GetLongestLineLength@{NDR\_GetLongestLineLength}!ndr\_fileprocessor.h@{ndr\_fileprocessor.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_GetLongestLineLength()}{NDR\_GetLongestLineLength()}}
+{\footnotesize\ttfamily size\+\_\+t NDR\+\_\+\+Get\+Longest\+Line\+Length (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__FileInformation}{NDR\+\_\+\+File\+Information}} $\ast$}]{file\+Info }\end{DoxyParamCaption})}
+
+
+
+Gets the length of the longest line found in the file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Info} & is a structure that has been previously used with NDR\+\_\+\+Process\+File \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the length of the longest line found in the file 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ndr__fileprocessor_8h_aacdb0f70fd302221483fd18c5561c2cf}\label{ndr__fileprocessor_8h_aacdb0f70fd302221483fd18c5561c2cf}} 
+\index{ndr\_fileprocessor.h@{ndr\_fileprocessor.h}!NDR\_GetLongestTokenAmount@{NDR\_GetLongestTokenAmount}}
+\index{NDR\_GetLongestTokenAmount@{NDR\_GetLongestTokenAmount}!ndr\_fileprocessor.h@{ndr\_fileprocessor.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_GetLongestTokenAmount()}{NDR\_GetLongestTokenAmount()}}
+{\footnotesize\ttfamily size\+\_\+t NDR\+\_\+\+Get\+Longest\+Token\+Amount (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__FileInformation}{NDR\+\_\+\+File\+Information}} $\ast$}]{file\+Info }\end{DoxyParamCaption})}
+
+
+
+Gets the number of tokens from the line with the most tokens$\ast$. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line\+Info} & is a structure that is part of a \mbox{\hyperlink{structNDR__FileInformation}{NDR\+\_\+\+File\+Information}} structure that has been previously used with NDR\+\_\+\+Process\+File\\
+\hline
+{\em file\+Info} & is a structure that has been previously used with NDR\+\_\+\+Process\+File \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the number of tokens found in the line in the file with the most tokens 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ndr__fileprocessor_8h_a170e67cdcd51e901852584369ed497ea}\label{ndr__fileprocessor_8h_a170e67cdcd51e901852584369ed497ea}} 
+\index{ndr\_fileprocessor.h@{ndr\_fileprocessor.h}!NDR\_GetNumberOfLines@{NDR\_GetNumberOfLines}}
+\index{NDR\_GetNumberOfLines@{NDR\_GetNumberOfLines}!ndr\_fileprocessor.h@{ndr\_fileprocessor.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_GetNumberOfLines()}{NDR\_GetNumberOfLines()}}
+{\footnotesize\ttfamily size\+\_\+t NDR\+\_\+\+Get\+Number\+Of\+Lines (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__FileInformation}{NDR\+\_\+\+File\+Information}} $\ast$}]{file\+Info }\end{DoxyParamCaption})}
+
+
+
+The number of lines found in the associated file will be returned. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Info} & is a structure that has been previously used with NDR\+\_\+\+Process\+File \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the number of lines in the file 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ndr__fileprocessor_8h_a376996e083c576ba2253ee4a9210a336}\label{ndr__fileprocessor_8h_a376996e083c576ba2253ee4a9210a336}} 
+\index{ndr\_fileprocessor.h@{ndr\_fileprocessor.h}!NDR\_GetNumberOfTokens@{NDR\_GetNumberOfTokens}}
+\index{NDR\_GetNumberOfTokens@{NDR\_GetNumberOfTokens}!ndr\_fileprocessor.h@{ndr\_fileprocessor.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_GetNumberOfTokens()}{NDR\_GetNumberOfTokens()}}
+{\footnotesize\ttfamily size\+\_\+t NDR\+\_\+\+Get\+Number\+Of\+Tokens (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__LineInformation}{NDR\+\_\+\+Line\+Information}} $\ast$}]{line\+Info }\end{DoxyParamCaption})}
+
+
+
+Gets the number of tokens associated with the given line. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line\+Info} & is a structure that is part of a \mbox{\hyperlink{structNDR__FileInformation}{NDR\+\_\+\+File\+Information}} structure that has been previously used with NDR\+\_\+\+Process\+File \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the number of tokens found in a file line 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ndr__fileprocessor_8h_a3915eb98f22a21e291c2c1ac9516a0cb}\label{ndr__fileprocessor_8h_a3915eb98f22a21e291c2c1ac9516a0cb}} 
+\index{ndr\_fileprocessor.h@{ndr\_fileprocessor.h}!NDR\_GetOriginalLine@{NDR\_GetOriginalLine}}
+\index{NDR\_GetOriginalLine@{NDR\_GetOriginalLine}!ndr\_fileprocessor.h@{ndr\_fileprocessor.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_GetOriginalLine()}{NDR\_GetOriginalLine()}}
+{\footnotesize\ttfamily char$\ast$ NDR\+\_\+\+Get\+Original\+Line (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__LineInformation}{NDR\+\_\+\+Line\+Information}} $\ast$}]{line\+Info }\end{DoxyParamCaption})}
+
+
+
+Gets the original line seen in the file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line\+Info} & is a structure that is part of a \mbox{\hyperlink{structNDR__FileInformation}{NDR\+\_\+\+File\+Information}} structure that has been previously used with NDR\+\_\+\+Process\+File \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the original line from the file 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ndr__fileprocessor_8h_a27732d0e997ea60dca078d8b6bdc018b}\label{ndr__fileprocessor_8h_a27732d0e997ea60dca078d8b6bdc018b}} 
+\index{ndr\_fileprocessor.h@{ndr\_fileprocessor.h}!NDR\_GetToken@{NDR\_GetToken}}
+\index{NDR\_GetToken@{NDR\_GetToken}!ndr\_fileprocessor.h@{ndr\_fileprocessor.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_GetToken()}{NDR\_GetToken()}}
+{\footnotesize\ttfamily char$\ast$ NDR\+\_\+\+Get\+Token (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__LineInformation}{NDR\+\_\+\+Line\+Information}} $\ast$}]{line\+Info,  }\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Gets a single token from a single line. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line\+Info} & is a structure that is part of a \mbox{\hyperlink{structNDR__FileInformation}{NDR\+\_\+\+File\+Information}} structure that has been previously used with NDR\+\_\+\+Process\+File \\
+\hline
+{\em index} & is a reference to the token wanted from within the line \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+one of the tokens found within a file line 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ndr__fileprocessor_8h_a018db053f7083ec8027e04089b29b710}\label{ndr__fileprocessor_8h_a018db053f7083ec8027e04089b29b710}} 
+\index{ndr\_fileprocessor.h@{ndr\_fileprocessor.h}!NDR\_GetTokens@{NDR\_GetTokens}}
+\index{NDR\_GetTokens@{NDR\_GetTokens}!ndr\_fileprocessor.h@{ndr\_fileprocessor.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_GetTokens()}{NDR\_GetTokens()}}
+{\footnotesize\ttfamily char$\ast$$\ast$ NDR\+\_\+\+Get\+Tokens (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__LineInformation}{NDR\+\_\+\+Line\+Information}} $\ast$}]{line\+Info }\end{DoxyParamCaption})}
+
+
+
+Gets all of the tokens associated with a single line. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line\+Info} & is a structure that is part of a \mbox{\hyperlink{structNDR__FileInformation}{NDR\+\_\+\+File\+Information}} structure that has been previously used with NDR\+\_\+\+Process\+File \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an array of the tokens within a single file line 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ndr__fileprocessor_8h_a4db4dda6c889c401d0a9ec0570df532b}\label{ndr__fileprocessor_8h_a4db4dda6c889c401d0a9ec0570df532b}} 
+\index{ndr\_fileprocessor.h@{ndr\_fileprocessor.h}!NDR\_PrintFileInformation@{NDR\_PrintFileInformation}}
+\index{NDR\_PrintFileInformation@{NDR\_PrintFileInformation}!ndr\_fileprocessor.h@{ndr\_fileprocessor.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_PrintFileInformation()}{NDR\_PrintFileInformation()}}
+{\footnotesize\ttfamily void NDR\+\_\+\+Print\+File\+Information (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__FileInformation}{NDR\+\_\+\+File\+Information}} $\ast$}]{file\+Info }\end{DoxyParamCaption})}
+
+
+
+A provided \mbox{\hyperlink{structNDR__FileInformation}{NDR\+\_\+\+File\+Information}} structure will have all file tokens printed for visual viewing. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Info} & is a structure that has been previously used with NDR\+\_\+\+Process\+File \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{ndr__fileprocessor_8h_a1a0b1238d3831a81b2eae3fac1b805f5}\label{ndr__fileprocessor_8h_a1a0b1238d3831a81b2eae3fac1b805f5}} 
+\index{ndr\_fileprocessor.h@{ndr\_fileprocessor.h}!NDR\_ProcessFile@{NDR\_ProcessFile}}
+\index{NDR\_ProcessFile@{NDR\_ProcessFile}!ndr\_fileprocessor.h@{ndr\_fileprocessor.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_ProcessFile()}{NDR\_ProcessFile()}}
+{\footnotesize\ttfamily int NDR\+\_\+\+Process\+File (\begin{DoxyParamCaption}\item[{char $\ast$}]{file\+Name,  }\item[{\mbox{\hyperlink{structNDR__FileInformation}{NDR\+\_\+\+File\+Information}} $\ast$}]{file\+Info,  }\item[{char $\ast$}]{separator }\end{DoxyParamCaption})}
+
+
+
+A provided file will be processed and the information about the file will be stored in a \mbox{\hyperlink{structNDR__FileInformation}{NDR\+\_\+\+File\+Information}} structure. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & is the name of a text file for processing \\
+\hline
+{\em file\+Info} & is a structure that already has memory allocated previously used with NDR\+\_\+\+Initialize\+File\+Information \\
+\hline
+{\em separator} & is the string by which each line should be split into tokens \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An int signaling the result of the function. 0 is success and 1 is failure 
+\end{DoxyReturn}
