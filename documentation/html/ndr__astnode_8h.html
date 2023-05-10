@@ -24,7 +24,7 @@
    <div id="projectname">NDR Lexer and Parser
    &#160;<span id="projectnumber">0.1.0</span>
    </div>
-   <div id="projectbrief">A lexical analysis tool and parsing tool</div>
+   <div id="projectbrief">The NDR Lexer and Parser are tools for creating programming languages or processing text files</div>
   </td>
  </tr>
  </tbody>
@@ -88,12 +88,16 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNDR__ASTNode.html">NDR_ASTNode</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A container for a single token that is represented as part an abstract syntax tree.  <a href="structNDR__ASTNode.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNDR__ASTNodeHolder.html">NDR_ASTNodeHolder</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A holder for abstract syntax tree nodes to be used during tree building.  <a href="structNDR__ASTNodeHolder.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNDR__ASTNodeQueue.html">NDR_ASTNodeQueue</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A queue structure for traversing an abstract syntax tree.  <a href="structNDR__ASTNodeQueue.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNDR__ASTNodeStack.html">NDR_ASTNodeStack</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A stack structure for traversing an abstract syntax tree.  <a href="structNDR__ASTNodeStack.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
@@ -110,86 +114,127 @@ Typedefs</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a47fc893078237f9a0b3995fbe661f197"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#a47fc893078237f9a0b3995fbe661f197">NDR_InitASTNodeHolder</a> (<a class="el" href="structNDR__ASTNodeHolder.html">NDR_ASTNodeHolder</a> *nodeWrapper)</td></tr>
+<tr class="memdesc:a47fc893078237f9a0b3995fbe661f197"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize an <a class="el" href="structNDR__ASTNodeHolder.html" title="A holder for abstract syntax tree nodes to be used during tree building.">NDR_ASTNodeHolder</a> structure.  <a href="ndr__astnode_8h.html#a47fc893078237f9a0b3995fbe661f197">More...</a><br /></td></tr>
 <tr class="separator:a47fc893078237f9a0b3995fbe661f197"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac31b548c84e704831e463435c0d96113"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#ac31b548c84e704831e463435c0d96113">NDR_InitASTNode</a> (<a class="el" href="structNDR__ASTNode.html">NDR_ASTNode</a> *node)</td></tr>
+<tr class="memdesc:ac31b548c84e704831e463435c0d96113"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize an <a class="el" href="structNDR__ASTNode.html" title="A container for a single token that is represented as part an abstract syntax tree.">NDR_ASTNode</a> structure.  <a href="ndr__astnode_8h.html#ac31b548c84e704831e463435c0d96113">More...</a><br /></td></tr>
 <tr class="separator:ac31b548c84e704831e463435c0d96113"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa6d30d1bd6c009779a1605cf38c85a8e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#aa6d30d1bd6c009779a1605cf38c85a8e">NDR_FreeASTNodeHolder</a> (<a class="el" href="structNDR__ASTNodeHolder.html">NDR_ASTNodeHolder</a> *nodeWrapper)</td></tr>
+<tr class="memdesc:aa6d30d1bd6c009779a1605cf38c85a8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Free the memory of an <a class="el" href="structNDR__ASTNodeHolder.html" title="A holder for abstract syntax tree nodes to be used during tree building.">NDR_ASTNodeHolder</a> structure.  <a href="ndr__astnode_8h.html#aa6d30d1bd6c009779a1605cf38c85a8e">More...</a><br /></td></tr>
 <tr class="separator:aa6d30d1bd6c009779a1605cf38c85a8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b655fb194983dcad7113a3023d95fe1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#a6b655fb194983dcad7113a3023d95fe1">NDR_FreeASTNode</a> (<a class="el" href="structNDR__ASTNode.html">NDR_ASTNode</a> *node)</td></tr>
+<tr class="memdesc:a6b655fb194983dcad7113a3023d95fe1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Free the memory of an <a class="el" href="structNDR__ASTNode.html" title="A container for a single token that is represented as part an abstract syntax tree.">NDR_ASTNode</a> structure.  <a href="ndr__astnode_8h.html#a6b655fb194983dcad7113a3023d95fe1">More...</a><br /></td></tr>
 <tr class="separator:a6b655fb194983dcad7113a3023d95fe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2336dfecf3694073706649c115601dc9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#a2336dfecf3694073706649c115601dc9">NDR_DestroyASTTree</a> (<a class="el" href="structNDR__ASTNode.html">NDR_ASTNode</a> *head)</td></tr>
+<tr class="memdesc:a2336dfecf3694073706649c115601dc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Free every node in an abstract syntax tree starting from the provided node.  <a href="ndr__astnode_8h.html#a2336dfecf3694073706649c115601dc9">More...</a><br /></td></tr>
 <tr class="separator:a2336dfecf3694073706649c115601dc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45e9c560a16306771cbcb3dd7a93d7ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#a45e9c560a16306771cbcb3dd7a93d7ae">NDR_AddNewASTNode</a> (<a class="el" href="structNDR__ASTNodeHolder.html">NDR_ASTNodeHolder</a> *nodeWrapper, <a class="el" href="structNDR__ASTNode.html">NDR_ASTNode</a> *nodeToAdd)</td></tr>
+<tr class="memdesc:a45e9c560a16306771cbcb3dd7a93d7ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add an abstract syntax tree node to an <a class="el" href="structNDR__ASTNodeHolder.html" title="A holder for abstract syntax tree nodes to be used during tree building.">NDR_ASTNodeHolder</a> structure.  <a href="ndr__astnode_8h.html#a45e9c560a16306771cbcb3dd7a93d7ae">More...</a><br /></td></tr>
 <tr class="separator:a45e9c560a16306771cbcb3dd7a93d7ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace78c78cb3b11f19a3c15c7d93b84f16"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#ace78c78cb3b11f19a3c15c7d93b84f16">NDR_AddChildASTNode</a> (<a class="el" href="structNDR__ASTNode.html">NDR_ASTNode</a> *node, <a class="el" href="structNDR__ASTNode.html">NDR_ASTNode</a> *nodeToAdd)</td></tr>
+<tr class="memdesc:ace78c78cb3b11f19a3c15c7d93b84f16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add an abstract syntax tree node as a child to another abstract syntax tree node.  <a href="ndr__astnode_8h.html#ace78c78cb3b11f19a3c15c7d93b84f16">More...</a><br /></td></tr>
 <tr class="separator:ace78c78cb3b11f19a3c15c7d93b84f16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a9fd85d9ccc26a479d3d826b5df3a28"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#a5a9fd85d9ccc26a479d3d826b5df3a28">NDR_SetASTNodeKeyword</a> (<a class="el" href="structNDR__ASTNode.html">NDR_ASTNode</a> *node, char *keyword)</td></tr>
+<tr class="memdesc:a5a9fd85d9ccc26a479d3d826b5df3a28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the keyword string in the abstract syntax tree node.  <a href="ndr__astnode_8h.html#a5a9fd85d9ccc26a479d3d826b5df3a28">More...</a><br /></td></tr>
 <tr class="separator:a5a9fd85d9ccc26a479d3d826b5df3a28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92b0447946ae9ccf2567900679f9b0d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#a92b0447946ae9ccf2567900679f9b0d5">NDR_SetASTNodeToken</a> (<a class="el" href="structNDR__ASTNode.html">NDR_ASTNode</a> *node, char *token)</td></tr>
+<tr class="memdesc:a92b0447946ae9ccf2567900679f9b0d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the token string in the abstract syntax tree node.  <a href="ndr__astnode_8h.html#a92b0447946ae9ccf2567900679f9b0d5">More...</a><br /></td></tr>
 <tr class="separator:a92b0447946ae9ccf2567900679f9b0d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7070981c72f4bc9c414d90e0a47e61ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#a7070981c72f4bc9c414d90e0a47e61ad">NDR_SetASTNodeOrderNumber</a> (<a class="el" href="structNDR__ASTNode.html">NDR_ASTNode</a> *node, size_t orderNumber)</td></tr>
+<tr class="memdesc:a7070981c72f4bc9c414d90e0a47e61ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the orderNumber in the abstract syntax tree node.  <a href="ndr__astnode_8h.html#a7070981c72f4bc9c414d90e0a47e61ad">More...</a><br /></td></tr>
 <tr class="separator:a7070981c72f4bc9c414d90e0a47e61ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae5877dab9cc3ef569539408aeb872c57"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#ae5877dab9cc3ef569539408aeb872c57">NDR_SetASTNodeNodeType</a> (<a class="el" href="structNDR__ASTNode.html">NDR_ASTNode</a> *node, size_t nodeType)</td></tr>
+<tr class="memdesc:ae5877dab9cc3ef569539408aeb872c57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the nodeType in the abstract syntax tree node.  <a href="ndr__astnode_8h.html#ae5877dab9cc3ef569539408aeb872c57">More...</a><br /></td></tr>
 <tr class="separator:ae5877dab9cc3ef569539408aeb872c57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a559e417076247ed6eaa8c7829d43f407"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#a559e417076247ed6eaa8c7829d43f407">NDR_SetASTNodeLineNumber</a> (<a class="el" href="structNDR__ASTNode.html">NDR_ASTNode</a> *node, size_t lineNumber)</td></tr>
+<tr class="memdesc:a559e417076247ed6eaa8c7829d43f407"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the lineNumber in the abstract syntax tree node.  <a href="ndr__astnode_8h.html#a559e417076247ed6eaa8c7829d43f407">More...</a><br /></td></tr>
 <tr class="separator:a559e417076247ed6eaa8c7829d43f407"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a662d88fcae2ddb711b2849db67262bd6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#a662d88fcae2ddb711b2849db67262bd6">NDR_SetASTNodeColumnNumber</a> (<a class="el" href="structNDR__ASTNode.html">NDR_ASTNode</a> *node, size_t columnNumber)</td></tr>
+<tr class="memdesc:a662d88fcae2ddb711b2849db67262bd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the columnNumber in the abstract syntax tree node.  <a href="ndr__astnode_8h.html#a662d88fcae2ddb711b2849db67262bd6">More...</a><br /></td></tr>
 <tr class="separator:a662d88fcae2ddb711b2849db67262bd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05264280e9664398ad5668b59915feaa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#a05264280e9664398ad5668b59915feaa">NDR_IncASTTotalNode</a> (<a class="el" href="structNDR__ASTNodeHolder.html">NDR_ASTNodeHolder</a> *nodeWrapper)</td></tr>
+<tr class="memdesc:a05264280e9664398ad5668b59915feaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increment the total number of nodes int in the abstract syntax tree node by 1.  <a href="ndr__astnode_8h.html#a05264280e9664398ad5668b59915feaa">More...</a><br /></td></tr>
 <tr class="separator:a05264280e9664398ad5668b59915feaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a237acfd420b3b6675b2e8e4952688e2f"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#a237acfd420b3b6675b2e8e4952688e2f">NDR_GetASTNodeKeyword</a> (<a class="el" href="structNDR__ASTNode.html">NDR_ASTNode</a> *node)</td></tr>
+<tr class="memdesc:a237acfd420b3b6675b2e8e4952688e2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the keyword associated with the abstract syntax tree node.  <a href="ndr__astnode_8h.html#a237acfd420b3b6675b2e8e4952688e2f">More...</a><br /></td></tr>
 <tr class="separator:a237acfd420b3b6675b2e8e4952688e2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a94abb2fd0ff50038c49043eb275589df"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#a94abb2fd0ff50038c49043eb275589df">NDR_GetASTNodeToken</a> (<a class="el" href="structNDR__ASTNode.html">NDR_ASTNode</a> *node)</td></tr>
+<tr class="memdesc:a94abb2fd0ff50038c49043eb275589df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the token associated with the abstract syntax tree node.  <a href="ndr__astnode_8h.html#a94abb2fd0ff50038c49043eb275589df">More...</a><br /></td></tr>
 <tr class="separator:a94abb2fd0ff50038c49043eb275589df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1d5c4fbe5d9e15cebcd711cee1e7658"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#ae1d5c4fbe5d9e15cebcd711cee1e7658">NDR_GetASTNodeOrderNumber</a> (<a class="el" href="structNDR__ASTNode.html">NDR_ASTNode</a> *node)</td></tr>
+<tr class="memdesc:ae1d5c4fbe5d9e15cebcd711cee1e7658"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the orderNumber associated with the abstract syntax tree node.  <a href="ndr__astnode_8h.html#ae1d5c4fbe5d9e15cebcd711cee1e7658">More...</a><br /></td></tr>
 <tr class="separator:ae1d5c4fbe5d9e15cebcd711cee1e7658"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9760c701fa21413d7e825eafa940c2e0"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#a9760c701fa21413d7e825eafa940c2e0">NDR_GetASTNodeNodeType</a> (<a class="el" href="structNDR__ASTNode.html">NDR_ASTNode</a> *node)</td></tr>
+<tr class="memdesc:a9760c701fa21413d7e825eafa940c2e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the nodeType associated with the abstract syntax tree node.  <a href="ndr__astnode_8h.html#a9760c701fa21413d7e825eafa940c2e0">More...</a><br /></td></tr>
 <tr class="separator:a9760c701fa21413d7e825eafa940c2e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a530e4c64242ce4f36e4b351b48778cd9"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#a530e4c64242ce4f36e4b351b48778cd9">NDR_GetASTNodeLineNumber</a> (<a class="el" href="structNDR__ASTNode.html">NDR_ASTNode</a> *node)</td></tr>
+<tr class="memdesc:a530e4c64242ce4f36e4b351b48778cd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the lineNumber associated with the abstract syntax tree node.  <a href="ndr__astnode_8h.html#a530e4c64242ce4f36e4b351b48778cd9">More...</a><br /></td></tr>
 <tr class="separator:a530e4c64242ce4f36e4b351b48778cd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6261f7739ba8dfb617215cca94106a42"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#a6261f7739ba8dfb617215cca94106a42">NDR_GetASTNodeColumnNumber</a> (<a class="el" href="structNDR__ASTNode.html">NDR_ASTNode</a> *node)</td></tr>
+<tr class="memdesc:a6261f7739ba8dfb617215cca94106a42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the columnNumber associated with the abstract syntax tree node.  <a href="ndr__astnode_8h.html#a6261f7739ba8dfb617215cca94106a42">More...</a><br /></td></tr>
 <tr class="separator:a6261f7739ba8dfb617215cca94106a42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae05fb1e04a84211b824aa9ab8bce08c6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structNDR__ASTNode.html">NDR_ASTNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#ae05fb1e04a84211b824aa9ab8bce08c6">NDR_GetASTNode</a> (<a class="el" href="structNDR__ASTNodeHolder.html">NDR_ASTNodeHolder</a> *nodeWrapper, size_t index)</td></tr>
+<tr class="memdesc:ae05fb1e04a84211b824aa9ab8bce08c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a node from the provided nodeWrapper.  <a href="ndr__astnode_8h.html#ae05fb1e04a84211b824aa9ab8bce08c6">More...</a><br /></td></tr>
 <tr class="separator:ae05fb1e04a84211b824aa9ab8bce08c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acbaf7a671d5fe327da78dadce4963d2f"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#acbaf7a671d5fe327da78dadce4963d2f">NDR_GetTotalASTTreeNodes</a> (<a class="el" href="structNDR__ASTNodeHolder.html">NDR_ASTNodeHolder</a> *nodeWrapper)</td></tr>
+<tr class="memdesc:acbaf7a671d5fe327da78dadce4963d2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the total number of nodes present in a constructed abstract syntax tree.  <a href="ndr__astnode_8h.html#acbaf7a671d5fe327da78dadce4963d2f">More...</a><br /></td></tr>
 <tr class="separator:acbaf7a671d5fe327da78dadce4963d2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0aea70ed426308c1bf4012410230a545"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#a0aea70ed426308c1bf4012410230a545">NDR_GetNumberOfASTNodes</a> (<a class="el" href="structNDR__ASTNodeHolder.html">NDR_ASTNodeHolder</a> *nodeWrapper)</td></tr>
+<tr class="memdesc:a0aea70ed426308c1bf4012410230a545"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of nodes present in the provided nodeWrapper.  <a href="ndr__astnode_8h.html#a0aea70ed426308c1bf4012410230a545">More...</a><br /></td></tr>
 <tr class="separator:a0aea70ed426308c1bf4012410230a545"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4f98b1dc12307eca1768e60cae7277e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#aa4f98b1dc12307eca1768e60cae7277e">NDR_InitASTQueue</a> (<a class="el" href="structNDR__ASTNodeQueue.html">NDR_ASTNodeQueue</a> *ndrqueue)</td></tr>
+<tr class="memdesc:aa4f98b1dc12307eca1768e60cae7277e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize an <a class="el" href="structNDR__ASTNodeQueue.html" title="A queue structure for traversing an abstract syntax tree.">NDR_ASTNodeQueue</a> structure.  <a href="ndr__astnode_8h.html#aa4f98b1dc12307eca1768e60cae7277e">More...</a><br /></td></tr>
 <tr class="separator:aa4f98b1dc12307eca1768e60cae7277e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a2a0d52ba56fb33b7de0cfca3679af9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#a1a2a0d52ba56fb33b7de0cfca3679af9">NDR_FreeASTQueue</a> (<a class="el" href="structNDR__ASTNodeQueue.html">NDR_ASTNodeQueue</a> *ndrqueue)</td></tr>
+<tr class="memdesc:a1a2a0d52ba56fb33b7de0cfca3679af9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Free the memory of an <a class="el" href="structNDR__ASTNodeQueue.html" title="A queue structure for traversing an abstract syntax tree.">NDR_ASTNodeQueue</a> structure.  <a href="ndr__astnode_8h.html#a1a2a0d52ba56fb33b7de0cfca3679af9">More...</a><br /></td></tr>
 <tr class="separator:a1a2a0d52ba56fb33b7de0cfca3679af9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0311f5cc1f26b33fd66459a9d87ab0eb"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#a0311f5cc1f26b33fd66459a9d87ab0eb">NDR_ASTQSize</a> (<a class="el" href="structNDR__ASTNodeQueue.html">NDR_ASTNodeQueue</a> *ndrqueue)</td></tr>
+<tr class="memdesc:a0311f5cc1f26b33fd66459a9d87ab0eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current size of the queue structure provided.  <a href="ndr__astnode_8h.html#a0311f5cc1f26b33fd66459a9d87ab0eb">More...</a><br /></td></tr>
 <tr class="separator:a0311f5cc1f26b33fd66459a9d87ab0eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a939ca5a4d33bed28da3fc23e990695f2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#a939ca5a4d33bed28da3fc23e990695f2">NDR_ASTQIsEmpty</a> (<a class="el" href="structNDR__ASTNodeQueue.html">NDR_ASTNodeQueue</a> *ndrqueue)</td></tr>
+<tr class="memdesc:a939ca5a4d33bed28da3fc23e990695f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the provided queue is empty.  <a href="ndr__astnode_8h.html#a939ca5a4d33bed28da3fc23e990695f2">More...</a><br /></td></tr>
 <tr class="separator:a939ca5a4d33bed28da3fc23e990695f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e00e0e4cb7d1b7f732f6d5effdb6807"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structNDR__ASTNode.html">NDR_ASTNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#a4e00e0e4cb7d1b7f732f6d5effdb6807">NDR_ASTQFront</a> (<a class="el" href="structNDR__ASTNodeQueue.html">NDR_ASTNodeQueue</a> *ndrqueue)</td></tr>
+<tr class="memdesc:a4e00e0e4cb7d1b7f732f6d5effdb6807"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a reference to the node at the front of the queue without removing it from the queue.  <a href="ndr__astnode_8h.html#a4e00e0e4cb7d1b7f732f6d5effdb6807">More...</a><br /></td></tr>
 <tr class="separator:a4e00e0e4cb7d1b7f732f6d5effdb6807"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea81961f8c16bc6072bb2ea98a297312"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#aea81961f8c16bc6072bb2ea98a297312">NDR_ASTQEnqueue</a> (<a class="el" href="structNDR__ASTNodeQueue.html">NDR_ASTNodeQueue</a> *ndrqueue, <a class="el" href="structNDR__ASTNode.html">NDR_ASTNode</a> *node)</td></tr>
+<tr class="memdesc:aea81961f8c16bc6072bb2ea98a297312"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a new node to the back of the queue.  <a href="ndr__astnode_8h.html#aea81961f8c16bc6072bb2ea98a297312">More...</a><br /></td></tr>
 <tr class="separator:aea81961f8c16bc6072bb2ea98a297312"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc3b113c5578bb05b03c1ede85ddaa88"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structNDR__ASTNode.html">NDR_ASTNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#abc3b113c5578bb05b03c1ede85ddaa88">NDR_ASTQDequeue</a> (<a class="el" href="structNDR__ASTNodeQueue.html">NDR_ASTNodeQueue</a> *ndrqueue)</td></tr>
+<tr class="memdesc:abc3b113c5578bb05b03c1ede85ddaa88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a reference to the node at the front of the queue and remove it.  <a href="ndr__astnode_8h.html#abc3b113c5578bb05b03c1ede85ddaa88">More...</a><br /></td></tr>
 <tr class="separator:abc3b113c5578bb05b03c1ede85ddaa88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac89a6993a7b7c0af94b2e30ccaaef68b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#ac89a6993a7b7c0af94b2e30ccaaef68b">NDR_InitASTStack</a> (<a class="el" href="structNDR__ASTNodeStack.html">NDR_ASTNodeStack</a> *ndrstack)</td></tr>
+<tr class="memdesc:ac89a6993a7b7c0af94b2e30ccaaef68b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize an <a class="el" href="structNDR__ASTNodeStack.html" title="A stack structure for traversing an abstract syntax tree.">NDR_ASTNodeStack</a> structure.  <a href="ndr__astnode_8h.html#ac89a6993a7b7c0af94b2e30ccaaef68b">More...</a><br /></td></tr>
 <tr class="separator:ac89a6993a7b7c0af94b2e30ccaaef68b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5a58d1d0c665185e4bed2d917ea4829"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#af5a58d1d0c665185e4bed2d917ea4829">NDR_FreeASTStack</a> (<a class="el" href="structNDR__ASTNodeStack.html">NDR_ASTNodeStack</a> *ndrstack)</td></tr>
+<tr class="memdesc:af5a58d1d0c665185e4bed2d917ea4829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Free the memory of an <a class="el" href="structNDR__ASTNodeStack.html" title="A stack structure for traversing an abstract syntax tree.">NDR_ASTNodeStack</a> structure.  <a href="ndr__astnode_8h.html#af5a58d1d0c665185e4bed2d917ea4829">More...</a><br /></td></tr>
 <tr class="separator:af5a58d1d0c665185e4bed2d917ea4829"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c5861db9aaccd1ed74ac566425eef9a"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#a1c5861db9aaccd1ed74ac566425eef9a">NDR_ASTStackSize</a> (<a class="el" href="structNDR__ASTNodeStack.html">NDR_ASTNodeStack</a> *ndrstack)</td></tr>
+<tr class="memdesc:a1c5861db9aaccd1ed74ac566425eef9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current size of the stack structure provided.  <a href="ndr__astnode_8h.html#a1c5861db9aaccd1ed74ac566425eef9a">More...</a><br /></td></tr>
 <tr class="separator:a1c5861db9aaccd1ed74ac566425eef9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b7d395fde5db04c1e4efea52c567a7d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#a4b7d395fde5db04c1e4efea52c567a7d">NDR_ASTStackIsEmpty</a> (<a class="el" href="structNDR__ASTNodeStack.html">NDR_ASTNodeStack</a> *ndrstack)</td></tr>
+<tr class="memdesc:a4b7d395fde5db04c1e4efea52c567a7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the provided stack is empty.  <a href="ndr__astnode_8h.html#a4b7d395fde5db04c1e4efea52c567a7d">More...</a><br /></td></tr>
 <tr class="separator:a4b7d395fde5db04c1e4efea52c567a7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee388bd6f69603149429e179305eba4c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#aee388bd6f69603149429e179305eba4c">NDR_ASTStackPush</a> (<a class="el" href="structNDR__ASTNodeStack.html">NDR_ASTNodeStack</a> *ndrstack, <a class="el" href="structNDR__ASTNode.html">NDR_ASTNode</a> *node)</td></tr>
-<tr class="separator:aee388bd6f69603149429e179305eba4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace70f0123db376c990534bb2fa91a83a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structNDR__ASTNode.html">NDR_ASTNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#ace70f0123db376c990534bb2fa91a83a">NDR_ASTStackPeek</a> (<a class="el" href="structNDR__ASTNodeStack.html">NDR_ASTNodeStack</a> *ndrstack)</td></tr>
+<tr class="memdesc:ace70f0123db376c990534bb2fa91a83a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a reference to the node at the top of the stack without removing it from the stack.  <a href="ndr__astnode_8h.html#ace70f0123db376c990534bb2fa91a83a">More...</a><br /></td></tr>
 <tr class="separator:ace70f0123db376c990534bb2fa91a83a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee388bd6f69603149429e179305eba4c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#aee388bd6f69603149429e179305eba4c">NDR_ASTStackPush</a> (<a class="el" href="structNDR__ASTNodeStack.html">NDR_ASTNodeStack</a> *ndrstack, <a class="el" href="structNDR__ASTNode.html">NDR_ASTNode</a> *node)</td></tr>
+<tr class="memdesc:aee388bd6f69603149429e179305eba4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a new node to the top of the stack.  <a href="ndr__astnode_8h.html#aee388bd6f69603149429e179305eba4c">More...</a><br /></td></tr>
+<tr class="separator:aee388bd6f69603149429e179305eba4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1cafa29ca8613c1c1d11d682324d5592"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structNDR__ASTNode.html">NDR_ASTNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#a1cafa29ca8613c1c1d11d682324d5592">NDR_ASTStackPop</a> (<a class="el" href="structNDR__ASTNodeStack.html">NDR_ASTNodeStack</a> *ndrstack)</td></tr>
+<tr class="memdesc:a1cafa29ca8613c1c1d11d682324d5592"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a reference to the node at the top of the stack and remove it.  <a href="ndr__astnode_8h.html#a1cafa29ca8613c1c1d11d682324d5592">More...</a><br /></td></tr>
 <tr class="separator:a1cafa29ca8613c1c1d11d682324d5592"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af91f82aa968b96e76c9ee3ebf931f619"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structNDR__ASTNode.html">NDR_ASTNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#af91f82aa968b96e76c9ee3ebf931f619">NDR_ASTPreOrderTraversal</a> (<a class="el" href="structNDR__ASTNode.html">NDR_ASTNode</a> *head)</td></tr>
+<tr class="memdesc:af91f82aa968b96e76c9ee3ebf931f619"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform a preorder traversal on the abstract syntax tree provided.  <a href="ndr__astnode_8h.html#af91f82aa968b96e76c9ee3ebf931f619">More...</a><br /></td></tr>
 <tr class="separator:af91f82aa968b96e76c9ee3ebf931f619"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9770986adbc7c51719b5b406c51edca"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structNDR__ASTNode.html">NDR_ASTNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#ab9770986adbc7c51719b5b406c51edca">NDR_ASTInOrderTraversal</a> (<a class="el" href="structNDR__ASTNode.html">NDR_ASTNode</a> *head)</td></tr>
+<tr class="memdesc:ab9770986adbc7c51719b5b406c51edca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform an inorder traversal on the abstract syntax tree provided.  <a href="ndr__astnode_8h.html#ab9770986adbc7c51719b5b406c51edca">More...</a><br /></td></tr>
 <tr class="separator:ab9770986adbc7c51719b5b406c51edca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b3139caf9f6b76054cdcafec542a370"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structNDR__ASTNode.html">NDR_ASTNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#a1b3139caf9f6b76054cdcafec542a370">NDR_ASTPostOrderTraversal</a> (<a class="el" href="structNDR__ASTNode.html">NDR_ASTNode</a> *head)</td></tr>
+<tr class="memdesc:a1b3139caf9f6b76054cdcafec542a370"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform a postorder traversal on the abstract syntax tree provided.  <a href="ndr__astnode_8h.html#a1b3139caf9f6b76054cdcafec542a370">More...</a><br /></td></tr>
 <tr class="separator:a1b3139caf9f6b76054cdcafec542a370"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a433966da400f73dbffcacc9e23537021"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structNDR__ASTNode.html">NDR_ASTNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#a433966da400f73dbffcacc9e23537021">NDR_ASTBreadthFirstTraversal</a> (<a class="el" href="structNDR__ASTNode.html">NDR_ASTNode</a> *head)</td></tr>
+<tr class="memdesc:a433966da400f73dbffcacc9e23537021"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform a breadth first traversal on the abstract syntax tree provided.  <a href="ndr__astnode_8h.html#a433966da400f73dbffcacc9e23537021">More...</a><br /></td></tr>
 <tr class="separator:a433966da400f73dbffcacc9e23537021"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
@@ -276,6 +321,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Add an abstract syntax tree node as a child to another abstract syntax tree node. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>is a structure that is will be the parent of the nodeToAdd </td></tr>
+    <tr><td class="paramname">nodeToAdd</td><td>is an abstract syntax tree node to be added to the node provided as a child </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a45e9c560a16306771cbcb3dd7a93d7ae"></a>
@@ -304,6 +358,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Add an abstract syntax tree node to an <a class="el" href="structNDR__ASTNodeHolder.html" title="A holder for abstract syntax tree nodes to be used during tree building.">NDR_ASTNodeHolder</a> structure. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nodeWrapper</td><td>is a structure that is will hold the newly provided node </td></tr>
+    <tr><td class="paramname">nodeToAdd</td><td>is an abstract syntax tree node to be added to the nodeWrapper </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a433966da400f73dbffcacc9e23537021"></a>
@@ -321,6 +384,14 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Perform a breadth first traversal on the abstract syntax tree provided. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">head</td><td>is the node top level abstract syntax node of the abstract syntax tree to be traversed </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -340,6 +411,14 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Perform an inorder traversal on the abstract syntax tree provided. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">head</td><td>is the node top level abstract syntax node of the abstract syntax tree to be traversed </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a1b3139caf9f6b76054cdcafec542a370"></a>
@@ -357,6 +436,14 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Perform a postorder traversal on the abstract syntax tree provided. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">head</td><td>is the node top level abstract syntax node of the abstract syntax tree to be traversed </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -376,6 +463,14 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Perform a preorder traversal on the abstract syntax tree provided. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">head</td><td>is the node top level abstract syntax node of the abstract syntax tree to be traversed </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="abc3b113c5578bb05b03c1ede85ddaa88"></a>
@@ -393,6 +488,14 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Get a reference to the node at the front of the queue and remove it. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ndrqueue</td><td>is an initialized <a class="el" href="structNDR__ASTNodeQueue.html" title="A queue structure for traversing an abstract syntax tree.">NDR_ASTNodeQueue</a> structure </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -422,6 +525,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Add a new node to the back of the queue. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ndrqueue</td><td>is an initialized <a class="el" href="structNDR__ASTNodeQueue.html" title="A queue structure for traversing an abstract syntax tree.">NDR_ASTNodeQueue</a> structure </td></tr>
+    <tr><td class="paramname">node</td><td>is an initialized <a class="el" href="structNDR__ASTNode.html" title="A container for a single token that is represented as part an abstract syntax tree.">NDR_ASTNode</a> structure </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a4e00e0e4cb7d1b7f732f6d5effdb6807"></a>
@@ -439,6 +551,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Get a reference to the node at the front of the queue without removing it from the queue. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ndrqueue</td><td>is an initialized <a class="el" href="structNDR__ASTNodeQueue.html" title="A queue structure for traversing an abstract syntax tree.">NDR_ASTNodeQueue</a> structure </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the node at the front of the queue </dd></dl>
 
 </div>
 </div>
@@ -458,6 +579,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Check if the provided queue is empty. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ndrqueue</td><td>is an initialized <a class="el" href="structNDR__ASTNodeQueue.html" title="A queue structure for traversing an abstract syntax tree.">NDR_ASTNodeQueue</a> structure </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the queue is empty and false if the queue is not empty </dd></dl>
+
 </div>
 </div>
 <a id="a0311f5cc1f26b33fd66459a9d87ab0eb"></a>
@@ -475,6 +605,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Get the current size of the queue structure provided. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ndrqueue</td><td>is an initialized <a class="el" href="structNDR__ASTNodeQueue.html" title="A queue structure for traversing an abstract syntax tree.">NDR_ASTNodeQueue</a> structure </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the size of the queue </dd></dl>
 
 </div>
 </div>
@@ -494,6 +633,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Check if the provided stack is empty. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ndrstack</td><td>is an initialized <a class="el" href="structNDR__ASTNodeStack.html" title="A stack structure for traversing an abstract syntax tree.">NDR_ASTNodeStack</a> structure </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the stack is empty and false if the stack is not empty </dd></dl>
+
 </div>
 </div>
 <a id="ace70f0123db376c990534bb2fa91a83a"></a>
@@ -512,6 +660,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Get a reference to the node at the top of the stack without removing it from the stack. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ndrstack</td><td>is an initialized <a class="el" href="structNDR__ASTNodeStack.html" title="A stack structure for traversing an abstract syntax tree.">NDR_ASTNodeStack</a> structure </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the node at the top of the stack </dd></dl>
+
 </div>
 </div>
 <a id="a1cafa29ca8613c1c1d11d682324d5592"></a>
@@ -529,6 +686,14 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Get a reference to the node at the top of the stack and remove it. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ndrstack</td><td>is an initialized <a class="el" href="structNDR__ASTNodeStack.html" title="A stack structure for traversing an abstract syntax tree.">NDR_ASTNodeStack</a> structure </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -558,6 +723,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Add a new node to the top of the stack. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ndrstack</td><td>is an initialized <a class="el" href="structNDR__ASTNodeStack.html" title="A stack structure for traversing an abstract syntax tree.">NDR_ASTNodeStack</a> structure </td></tr>
+    <tr><td class="paramname">node</td><td>is an initialized <a class="el" href="structNDR__ASTNode.html" title="A container for a single token that is represented as part an abstract syntax tree.">NDR_ASTNode</a> structure </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a1c5861db9aaccd1ed74ac566425eef9a"></a>
@@ -575,6 +749,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Get the current size of the stack structure provided. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ndrstack</td><td>is an initialized <a class="el" href="structNDR__ASTNodeStack.html" title="A stack structure for traversing an abstract syntax tree.">NDR_ASTNodeStack</a> structure </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the size of the stack </dd></dl>
 
 </div>
 </div>
@@ -594,6 +777,14 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Free every node in an abstract syntax tree starting from the provided node. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>is a structure that is at the head of an abstract syntax tree </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a6b655fb194983dcad7113a3023d95fe1"></a>
@@ -611,6 +802,14 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Free the memory of an <a class="el" href="structNDR__ASTNode.html" title="A container for a single token that is represented as part an abstract syntax tree.">NDR_ASTNode</a> structure. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>is a structure that has memory allocated to it </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -630,6 +829,14 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Free the memory of an <a class="el" href="structNDR__ASTNodeHolder.html" title="A holder for abstract syntax tree nodes to be used during tree building.">NDR_ASTNodeHolder</a> structure. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nodeWrapper</td><td>is a structure that has memory allocated to it </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a1a2a0d52ba56fb33b7de0cfca3679af9"></a>
@@ -648,6 +855,14 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Free the memory of an <a class="el" href="structNDR__ASTNodeQueue.html" title="A queue structure for traversing an abstract syntax tree.">NDR_ASTNodeQueue</a> structure. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ndrqueue</td><td>is a structure that has memory allocated to it </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="af5a58d1d0c665185e4bed2d917ea4829"></a>
@@ -665,6 +880,14 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Free the memory of an <a class="el" href="structNDR__ASTNodeStack.html" title="A stack structure for traversing an abstract syntax tree.">NDR_ASTNodeStack</a> structure. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ndrstack</td><td>is a structure that has memory allocated to it </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -694,6 +917,16 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Get a node from the provided nodeWrapper. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nodeWrapper</td><td>is an initialized <a class="el" href="structNDR__ASTNodeHolder.html" title="A holder for abstract syntax tree nodes to be used during tree building.">NDR_ASTNodeHolder</a> structure </td></tr>
+    <tr><td class="paramname">index</td><td>an number specifying a node within the nodeWrapper structure </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a node from the nodeWrapper specified by the provided index </dd></dl>
+
 </div>
 </div>
 <a id="a6261f7739ba8dfb617215cca94106a42"></a>
@@ -711,6 +944,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Get the columnNumber associated with the abstract syntax tree node. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>is an initialized abstract syntax tree node </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the columnNumber in the abstract syntax tree node </dd></dl>
 
 </div>
 </div>
@@ -730,6 +972,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Get the keyword associated with the abstract syntax tree node. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>is an initialized abstract syntax tree node </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the keyword in the abstract syntax tree node </dd></dl>
+
 </div>
 </div>
 <a id="a530e4c64242ce4f36e4b351b48778cd9"></a>
@@ -747,6 +998,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Get the lineNumber associated with the abstract syntax tree node. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>is an initialized abstract syntax tree node </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the lineNumber in the abstract syntax tree node </dd></dl>
 
 </div>
 </div>
@@ -766,6 +1026,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Get the nodeType associated with the abstract syntax tree node. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>is an initialized abstract syntax tree node </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the nodeType in the abstract syntax tree node </dd></dl>
+
 </div>
 </div>
 <a id="ae1d5c4fbe5d9e15cebcd711cee1e7658"></a>
@@ -783,6 +1052,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Get the orderNumber associated with the abstract syntax tree node. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>is an initialized abstract syntax tree node </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the orderNumber in the abstract syntax tree node </dd></dl>
 
 </div>
 </div>
@@ -802,6 +1080,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Get the token associated with the abstract syntax tree node. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>is an initialized abstract syntax tree node </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the token in the abstract syntax tree node </dd></dl>
+
 </div>
 </div>
 <a id="a0aea70ed426308c1bf4012410230a545"></a>
@@ -819,6 +1106,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Get the number of nodes present in the provided nodeWrapper. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nodeWrapper</td><td>is an initialized <a class="el" href="structNDR__ASTNodeHolder.html" title="A holder for abstract syntax tree nodes to be used during tree building.">NDR_ASTNodeHolder</a> structure </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the number of nodes present in the provided nodeWrapper </dd></dl>
 
 </div>
 </div>
@@ -838,6 +1134,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Get the total number of nodes present in a constructed abstract syntax tree. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nodeWrapper</td><td>is an initialized <a class="el" href="structNDR__ASTNodeHolder.html" title="A holder for abstract syntax tree nodes to be used during tree building.">NDR_ASTNodeHolder</a> structure </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the total number of nodes present in a constructed abstract syntax tree </dd></dl>
+
 </div>
 </div>
 <a id="a05264280e9664398ad5668b59915feaa"></a>
@@ -855,6 +1160,14 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Increment the total number of nodes int in the abstract syntax tree node by 1. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nodeWrapper</td><td>is the structure to be modified </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -874,6 +1187,14 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Initialize an <a class="el" href="structNDR__ASTNode.html" title="A container for a single token that is represented as part an abstract syntax tree.">NDR_ASTNode</a> structure. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>is a structure that has memory allocated to it </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a47fc893078237f9a0b3995fbe661f197"></a>
@@ -891,6 +1212,14 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Initialize an <a class="el" href="structNDR__ASTNodeHolder.html" title="A holder for abstract syntax tree nodes to be used during tree building.">NDR_ASTNodeHolder</a> structure. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nodeWrapper</td><td>is a structure that has memory allocated to it </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -910,6 +1239,14 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Initialize an <a class="el" href="structNDR__ASTNodeQueue.html" title="A queue structure for traversing an abstract syntax tree.">NDR_ASTNodeQueue</a> structure. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ndrqueue</td><td>is a structure that has memory allocated to it </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ac89a6993a7b7c0af94b2e30ccaaef68b"></a>
@@ -927,6 +1264,14 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Initialize an <a class="el" href="structNDR__ASTNodeStack.html" title="A stack structure for traversing an abstract syntax tree.">NDR_ASTNodeStack</a> structure. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ndrstack</td><td>is a structure that has memory allocated to it </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -956,6 +1301,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Set the columnNumber in the abstract syntax tree node. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>is the structure to be modified </td></tr>
+    <tr><td class="paramname">columnNumber</td><td>is the number to be used </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a5a9fd85d9ccc26a479d3d826b5df3a28"></a>
@@ -983,6 +1337,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Set the keyword string in the abstract syntax tree node. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>is the structure to be modified </td></tr>
+    <tr><td class="paramname">keyword</td><td>is the string to be used </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -1012,6 +1375,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Set the lineNumber in the abstract syntax tree node. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>is the structure to be modified </td></tr>
+    <tr><td class="paramname">lineNumber</td><td>is the number to be used </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ae5877dab9cc3ef569539408aeb872c57"></a>
@@ -1039,6 +1411,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Set the nodeType in the abstract syntax tree node. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>is the structure to be modified </td></tr>
+    <tr><td class="paramname">nodeType</td><td>is the number to be used </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -1068,6 +1449,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Set the orderNumber in the abstract syntax tree node. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>is the structure to be modified </td></tr>
+    <tr><td class="paramname">orderNumber</td><td>is the number to be used </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a92b0447946ae9ccf2567900679f9b0d5"></a>
@@ -1095,6 +1485,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Set the token string in the abstract syntax tree node. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>is the structure to be modified </td></tr>
+    <tr><td class="paramname">token</td><td>is the string to be used </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
