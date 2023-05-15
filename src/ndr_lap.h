@@ -37,10 +37,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef NDRLAP_H
 #define NDRLAP_H
 
-#include "ndr_astnode.h"
-#include "ndr_debug.h"
-#include "ndr_fileprocessor.h"
-#include "ndr_lexer.h"
-#include "ndr_parser.h"
+#include "../src/ndr_astnode.h"
+#include "../src/ndr_debug.h"
+#include "../src/ndr_fileprocessor.h"
+#include "../src/ndr_lexer.h"
+#include "../src/ndr_parser.h"
 
 #endif
