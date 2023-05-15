@@ -28,10 +28,10 @@ target_link_libraries(ndr_lap libpcre2_2)
 
 configure_file(${CMAKE_SOURCE_DIR}/src/ndr_lap.h ${CMAKE_SOURCE_DIR}/include/ndr_lap.h)
 
-configure_file(${CMAKE_SOURCE_DIR}/src/regex_engines/PCRE2/lib/libpcre2-8.a ${CMAKE_SOURCE_DIR}/lib/libpcre2-8.a)
-configure_file(${CMAKE_SOURCE_DIR}/src/regex_engines/PCRE2/lib/libpcre2-posix.a ${CMAKE_SOURCE_DIR}/lib/libpcre2-posix.a)
+#configure_file(${CMAKE_SOURCE_DIR}/src/regex_engines/PCRE2/lib/libpcre2-8.a ${CMAKE_SOURCE_DIR}/lib/libpcre2-8.a)
+#configure_file(${CMAKE_SOURCE_DIR}/src/regex_engines/PCRE2/lib/libpcre2-posix.a ${CMAKE_SOURCE_DIR}/lib/libpcre2-posix.a)
 
-configure_file(${CMAKE_SOURCE_DIR}/src/regex_engines/PCRE2/include/pcre2.h ${CMAKE_SOURCE_DIR}/include/pcre2.h)
-configure_file(${CMAKE_SOURCE_DIR}/src/regex_engines/PCRE2/include/pcre2posix.h ${CMAKE_SOURCE_DIR}/include/pcre2posix.h)
+#configure_file(${CMAKE_SOURCE_DIR}/src/regex_engines/PCRE2/include/pcre2.h ${CMAKE_SOURCE_DIR}/include/pcre2.h)
+#configure_file(${CMAKE_SOURCE_DIR}/src/regex_engines/PCRE2/include/pcre2posix.h ${CMAKE_SOURCE_DIR}/include/pcre2posix.h)
 
 
