@@ -9,3 +9,6 @@ The end goal is to provide a more straight forward tool for anyone interested to
 
 ## How To Use
 The source code can be built using cmake.
+
+## Documentation
+[Documentatino for this project](documentation/html/index.html)
