@@ -154,9 +154,9 @@ static void encapsulateString(const char* prepend, char* string, const char* app
 
 
 // AUTO_CAP adds ^ to the beginning and \z to the end of every regex descriptor in lexer config file
-static bool AUTO_CAP = false;
+static bool AUTO_CAP = true;
 // AUTO_TRIM removes the space from the beginning and end of every regex descriptor in lexer config file
-static bool AUTO_TRIM = false;
+static bool AUTO_TRIM = true;
 // One Time Settings are below
 // MATCH_ALL toggles error catching for failure to match all characters in lexer config file
 static bool MATCH_ALL = true;
