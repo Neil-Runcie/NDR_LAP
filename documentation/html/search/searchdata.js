@@ -1,12 +1,11 @@
 var indexSectionsWithContent =
 {
-  0: "cfklmnort",
+  0: "cfklmnot",
   1: "n",
-  2: "nr",
+  2: "n",
   3: "n",
   4: "cfklmnot",
-  5: "n",
-  6: "n"
+  5: "n"
 };
 
 var indexSectionNames =
@@ -16,8 +15,7 @@ var indexSectionNames =
   2: "files",
   3: "functions",
   4: "variables",
-  5: "typedefs",
-  6: "pages"
+  5: "typedefs"
 };
 
 var indexSectionLabels =
@@ -27,7 +25,6 @@ var indexSectionLabels =
   2: "Files",
   3: "Functions",
   4: "Variables",
-  5: "Typedefs",
-  6: "Pages"
+  5: "Typedefs"
 };
 
