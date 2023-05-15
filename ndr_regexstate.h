@@ -41,7 +41,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #define PCRE2_STATIC
 #define PCRE2_CODE_UNIT_WIDTH 8
-#include "regex_engines/include/pcre2.h"
+#include "regex_engines/PCRE2/include/pcre2.h"
 
 //typedef struct NDR_RegexState NDR_RegexState;
 
