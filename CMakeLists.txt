@@ -12,7 +12,10 @@ GIT_REPOSITORY https://github.com/PCRE2Project/pcre2.git
 CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${CMAKE_SOURCE_DIR}/regex_engines/PCRE2
 )
 
-add_library(ndr_lap STATIC ndr_astnode.c ndr_asttokeninformation.c ndr_fileprocessor.c ndr_lexer.c ndr_parser.c ndr_debug.c ndr_regexstate.c ndr_sequenceinformation.c ndr_tokeninformation.c)
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/lib)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/lib)
+
+add_library(ndr_lap STATIC src/ndr_astnode.c src/ndr_asttokeninformation.c src/ndr_fileprocessor.c src/ndr_lexer.c src/ndr_parser.c src/ndr_debug.c src/ndr_regexstate.c src/ndr_sequenceinformation.c src/ndr_tokeninformation.c)
 
 ADD_LIBRARY(libpcre2_1 STATIC IMPORTED)
 ADD_LIBRARY(libpcre2_2 STATIC IMPORTED)
@@ -22,5 +25,7 @@ SET_TARGET_PROPERTIES(libpcre2_2 PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR
 
 target_link_libraries(ndr_lap libpcre2_1)
 target_link_libraries(ndr_lap libpcre2_2)
+
+configure_file(src/ndr_lap.h include/ndr_lap.h)
 
 
