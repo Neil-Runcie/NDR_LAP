@@ -1,0 +1,5 @@
+!! The current lexer and parser configurations will recognize simple declaration and assignment statements
+!! These comments will be ignored
+num x = 3;
+char y = '\n';
+x += y;

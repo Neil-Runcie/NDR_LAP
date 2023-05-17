@@ -393,18 +393,6 @@ void condenseTable(int startingIndex, int amount, char* ID){
 
             NDR_AddChildASTNode(parent, leaf);
             NDR_IncASTTotalNode(NWrapper);
-
-            /*leaf->token = malloc(strlen(getTreeTokenInfo(TTIWrapper, i)->tokenInfo->token)+1);
-            strcpy(leaf->token, getTreeTokenInfo(TTIWrapper, i)->tokenInfo->token);
-            leaf->keyword = malloc(strlen(getTreeTokenInfo(TTIWrapper, i)->tokenInfo->keyword)+1);
-            strcpy(leaf->keyword, getTreeTokenInfo(TTIWrapper, i)->tokenInfo->keyword);
-            leaf->numberOfChildren = 0;
-            leaf->nodeType = 0;
-            leaf->orderNumber = -1;
-            leaf->lineNumber = getTreeTokenInfo(TTIWrapper, i)->tokenInfo->lineNumber;
-            leaf->columnNumber = getTreeTokenInfo(TTIWrapper, i)->tokenInfo->columnNumber;
-            addChildNode(parent, leaf);
-            NWrapper->totalNodesInTree++;*/
         }
         // If the entry has children and has already been allocated a node then the node is searched for and added to the parent node
         else{
@@ -416,8 +404,6 @@ void condenseTable(int startingIndex, int amount, char* ID){
             }
         }
     }
-    //parent->lineNumber = getTreeTokenInfo(TTIWrapper, startingIndex)->tokenInfo->lineNumber;
-    //parent->columnNumber = getTreeTokenInfo(TTIWrapper, startingIndex)->tokenInfo->columnNumber;
     NDR_SetASTNodeLineNumber(parent, NDR_GetTreeTokenInfo(TTIWrapper, startingIndex)->tokenInfo->lineNumber);
     NDR_SetASTNodeColumnNumber(parent, NDR_GetTreeTokenInfo(TTIWrapper, startingIndex)->tokenInfo->columnNumber);
     newEntry[strlen(newEntry) - 1] = '\0';
@@ -662,7 +648,7 @@ void NDR_PrintModifiedTokenTable(){
         printf("%s  ---   ", NDR_GetTreeTokenInfo(TTIWrapper, i)->tokenInfo->keyword);
         printf("%u  ---   ", (unsigned int) NDR_GetTreeTokenInfo(TTIWrapper, i)->tokenInfo->lineNumber);
         printf("%u  ---   ", (unsigned int) NDR_GetTreeTokenInfo(TTIWrapper, i)->tokenInfo->columnNumber);
-        printf("%u", (unsigned int) NDR_GetTreeTokenInfo(TTIWrapper, i)->nodeNumber);
+        printf("%ld", NDR_GetTreeTokenInfo(TTIWrapper, i)->nodeNumber);
         printf("\n");
     }
 }

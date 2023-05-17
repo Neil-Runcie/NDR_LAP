@@ -50,7 +50,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 typedef struct NDR_ASTNode{
     char* token;
     char* keyword;
-    size_t orderNumber;
+    long orderNumber;
     size_t numberOfChildren;
     size_t nodeType;
     size_t lineNumber;
@@ -143,7 +143,7 @@ void NDR_SetASTNodeToken(NDR_ASTNode* node, char* token);
 * @param node is the structure to be modified
 * @param orderNumber is the number to be used
 */
-void NDR_SetASTNodeOrderNumber(NDR_ASTNode* node, size_t orderNumber);
+void NDR_SetASTNodeOrderNumber(NDR_ASTNode* node, long orderNumber);
 /** @brief Set the nodeType in the abstract syntax tree node
 *
 * @param node is the structure to be modified
@@ -185,7 +185,7 @@ char* NDR_GetASTNodeToken(NDR_ASTNode* node);
 * @param node is an initialized abstract syntax tree node
 * @return the orderNumber in the abstract syntax tree node
 */
-size_t NDR_GetASTNodeOrderNumber(NDR_ASTNode* node);
+long NDR_GetASTNodeOrderNumber(NDR_ASTNode* node);
 /** @brief Get the nodeType associated with the abstract syntax tree node
 *
 * @param node is an initialized abstract syntax tree node

@@ -74,7 +74,7 @@ void NDR_SetTreeTokenInfoLine(NDR_TreeTokenInfo* tokenInformation, size_t lineNu
 void NDR_SetTreeTokenInfoColumn(NDR_TreeTokenInfo* tokenInformation, size_t columnNumber){
     NDR_SetTokenInfoColumn(tokenInformation->tokenInfo, columnNumber);
 }
-void NDR_SetTreeTokenInfoNodeNumber(NDR_TreeTokenInfo* tokenInformation, size_t nodeNumber){
+void NDR_SetTreeTokenInfoNodeNumber(NDR_TreeTokenInfo* tokenInformation, long nodeNumber){
     tokenInformation->nodeNumber = nodeNumber;
 }
 
@@ -90,7 +90,7 @@ size_t NDR_GetTreeTokenInfoLine(NDR_TreeTokenInfo* tokenInformation){
 size_t NDR_GetTreeTokenInfoColumn(NDR_TreeTokenInfo* tokenInformation){
     return NDR_GetTokenInfoColumn(tokenInformation->tokenInfo);
 }
-size_t NDR_GetTreeTokenInfoNodeNumber(NDR_TreeTokenInfo* tokenInformation){
+long NDR_GetTreeTokenInfoNodeNumber(NDR_TreeTokenInfo* tokenInformation){
     return tokenInformation->nodeNumber;
 }
 

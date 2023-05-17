@@ -1,0 +1,24 @@
+*Accept: statements
+      \| statements *Accept
+      \| *Accept statements
+      \| *Accept *Accept
+
+
+statements: declarations ;
+         \| assignments ;
+         \| statements statements
+
+
+declarations: type ID assigner ID
+           \| type ID assigner primitive
+
+
+assignments: ID assigner ID
+          \| ID assigner primitive
+
+
+
+primitive: number
+        \| character
+        \| string
+        \| boolean

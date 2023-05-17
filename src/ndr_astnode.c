@@ -163,7 +163,7 @@ void NDR_SetASTNodeToken(NDR_ASTNode* node, char* token){
     node->token = realloc(node->token, strlen(token)+1);
     strcpy(node->token, token);
 }
-void NDR_SetASTNodeOrderNumber(NDR_ASTNode* node, size_t orderNumber){
+void NDR_SetASTNodeOrderNumber(NDR_ASTNode* node, long orderNumber){
     node->orderNumber = orderNumber;
 }
 void NDR_SetASTNodeNodeType(NDR_ASTNode* node, size_t nodeType){
@@ -187,7 +187,7 @@ char* NDR_GetASTNodeKeyword(NDR_ASTNode* node){
 char* NDR_GetASTNodeToken(NDR_ASTNode* node){
     return node->token;
 }
-size_t NDR_GetASTNodeOrderNumber(NDR_ASTNode* node){
+long NDR_GetASTNodeOrderNumber(NDR_ASTNode* node){
     return node->orderNumber;
 }
 size_t NDR_GetASTNodeNodeType(NDR_ASTNode* node){
