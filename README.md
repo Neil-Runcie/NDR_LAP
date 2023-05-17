@@ -31,7 +31,8 @@ In this example, any two numbers with a '+' character in between them will be se
 If there are multiple strings that should be associated with a given ID, then the string "\|" can be used to separate the values  
 
 For Example
-`multiplicationStatement: number x number
+`multiplicationStatement: number x number  
+
 			    \| number * number`
 
 In this example, any two numbers with a 'x' character in between them will be seen as a multiplicationStatement as well as any two numbers with a '*' character in between them
