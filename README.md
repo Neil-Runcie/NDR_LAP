@@ -14,3 +14,34 @@ These can be used within any c project created to access all of the features of 
 
 ## Documentation
 [Documentation for this project](documentation/html/index.html)
+
+
+
+
+NDR Parser
+
+The parser configuration works by first giving an ID followed immediately by a colon and then defining strings that are to be associated with the preceding ID
+The parser then compares the file text with the parser definitions and builds a syntax tree representing the text found.
+
+For Example
+additionStatement: number + number
+
+In this example, any two numbers with a '+' character in between them will be seen as an additionStatement
+
+If there are multiple strings that should be associated with a given ID, then the string "\|" can be used to separate the values  
+
+For Example
+`multiplicationStatement: number x number
+			    \| number * number`
+
+In this example, any two numbers with a 'x' character in between them will be seen as a multiplicationStatement as well as any two numbers with a '*' character in between them
+
+Note: The spacing does not matter
+
+`multiplicationStatement: number x number
+			    \| number * number`
+
+is equivalent to
+
+`multiplicationStatement: 
+	number x number			 \| number * number`
