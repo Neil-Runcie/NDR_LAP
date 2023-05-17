@@ -48,7 +48,7 @@ void \mbox{\hyperlink{ndr__astnode_8h_a5a9fd85d9ccc26a479d3d826b5df3a28}{NDR\+\_
 \begin{DoxyCompactList}\small\item\em Set the keyword string in the abstract syntax tree node. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{ndr__astnode_8h_a92b0447946ae9ccf2567900679f9b0d5}{NDR\+\_\+\+Set\+ASTNode\+Token}} (\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$node, char $\ast$token)
 \begin{DoxyCompactList}\small\item\em Set the token string in the abstract syntax tree node. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{ndr__astnode_8h_a7070981c72f4bc9c414d90e0a47e61ad}{NDR\+\_\+\+Set\+ASTNode\+Order\+Number}} (\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$node, size\+\_\+t order\+Number)
+void \mbox{\hyperlink{ndr__astnode_8h_a5a70431455d513fb279f08595c77fd2b}{NDR\+\_\+\+Set\+ASTNode\+Order\+Number}} (\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$node, long order\+Number)
 \begin{DoxyCompactList}\small\item\em Set the order\+Number in the abstract syntax tree node. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{ndr__astnode_8h_ae5877dab9cc3ef569539408aeb872c57}{NDR\+\_\+\+Set\+ASTNode\+Node\+Type}} (\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$node, size\+\_\+t node\+Type)
 \begin{DoxyCompactList}\small\item\em Set the node\+Type in the abstract syntax tree node. \end{DoxyCompactList}\item 
@@ -62,7 +62,7 @@ char $\ast$ \mbox{\hyperlink{ndr__astnode_8h_a237acfd420b3b6675b2e8e4952688e2f}{
 \begin{DoxyCompactList}\small\item\em Get the keyword associated with the abstract syntax tree node. \end{DoxyCompactList}\item 
 char $\ast$ \mbox{\hyperlink{ndr__astnode_8h_a94abb2fd0ff50038c49043eb275589df}{NDR\+\_\+\+Get\+ASTNode\+Token}} (\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$node)
 \begin{DoxyCompactList}\small\item\em Get the token associated with the abstract syntax tree node. \end{DoxyCompactList}\item 
-size\+\_\+t \mbox{\hyperlink{ndr__astnode_8h_ae1d5c4fbe5d9e15cebcd711cee1e7658}{NDR\+\_\+\+Get\+ASTNode\+Order\+Number}} (\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$node)
+long \mbox{\hyperlink{ndr__astnode_8h_a4c02f20faf860b862340b490ef9cb38d}{NDR\+\_\+\+Get\+ASTNode\+Order\+Number}} (\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$node)
 \begin{DoxyCompactList}\small\item\em Get the order\+Number associated with the abstract syntax tree node. \end{DoxyCompactList}\item 
 size\+\_\+t \mbox{\hyperlink{ndr__astnode_8h_a9760c701fa21413d7e825eafa940c2e0}{NDR\+\_\+\+Get\+ASTNode\+Node\+Type}} (\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$node)
 \begin{DoxyCompactList}\small\item\em Get the node\+Type associated with the abstract syntax tree node. \end{DoxyCompactList}\item 
@@ -575,11 +575,11 @@ Get the node\+Type associated with the abstract syntax tree node.
 \begin{DoxyReturn}{Returns}
 the node\+Type in the abstract syntax tree node 
 \end{DoxyReturn}
-\mbox{\Hypertarget{ndr__astnode_8h_ae1d5c4fbe5d9e15cebcd711cee1e7658}\label{ndr__astnode_8h_ae1d5c4fbe5d9e15cebcd711cee1e7658}} 
+\mbox{\Hypertarget{ndr__astnode_8h_a4c02f20faf860b862340b490ef9cb38d}\label{ndr__astnode_8h_a4c02f20faf860b862340b490ef9cb38d}} 
 \index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_GetASTNodeOrderNumber@{NDR\_GetASTNodeOrderNumber}}
 \index{NDR\_GetASTNodeOrderNumber@{NDR\_GetASTNodeOrderNumber}!ndr\_astnode.h@{ndr\_astnode.h}}
 \doxysubsubsection{\texorpdfstring{NDR\_GetASTNodeOrderNumber()}{NDR\_GetASTNodeOrderNumber()}}
-{\footnotesize\ttfamily size\+\_\+t NDR\+\_\+\+Get\+ASTNode\+Order\+Number (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$}]{node }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily long NDR\+\_\+\+Get\+ASTNode\+Order\+Number (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$}]{node }\end{DoxyParamCaption})}
 
 
 
@@ -790,11 +790,11 @@ Set the node\+Type in the abstract syntax tree node.
 {\em node\+Type} & is the number to be used \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{ndr__astnode_8h_a7070981c72f4bc9c414d90e0a47e61ad}\label{ndr__astnode_8h_a7070981c72f4bc9c414d90e0a47e61ad}} 
+\mbox{\Hypertarget{ndr__astnode_8h_a5a70431455d513fb279f08595c77fd2b}\label{ndr__astnode_8h_a5a70431455d513fb279f08595c77fd2b}} 
 \index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_SetASTNodeOrderNumber@{NDR\_SetASTNodeOrderNumber}}
 \index{NDR\_SetASTNodeOrderNumber@{NDR\_SetASTNodeOrderNumber}!ndr\_astnode.h@{ndr\_astnode.h}}
 \doxysubsubsection{\texorpdfstring{NDR\_SetASTNodeOrderNumber()}{NDR\_SetASTNodeOrderNumber()}}
-{\footnotesize\ttfamily void NDR\+\_\+\+Set\+ASTNode\+Order\+Number (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$}]{node,  }\item[{size\+\_\+t}]{order\+Number }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void NDR\+\_\+\+Set\+ASTNode\+Order\+Number (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$}]{node,  }\item[{long}]{order\+Number }\end{DoxyParamCaption})}
 
 
 
