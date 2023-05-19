@@ -85,6 +85,7 @@ static void AcknowledgeFoundToken(PStateRepresentation* pStateRepresentation);
 
 static bool compareTokenToParsingTable();
 static void condenseTable(int startingIndex, int amount, char* ID);
+bool IsTokenEligibleToBeID(char* token);
 static bool isTokenInTable(char* token);
 static bool verifyParseTokens(char* token, char* currentToken, PStateRepresentation* PSRep);
 static void findEscapedParsing(char* string, int* indices);
@@ -244,7 +245,10 @@ bool verifyParseTokens(char* token, char* currentToken, PStateRepresentation* PS
         token[strlen(token) - 1] = '\0';
         strcpy(currentToken, token);
         removeColonEscape(currentToken);
-
+        if(IsTokenEligibleToBeID(currentToken) == false){
+            printf("The ID \"%s\" has already been seen\n", currentToken);
+            return false;
+        }
         AcknowledgeFoundKeyword(PSRep);
     }
     // If the token is an escaped vertical line, then add to the number of patterns because an escaped vertical line means or in the parser config syntax
@@ -287,6 +291,14 @@ bool verifyParseTokens(char* token, char* currentToken, PStateRepresentation* PS
     return true;
 }
 
+bool IsTokenEligibleToBeID(char* token){
+    for(int x = 0; x < NDR_GetNumberOfSequences(PIWrapper); x++){
+        if(strcmp(NDR_GetSequenceInfo(PIWrapper, x)->keyword, token) == 0){
+            return false;
+        }
+    }
+    return true;
+}
 
 
 // compareTokenToParsingTable compares the current tokens to the parsing table to find the longest full match it can find
