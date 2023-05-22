@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="keywords" content="">
+    <meta name="description" content="NDR Lexer and Parser Documentation">
+    <meta name="author" content="Neil Runcie"> 
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="instructionstyle.css" >
+
+
+</head>
+<body>
+    <div style="width: 70%; margin: auto">
+        <div class="tab">
+          <button class="tabs" onclick="MainDoc()">NDRLAP</button>
+          <button class="tabs" onclick="LexDoc()">Lexer</button>
+          <button class="tabs" onclick="ParseDoc()">Parser</button>
+          <button class="tabs" onclick="LicenseDoc()">License</button>
+        </div>
+        <div id="mainDiv" style="display: block;">
+            <br>
+            <h2>NDR Lexer and Parser</h2>
+ 
+            <br>
+            <h4>1. Using the library</h4>
+            <hr>
+            The NDR_LAP library provides the tools for lexical analysis and test parsing for the purpose of developing programming languages and similar utilities.
+            <br><br>
+            The doxygen generated documetation for the exposed functionality of the NDR_LAP library can be found at "NDR_LAP/documentation/html/index.html" (open with your browser)
+            <br><br>
+            The NDR_LAP library provides 4 main functions to handle lexical analysis and parsing for compiler generation.<br>
+            <hr>
+            <ul>
+            <li><pre>int NDR_Configure_Lexer(char* fileName)</pre></li>
+            <li><pre>int NDR_Lex(char* fileName)</pre></li>
+            <li><pre>int NDR_Configure_Parser(char* fileName)</pre></li>
+            <li><pre>int NDR_Parse()</pre></li>
+            </ul>
+            <hr>
+            <br>
+            In addition to the above, there is a function <b>"void NDR_Set_Toggles(int argc, char* argv[])"</b> that allows you to set different toggles for debugging which will make the development process much easier. The toggles are below.<br>
+            <hr>
+            <ul>
+            <li><pre>// ST is the toggle for printing the symbolTable
+bool NDR_ST</pre>
+            If the NDR_ST toggle is set, then the information for eached recognized symbol will be printed in the following order.
+            <br>
+            (keyword) (instruction) (isLiteral) (regex)
+            <br><br>
+                </li>
+            <li><pre>// TT is the toggle for printing the tokenTable
+bool NDR_TT </pre>
+            If the NDR_TT toggle is set, then the tokens will be printed in the order they were found and will continue to be printed during every round of the parser processing to show how the program is being structured. Each line will have the following structure
+            <br>
+            (token) -- (keyword) -- (line number) -- (column number) -- (order number in AST)
+            <br><br></li>
+            <li><pre>// TL is the toggle for printing the tokenLocations
+bool NDR_TL</pre>
+            If the NDR_TL toggle is set, then the tokens will be printed in the order they were found. Each line will have the following structure
+            <br>
+            (token): line - (line number) --- column - (column number)
+            <br><br></li>
+            <li><pre>// M is the toggle for printing the matching process during the parsing process
+bool NDR_M </pre>
+            If the NDR_M toggle is set, then every attmpt to match a token with a provided regular expression will be printed along with whether or not the match was a success or failure
+            <br>
+                For Example: <pre>No match for "arg", using regex ^[\*]\z</pre>
+            <br></li>
+                <li><pre>// R is the toggle for regex symbol compilation
+bool NDR_R</pre>
+            If the NDR_R toggle is set, then the result of compiling each regex string will be printed. Each line will have the following structure
+            <br>
+            Success for token (regex) for keyword (keyword)
+            <br><br></li>
+                <li><pre>// PT is the toggle for printing the parseTable
+bool NDR_PT </pre>
+            If the NDR_PT toggle is set, then the sequences defined for the parser will be printed. Each line will have the following structure
+            <br>
+            (keyword): (sequence)
+            <br><br></li>
+            </ul>
+            <hr>
+            <br>
+            Note: The toggles can be set from command line and passed to the NDR_Set_Toggles function or set directly in the program by using the exposed extern variables.
+            <hr>
+            <pre>"(Program Executable name)" --TT --M </pre>
+            <hr>
+            or
+            <hr>
+<pre>NDR_TT = true;
+NDR_M = true;</pre>
+            <hr>
+            The "Lexer" and "Parser" tabs at the top of the page can be used to find more detailed explanations of how the lexer and parser tools work. 
+            <br>
+            An example program as well as the text files used in the example can be found below.
+            
+            <br><br><br>
+            <h4>2. Using the Abstract Syntax Tree</h4>
+            <hr>
+            There are four functions to help with tree traversal provided by the NDR_LAP library
+            <hr>
+            <ul>
+            <li><pre>NDR_ASTNode* NDR_ASTPreOrderTraversal(NDR_ASTNode* head)</pre></li>
+            <li><pre>NDR_ASTNode* NDR_ASTInOrderTraversal(NDR_ASTNode* head)</pre></li>
+            <li><pre>NDR_ASTNode* NDR_ASTPostOrderTraversal(NDR_ASTNode* head)</pre></li>
+            <li><pre>NDR_ASTNode* NDR_ASTBreadthFirstTraversal(NDR_ASTNode* head)</pre></li>
+            </ul>
+            <hr>
+            It is likely that for processing the abstract syntax tree you will need a more sophisticated method of traversal. If so, this can be achieved by accessing the children of a given node starting with the node that is at the top of the abstract syntax tree called <b>"NDR_ASTHead"</b>
+            
+            Traversal can then occur by going through each of the child nodes as shown below for example
+            <hr>
+            <pre>for(int i = 0; i &lt NDR_GetASTNodeNumChildren(NDR_ASTHead); i++){
+    if(NDR_GetASTNodeKeyword(NDR_GetASTNodeChild(NDR_ASTHead, i)) ....)
+        // Do something ...
+}</pre>
+            <br><br><br><h4>3. Example Program</h4>
+            <hr>
+            <pre>
+#include &ltstdio.h&gt
+#include &ltstdlib.h&gt
+
+#include "NDR_LAP/include/ndr_lap.h"
+
+
+// main calls the lexer, parser, and compiler functions to complete the translation process
+int main(int argc, char* argv[])
+{
+    // NDR_Set_Toggles allows for debugging of the lexer and parser during development but has no effect on the functionality
+    NDR_Set_Toggles(argc, argv);
+    
+    // (Mandatory) Using the lexer configuration file to configure the lexer before processing the code file
+    if(NDR_Configure_Lexer("testinputforlexer.txt") != 0)
+        return 1;
+        
+    // (Mandatory) Using the parser configuration file to configure the parser before processing the code file
+    if(NDR_Configure_Parser("testinputforparser.txt") != 0)
+        return 2;
+        
+    // (Mandatory) Performing lexical analysis on the code file
+    if(NDR_Lex("code.ndr") != 0)
+        return 3;
+        
+    // (Mandatory) Parsing the analyzed text and building the abstract syntax tree
+    if(NDR_Parse() != 0)
+        return 4;
+    
+    // The Compile function is purely for example. There are many ways to proceed with processing the abstract syntax tree depending on your implementation
+    if(Compile() != 0)
+        return 5;
+    
+    // Passing the top level node of the abstract syntax tree to NDR_DestroyASTTree to free the memory after processing is complete
+    NDR_DestroyASTTree(NDR_ASThead);
+
+    return 0;
+}
+
+
+
+// Compile handles all translation from the abstract syntax tree generated by the NDR_Parse function
+int Compile(){
+    // Getting the nodes one by one from the abstract syntax tree using a preorder traversal
+    // You will likely need to implement a more sophisticated traversal algorithm to successfully perform the translation
+    NDR_ASTNode* x = NDR_ASTPreOrderTraversal(NDR_ASThead);
+    while(x != NULL){
+        printf("\nTest1: %s | %s\n", x->keyword, x->token);
+        x = NDR_ASTPreOrderTraversal(NULL);
+    }
+
+    return 0;
+}
+</pre>
+            <hr>
+            <br><br><h4>testinputforlexer.txt</h4><hr>
+            <pre>
+ignore k{newline} {\n}
+ignore k{space} {[ \t]+}
+ignore k{comment} {!!.*}
+
+accept k{number} {[0], [1-9][0-9]*, [1-9][0-9]*\.[0-9]*, [0][x][0-9ABCDEF]+, [0][1-7]+[0-7]*}
+accept k{type} {num, string, char, bool, void}
+accept k{boolean} {true, false}
+accept k{assigner} {[=], [+][=], [-][=], [\*][=], [/][=], [%][=], [\^][=]}
+accept l {[\[], [\]], [(], [)], [\{], [\}], [\$],[\,], [\.], [@], [-][-][>], [;], [:]}
+accept k{ID} {[a-zA-Z][a-zA-Z0-9_]*}
+
+accept k{character} states:
+start {[']}
+allow {[\s\S]}
+escape {[\\\]}
+end {[']}
+
+accept k{string} states:
+start {["]}
+allow {[\s\S]}
+escape {[\\\]}
+end {["]}
+            </pre><hr>
+            <br><br><h4>testinputforparser.txt</h4><hr>
+
+<pre>
+*Accept: statements
+      \| statements *Accept
+      \| *Accept statements
+      \| *Accept *Accept
+
+statements: declarations ;
+         \| assignments ;
+         \| statements statements
+
+declarations: type ID assigner ID
+           \| type ID assigner primitive
+
+assignments: ID assigner ID
+          \| ID assigner primitive
+
+primitive: number
+        \| character
+        \| string
+        \| boolean
+</pre><hr>
+            <br>
+
+            <br><br><h4>Code.ndr</h4><hr>
+<pre>
+!! The current lexer and parser configurations will recognize simple declaration and assignment statements
+!! These comments will be ignored
+num x = 3;
+char y = '\n';
+x += y;
+</pre><hr>
+        </div>
+        <div id="lexDiv" style="display: none;">
+            <br>
+            <h2>NDR Lexer</h2>
+            <br>
+
+            The lexer is a lexical analysis tool that goes through a provided file and ensures that every token in the file is valid according to provided regular expression patterns.<br>
+            Before this process can take place, the parser needs to be configured with regular expression patterns and associated keywords to create an organized list of all tokens found in a provided file.<br><br>
+            
+            <br>
+            <h4>1. Token Definitions</h4>
+            <hr>
+            
+            A typical line in the lexer configuration file consist of a few parts<br>
+            
+            <b>1.</b> The first part is the instruction for what to do with the token. Either <b>accept</b>, <b>ignore</b>, or <b>error</b>
+            <ul>
+                <li><b>accept</b> will cause the lexer to categorize tokens that match a defined regex with the associated keyword for use with the parser</li>
+                <li><b>ignore</b> will cause the lexer to discard any token that matches the associated regex</li>
+                <li><b>error</b> will cause the lexer stop the lexical analysis and return an error when a token is found that matches the associated regex</li>
+            </ul>
+            <b>2.</b> The second part is the keyword associated with the token. This can either be an alias or the literal token itself.<br>
+            <ul>
+                <li>To specify an alias called <b>"test"</b>, surround the name like this <b>k{test}</b><br></li>
+                <li>To use the literal character as the name, use <b>"literal"</b> or <b>"l"</b></li>
+            </ul>
+
+            <b>3.</b> The third part is the regex for matching the token surrounded by curly braces
+            <br>
+            
+            <br>Some example lines are below<br>
+            <hr>
+<pre>accept k{test} {[test][ing]}
+accept literal {[test][ing]}</pre>
+            <hr>
+            
+            Another option for for defining how text should be matched is the <b>"states"</b> keyword. The states keyword allows you to define 4 states.
+            A start state, an allow state, an escape state, and an end state, with "start" and "end" being mandatory and "allow" and "escape" being optional.<br>
+            If allow is not specifed then it will be defaulted to <b>"{[\s\S]}"</b> which will match every character<br>
+            If escape is not specifed then it will be defaulted to <b>"{(?!)}"</b> which will not match any character<br>
+            Lastly, the <b>"literal"</b> keyword cannot be used with states.<br>
+            
+            <br>An example definition can be seen below.<br>
+            <hr>
+            <pre>accept k{testing} states:
+start {[t]}
+allow {[estin]}
+escape {[\]}
+end {[g]}</pre>
+            <hr>
+            The example above will start matching when a 't' is found. it will continue matching as long as the characters following the initial 't' are either 'e','s','t', or 'i'. 
+            Finally the matching will end whenever a 'g' is found as long as the escape character does not precede the end character/string.<br><br>
+            The following strings (and more) can be matched:<br>
+            <hr>
+<pre>testing
+teeessg
+tes\ge\gg -> tesgegg
+</pre><hr>
+            Note: when the end character is escaped, the final string can potentially have  characters in it that are not within the allow state definition.
+            To avoid this define your states like below
+            <hr>
+            <pre>accept k{testing} states:
+start {[t]}
+allow {[estin]}
+escape {(?!)}
+end {[g]}</pre>
+            <hr>
+            or
+            <hr>
+            <pre>accept k{testing} states:
+start {[t]}
+allow {[estin]}
+end {[g]}</pre>
+<hr>
+            This means that <b>"tes\ge\gg"</b> is no longer valid<br>
+            
+            <br><br>
+            <h4>2. Token Priority</h4>
+            <hr>
+            Below is an example lexer definition for recognizing variable names
+            <hr>
+            <pre>accept k{variable} {[a-zA-Z][a-zA-Z0-9_]*}</pre>
+            <hr>
+            Now, say you want to define keywords for a statically typed language like below
+            <hr>
+            <pre>accept k{type} {num, string, char, bool, void}</pre>
+            <hr>
+            Both of the regex sequences will match the token <b>"void"</b>. 
+            So how will the lexer know whether to categorize the token as an "variable" or a "type"?
+            <br>
+            The lexer will choose the keyword associated with whichever line is defined first.
+            <hr>
+            <pre>accept k{variable} {[a-zA-Z][a-zA-Z0-9_]*}</pre>
+            <pre>accept k{type} {num, string, char, bool, void}</pre>
+            <hr>
+            In the above example, <b>"void"</b> would be categorized as a variable
+            <hr>
+            <pre>accept k{type} {num, string, char, bool, void}</pre>
+            <pre>accept k{variable} {[a-zA-Z][a-zA-Z0-9_]*}</pre>
+            <hr>
+            In the above example, <b>"void"</b> would be categorized as a type<br>
+            <br><br><h4>3. Example Lexer code</h4>
+            <hr>
+            <pre>
+ignore k{newline} {\n}
+ignore k{space} {[ \t]+}
+ignore k{comment} {!!.*}
+
+accept k{number} {[0], [1-9][0-9]*, [1-9][0-9]*\.[0-9]*, [0][x][0-9ABCDEF]+, [0][1-7]+[0-7]*}
+accept k{type} {num, string, char, bool, void}
+accept k{boolean} {true, false}
+accept k{assigner} {[=], [+][=], [-][=], [\*][=], [/][=], [%][=], [\^][=]}
+accept l {[\[], [\]], [(], [)], [\{], [\}], [\$],[\,], [\.], [@], [-][-][>], [;], [:]}
+accept k{ID} {[a-zA-Z][a-zA-Z0-9_]*}
+
+accept k{character} states:
+start {[']}
+allow {[\s\S]}
+escape {[\\\]}
+end {[']}
+
+accept k{string} states:
+start {["]}
+allow {[\s\S]}
+escape {[\\\]}
+end {["]}
+            </pre>
+            <hr>
+        </div>
+            
+            
+        <div id="parseDiv" style="display: none;">
+            
+            <br><h2>NDR Parser</h2><br>
+            
+            <h4>1. Using the parser</h4>
+            <hr>
+            The parser is a tool that compares text sequences to single tokens/words found by the lexer and constructs an abstract syntax tree from the found sequences.<br>
+            Before this process can take place, the parser needs to be configured with the expected sequences of tokens and the keywords associated the sequences.<br><br>
+            
+            <p>The parser configuration works by first giving an keyword followed immediately by a colon and then defining strings that are to be associated with the preceding keyword.<br><br></p>
+
+            <p>For Example:</p>
+            <hr>
+            <pre>additionStatement: number arithmetic number</pre>
+            <hr>
+            <p>In this example, <b>"number"</b> and <b>"arithmetic"</b> are tokens previously defined in the lexer configuration as seen below<p>
+            <hr>
+            <pre>accept k{number} {[0], [1-9][0-9]*}</pre>
+            <pre>accept k{arithmetic} {[+], [-], [/], [\*]}</pre>
+            <hr>
+            any two numbers with a '+', '-', '/', '*' character in between them will be seen as an additionStatement.
+            <p>If there are multiple strings that should be associated with a given keyword, then the string <b>"\|"</b> can be used to separate the values.</p>
+            <p>For Example:</p>
+            <hr>
+            <pre>multiplicationStatement: number x number \| number * number</pre>
+            <hr>
+            <p>In the text above, <b>"number"</b> and <b>"x"</b> and <b>"*"</b> are tokens previously defined in the lexer configuration as seen below<p>
+            <hr>
+            <pre>accept k{number} {[0], [1-9][0-9]*}</pre>
+            <pre>accept l {[x], [\*]}</pre>
+            <hr>
+            <p>In this example, any two numbers with a 'x' character in between them will be seen as a multiplicationStatement as well as any two numbers with a '*' character in between them</p>
+
+            <p>Note: The spacing does not matter</p>
+            <hr>
+            <pre>multiplicationStatement:                number x number
+            \| number * number </pre>
+            <hr>
+            <p> is equivalent to </p>
+            <hr>
+            <pre>multiplicationStatement: number x number	      \| number * number</pre>
+            <hr>
+            <br>
+            <p>The keyword <b>"*Accept"</b> must be found within the parser configuration file once and only once. It is how the parser knows that an acceptable sequence of tokens has been found within the file being processed.<br><br>
+            A keyword cannot be defined more than once.</p>
+    
+            <br><br><h4>2. Example Parser code</h4>
+            <hr>
+
+<pre>
+*Accept: statements
+      \| statements *Accept
+      \| *Accept statements
+      \| *Accept *Accept
+
+statements: declarations ;
+         \| assignments ;
+         \| statements statements
+
+declarations: type ID assigner ID
+           \| type ID assigner primitive
+
+assignments: ID assigner ID
+          \| ID assigner primitive
+
+primitive: number
+        \| character
+        \| string
+        \| boolean
+</pre><hr>
+            <br>
+
+            <br><br><h4>3. Example Code file</h4><hr>
+<pre>
+!! The current lexer and parser configurations will recognize simple declaration and assignment statements
+!! These comments will be ignored
+num x = 3;
+char y = '\n';
+x += y;
+</pre><hr>
+            <br>
+        </div>  
+        <div id="licenseDiv" style="display: none;">
+            <br>
+            <h2>NDR_LAP License</h2>
+ 
+            <br>
+            <pre>BSD 3-Clause License
+
+Copyright (c) 2023, Neil Runcie
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this
+   list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</pre>
+        </div>
+    </div>
+
+  <script>
+      function MainDoc(){
+          var mainContent = document.getElementById("mainDiv");
+          mainContent.style.display = "block";
+          var lexContent = document.getElementById("lexDiv");
+          lexContent.style.display = "none";
+          var parseContent = document.getElementById("parseDiv");
+          parseContent.style.display = "none";
+          var licenseContent = document.getElementById("licenseDiv");
+          licenseContent.style.display = "none";
+      }
+      function LexDoc(){
+          var mainContent = document.getElementById("mainDiv");
+          mainContent.style.display = "none";
+          var lexContent = document.getElementById("lexDiv");
+          lexContent.style.display = "block";
+          var parseContent = document.getElementById("parseDiv");
+          parseContent.style.display = "none";
+          var licenseContent = document.getElementById("licenseDiv");
+          licenseContent.style.display = "none";
+      }
+      function ParseDoc(){
+          var mainContent = document.getElementById("mainDiv");
+          mainContent.style.display = "none";
+          var lexContent = document.getElementById("lexDiv");
+          lexContent.style.display = "none";
+          var parseContent = document.getElementById("parseDiv");
+          parseContent.style.display = "block";
+          var licenseContent = document.getElementById("licenseDiv");
+          licenseContent.style.display = "none";
+      }
+      function LicenseDoc(){
+          var mainContent = document.getElementById("mainDiv");
+          mainContent.style.display = "none";
+          var lexContent = document.getElementById("lexDiv");
+          lexContent.style.display = "none";
+          var parseContent = document.getElementById("parseDiv");
+          parseContent.style.display = "none";
+          var licenseContent = document.getElementById("licenseDiv");
+          licenseContent.style.display = "block";
+      }
+  </script>
+    
+</body>
