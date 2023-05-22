@@ -13,5 +13,7 @@ After running cmake and make commands to build the project, the necessary librar
 These can be used within any c project created to access all of the features of NDR_LAP 
 
 ## Documentation
-[Documentation for this project](documentation/html/index.html)
+For high level documentation for the NDR_LAP library, open the instruction.html page in your browser
+
+For the exposed functionality of the NDR_LAP library, open the doxygen generated documentation by going to documentation/html/index.html and opening the file in your browser
 
