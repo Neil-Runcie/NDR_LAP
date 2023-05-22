@@ -173,6 +173,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a6261f7739ba8dfb617215cca94106a42"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#a6261f7739ba8dfb617215cca94106a42">NDR_GetASTNodeColumnNumber</a> (<a class="el" href="structNDR__ASTNode.html">NDR_ASTNode</a> *node)</td></tr>
 <tr class="memdesc:a6261f7739ba8dfb617215cca94106a42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the columnNumber associated with the abstract syntax tree node.  <a href="ndr__astnode_8h.html#a6261f7739ba8dfb617215cca94106a42">More...</a><br /></td></tr>
 <tr class="separator:a6261f7739ba8dfb617215cca94106a42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc0b8c68dba68f69a3150504051ca744"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#acc0b8c68dba68f69a3150504051ca744">NDR_GetASTNodeNumChildren</a> (<a class="el" href="structNDR__ASTNode.html">NDR_ASTNode</a> *node)</td></tr>
+<tr class="memdesc:acc0b8c68dba68f69a3150504051ca744"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of children associated with the abstract syntax tree node.  <a href="ndr__astnode_8h.html#acc0b8c68dba68f69a3150504051ca744">More...</a><br /></td></tr>
+<tr class="separator:acc0b8c68dba68f69a3150504051ca744"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14e1644f57e5d0add116de968dd43713"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structNDR__ASTNode.html">NDR_ASTNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#a14e1644f57e5d0add116de968dd43713">NDR_GetASTNodeChild</a> (<a class="el" href="structNDR__ASTNode.html">NDR_ASTNode</a> *node, size_t index)</td></tr>
+<tr class="memdesc:a14e1644f57e5d0add116de968dd43713"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the child from the node by index.  <a href="ndr__astnode_8h.html#a14e1644f57e5d0add116de968dd43713">More...</a><br /></td></tr>
+<tr class="separator:a14e1644f57e5d0add116de968dd43713"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae05fb1e04a84211b824aa9ab8bce08c6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structNDR__ASTNode.html">NDR_ASTNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ndr__astnode_8h.html#ae05fb1e04a84211b824aa9ab8bce08c6">NDR_GetASTNode</a> (<a class="el" href="structNDR__ASTNodeHolder.html">NDR_ASTNodeHolder</a> *nodeWrapper, size_t index)</td></tr>
 <tr class="memdesc:ae05fb1e04a84211b824aa9ab8bce08c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a node from the provided nodeWrapper.  <a href="ndr__astnode_8h.html#ae05fb1e04a84211b824aa9ab8bce08c6">More...</a><br /></td></tr>
 <tr class="separator:ae05fb1e04a84211b824aa9ab8bce08c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -929,6 +935,44 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a14e1644f57e5d0add116de968dd43713"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14e1644f57e5d0add116de968dd43713">&#9670;&nbsp;</a></span>NDR_GetASTNodeChild()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structNDR__ASTNode.html">NDR_ASTNode</a>* NDR_GetASTNodeChild </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structNDR__ASTNode.html">NDR_ASTNode</a> *&#160;</td>
+          <td class="paramname"><em>node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the child from the node by index. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>is an initialized abstract syntax tree node </td></tr>
+    <tr><td class="paramname">index</td><td>is the index of the child node to be retrieved </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a child node from the provided node specified by the provided index </dd></dl>
+
+</div>
+</div>
 <a id="a6261f7739ba8dfb617215cca94106a42"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6261f7739ba8dfb617215cca94106a42">&#9670;&nbsp;</a></span>NDR_GetASTNodeColumnNumber()</h2>
 
@@ -1034,6 +1078,33 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the nodeType in the abstract syntax tree node </dd></dl>
+
+</div>
+</div>
+<a id="acc0b8c68dba68f69a3150504051ca744"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc0b8c68dba68f69a3150504051ca744">&#9670;&nbsp;</a></span>NDR_GetASTNodeNumChildren()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t NDR_GetASTNodeNumChildren </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structNDR__ASTNode.html">NDR_ASTNode</a> *&#160;</td>
+          <td class="paramname"><em>node</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the number of children associated with the abstract syntax tree node. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>is an initialized abstract syntax tree node </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the number of children in the abstract syntax tree node </dd></dl>
 
 </div>
 </div>

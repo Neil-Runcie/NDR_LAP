@@ -70,6 +70,10 @@ size\+\_\+t \mbox{\hyperlink{ndr__astnode_8h_a530e4c64242ce4f36e4b351b48778cd9}{
 \begin{DoxyCompactList}\small\item\em Get the line\+Number associated with the abstract syntax tree node. \end{DoxyCompactList}\item 
 size\+\_\+t \mbox{\hyperlink{ndr__astnode_8h_a6261f7739ba8dfb617215cca94106a42}{NDR\+\_\+\+Get\+ASTNode\+Column\+Number}} (\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$node)
 \begin{DoxyCompactList}\small\item\em Get the column\+Number associated with the abstract syntax tree node. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{ndr__astnode_8h_acc0b8c68dba68f69a3150504051ca744}{NDR\+\_\+\+Get\+ASTNode\+Num\+Children}} (\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$node)
+\begin{DoxyCompactList}\small\item\em Get the number of children associated with the abstract syntax tree node. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$ \mbox{\hyperlink{ndr__astnode_8h_a14e1644f57e5d0add116de968dd43713}{NDR\+\_\+\+Get\+ASTNode\+Child}} (\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$node, size\+\_\+t index)
+\begin{DoxyCompactList}\small\item\em Get the child from the node by index. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$ \mbox{\hyperlink{ndr__astnode_8h_ae05fb1e04a84211b824aa9ab8bce08c6}{NDR\+\_\+\+Get\+ASTNode}} (\mbox{\hyperlink{structNDR__ASTNodeHolder}{NDR\+\_\+\+ASTNode\+Holder}} $\ast$node\+Wrapper, size\+\_\+t index)
 \begin{DoxyCompactList}\small\item\em Get a node from the provided node\+Wrapper. \end{DoxyCompactList}\item 
 size\+\_\+t \mbox{\hyperlink{ndr__astnode_8h_acbaf7a671d5fe327da78dadce4963d2f}{NDR\+\_\+\+Get\+Total\+ASTTree\+Nodes}} (\mbox{\hyperlink{structNDR__ASTNodeHolder}{NDR\+\_\+\+ASTNode\+Holder}} $\ast$node\+Wrapper)
@@ -503,6 +507,26 @@ Get a node from the provided node\+Wrapper.
 \begin{DoxyReturn}{Returns}
 a node from the node\+Wrapper specified by the provided index 
 \end{DoxyReturn}
+\mbox{\Hypertarget{ndr__astnode_8h_a14e1644f57e5d0add116de968dd43713}\label{ndr__astnode_8h_a14e1644f57e5d0add116de968dd43713}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_GetASTNodeChild@{NDR\_GetASTNodeChild}}
+\index{NDR\_GetASTNodeChild@{NDR\_GetASTNodeChild}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_GetASTNodeChild()}{NDR\_GetASTNodeChild()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}}$\ast$ NDR\+\_\+\+Get\+ASTNode\+Child (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$}]{node,  }\item[{size\+\_\+t}]{index }\end{DoxyParamCaption})}
+
+
+
+Get the child from the node by index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & is an initialized abstract syntax tree node \\
+\hline
+{\em index} & is the index of the child node to be retrieved \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a child node from the provided node specified by the provided index 
+\end{DoxyReturn}
 \mbox{\Hypertarget{ndr__astnode_8h_a6261f7739ba8dfb617215cca94106a42}\label{ndr__astnode_8h_a6261f7739ba8dfb617215cca94106a42}} 
 \index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_GetASTNodeColumnNumber@{NDR\_GetASTNodeColumnNumber}}
 \index{NDR\_GetASTNodeColumnNumber@{NDR\_GetASTNodeColumnNumber}!ndr\_astnode.h@{ndr\_astnode.h}}
@@ -574,6 +598,24 @@ Get the node\+Type associated with the abstract syntax tree node.
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 the node\+Type in the abstract syntax tree node 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ndr__astnode_8h_acc0b8c68dba68f69a3150504051ca744}\label{ndr__astnode_8h_acc0b8c68dba68f69a3150504051ca744}} 
+\index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_GetASTNodeNumChildren@{NDR\_GetASTNodeNumChildren}}
+\index{NDR\_GetASTNodeNumChildren@{NDR\_GetASTNodeNumChildren}!ndr\_astnode.h@{ndr\_astnode.h}}
+\doxysubsubsection{\texorpdfstring{NDR\_GetASTNodeNumChildren()}{NDR\_GetASTNodeNumChildren()}}
+{\footnotesize\ttfamily size\+\_\+t NDR\+\_\+\+Get\+ASTNode\+Num\+Children (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNDR__ASTNode}{NDR\+\_\+\+ASTNode}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+
+
+Get the number of children associated with the abstract syntax tree node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & is an initialized abstract syntax tree node \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the number of children in the abstract syntax tree node 
 \end{DoxyReturn}
 \mbox{\Hypertarget{ndr__astnode_8h_a4c02f20faf860b862340b490ef9cb38d}\label{ndr__astnode_8h_a4c02f20faf860b862340b490ef9cb38d}} 
 \index{ndr\_astnode.h@{ndr\_astnode.h}!NDR\_GetASTNodeOrderNumber@{NDR\_GetASTNodeOrderNumber}}
