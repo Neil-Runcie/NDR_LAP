@@ -199,6 +199,12 @@ size_t NDR_GetASTNodeLineNumber(NDR_ASTNode* node){
 size_t NDR_GetASTNodeColumnNumber(NDR_ASTNode* node){
     return node->columnNumber;
 }
+size_t NDR_GetASTNodeNumChildren(NDR_ASTNode* node){
+    return node->numberOfChildren;
+}
+NDR_ASTNode* NDR_GetASTNodeChild(NDR_ASTNode* node, size_t index){
+    return node->children[index];
+}
 
 NDR_ASTNode* NDR_GetASTNode(NDR_ASTNodeHolder* nodeWrapper, size_t index){
     return nodeWrapper->nodes[index];

@@ -204,7 +204,19 @@ size_t NDR_GetASTNodeLineNumber(NDR_ASTNode* node);
 * @return the columnNumber in the abstract syntax tree node
 */
 size_t NDR_GetASTNodeColumnNumber(NDR_ASTNode* node);
-
+/** @brief Get the number of children associated with the abstract syntax tree node
+*
+* @param node is an initialized abstract syntax tree node
+* @return the number of children in the abstract syntax tree node
+*/
+size_t NDR_GetASTNodeNumChildren(NDR_ASTNode* node);
+/** @brief Get the child from the node by index
+*
+* @param node is an initialized abstract syntax tree node
+* @param index is the index of the child node to be retrieved
+* @return a child node from the provided node specified by the provided index
+*/
+NDR_ASTNode* NDR_GetASTNodeChild(NDR_ASTNode* node, size_t index);
 /** @brief Get a node from the provided nodeWrapper
 *
 * @param nodeWrapper is an initialized NDR_ASTNodeHolder structure

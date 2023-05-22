@@ -135,6 +135,7 @@ static bool IsOneTimeSettingSeen(LexerLineCategorizer* lineCategorizer);
 static bool ProcessTokensAfterItems(LexerLineCategorizer* lineCategorizer, int index);
 static int ExtractRegexStrings(char* regex, char** extractedStrings);
 
+int CompareUsingRegex(TokenMatchingState* matchingState, int RSIndex, int RegIndex);
 static bool doesCharMatchAllowRegex(int stateIndex, char* comparisonString);
 static bool doesCharMatchEscapeRegex(int stateIndex, char* comparisonString);
 
@@ -162,12 +163,22 @@ static bool AUTO_TRIM = true;
 static bool MATCH_ALL = true;
 static bool MATCH_ALL_isSeen = false;
 
+static bool configuringAttempted = false;
+static bool lexingAttempted = false;
+static bool configuringCompleted = false;
+static bool lexingCompleted = false;
 
 static NDR_RegexStateWrapper* RSWrapper = NULL;
 
 NDR_TokenInformationWrapper* TIWrapper = NULL;
 
 int NDR_Configure_Lexer(char* fileName){
+
+    if(configuringAttempted == true){
+        printf("\nLexer configuration has already been performed\n");
+        return 1;
+    }
+    configuringAttempted = true;
 
     if(fileName == NULL || strcmp(fileName, "") == 0){
         printf("A non-empty filename must be provided for lexer configuration\n");
@@ -267,7 +278,7 @@ int NDR_Configure_Lexer(char* fileName){
                     return 1;
                 }
                 else if(NDR_R == true){
-                    printf("Success for token \"%s\" for keyword %s\n", extractedStrings[counts], NDR_RSGetKeyword(NDR_RSGetLastRegexState(RSWrapper)));
+                    printf("Success for token \"%s\" for keyword \"%s\"\n", extractedStrings[counts], NDR_RSGetKeyword(NDR_RSGetLastRegexState(RSWrapper)));
                 }
                 free(extractedStrings[counts]);
             }
@@ -335,6 +346,9 @@ int NDR_Configure_Lexer(char* fileName){
                     printf("\nError compiling symbol regex \"%s\" for keyword \"%s\" found on line %i\n", extractedStrings[counts], NDR_RSGetKeyword(NDR_RSGetLastRegexState(RSWrapper)), lexerLineNumber);
                     return 1;
                 }
+                else if(NDR_R == true){
+                    printf("Success for token \"%s\" for keyword \"%s\"\n", extractedStrings[counts], NDR_RSGetKeyword(NDR_RSGetLastRegexState(RSWrapper)));
+                }
                 free(extractedStrings[counts]);
             }
         }
@@ -364,49 +378,26 @@ int NDR_Configure_Lexer(char* fileName){
     free(lineCategorizer);
     free(extractedStrings);
 
+    configuringCompleted = true;
+
+    printf("\nLexer configured successfully\n");
+
     return 0;
 
 }
 
-
-int CompareUsingRegex(TokenMatchingState* matchingState, int RSIndex, int RegIndex){
-
-    matchingState->matchValue = NDR_RSGetMatchResult(NDR_RSGetRegexState(RSWrapper, RSIndex), getMatchToken(matchingState), STARTSTATE, RegIndex);
-
-    if(matchingState->matchValue == 0) {
-        printf("offset vector too small for \"%s\", using regex %s\n", getMatchToken(matchingState), NDR_RSGetStartRegex(NDR_RSGetRegexState(RSWrapper, RSIndex), RegIndex));
-        return 1;
-    }
-    else if(matchingState->matchValue == PCRE2_ERROR_NOMATCH){
-        if (NDR_M == true)
-            printf("No match for \"%s\", using regex %s\n", getMatchToken(matchingState), NDR_RSGetStartRegex(NDR_RSGetRegexState(RSWrapper, RSIndex), RegIndex));
-    }
-    else if(matchingState->matchValue == PCRE2_ERROR_PARTIAL && matchingState->highestMatchSeen == NOMATCH){
-        if (NDR_M == true)
-            printf("Partial Match for %s, using regex %s\n", getMatchToken(matchingState), NDR_RSGetStartRegex(NDR_RSGetRegexState(RSWrapper, RSIndex), RegIndex));
-
-        calcBackTrack(matchingState, matchingState->ch);
-        AcknowledgePotentialMatch(matchingState);
-    }
-    else if (matchingState->matchValue == 1){
-        if (NDR_M == true)
-            printf("Match success for %s, using regex %s\n", getMatchToken(matchingState), NDR_RSGetStartRegex(NDR_RSGetRegexState(RSWrapper, RSIndex), RegIndex));
-
-        if (IsBestMatch(matchingState, RSIndex) == true)
-            SetBestMatchIndex(matchingState, RSIndex);
-
-        resetBackTrackAmount(matchingState);
-        AcknowledgeCompleteMatch(matchingState);
-    }
-    else if(matchingState->matchValue != PCRE2_ERROR_PARTIAL){
-        printf("Matching error for \"%s\", using regex %s\n", getMatchToken(matchingState), NDR_RSGetStartRegex(NDR_RSGetRegexState(RSWrapper, RSIndex), RegIndex));
-        return 1;
-    }
-
-    return 0;
-}
 
 int NDR_Lex(char* fileName){
+
+    if(lexingAttempted == true){
+        printf("\nCode file lexical analysis has already been performed\n");
+        return 1;
+    }
+    lexingAttempted = true;
+    if(configuringCompleted == false){
+        printf("\nLexer configuration failed so lexical analysis cannot proceed\n");
+        return 1;
+    }
 
     if(RSWrapper == NULL){
         printf("\nCall function \"int Configure_Lexer(char* fileName)\" to setup the lexer configuration before calling function \"int Lex(char* fileName)\"\n");
@@ -660,12 +651,12 @@ int NDR_Lex(char* fileName){
     code = NULL;
     free(code);
 
+    lexingCompleted = true;
+
     printf("\nLexical analysis successful\n");
 
     return 0;
 }
-
-
 
 
 // verifyTokens is used to validate each line of the lexer config file and assign the config values to the tokens array
@@ -872,6 +863,42 @@ bool verifyLineTokens(LexerLineCategorizer* lineCategorizer, StateRepresentation
     return true;
 }
 
+int CompareUsingRegex(TokenMatchingState* matchingState, int RSIndex, int RegIndex){
+
+    matchingState->matchValue = NDR_RSGetMatchResult(NDR_RSGetRegexState(RSWrapper, RSIndex), getMatchToken(matchingState), STARTSTATE, RegIndex);
+
+    if(matchingState->matchValue == 0) {
+        printf("offset vector too small for \"%s\", using regex %s\n", getMatchToken(matchingState), NDR_RSGetStartRegex(NDR_RSGetRegexState(RSWrapper, RSIndex), RegIndex));
+        return 1;
+    }
+    else if(matchingState->matchValue == PCRE2_ERROR_NOMATCH){
+        if (NDR_M == true)
+            printf("No match for \"%s\", using regex %s\n", getMatchToken(matchingState), NDR_RSGetStartRegex(NDR_RSGetRegexState(RSWrapper, RSIndex), RegIndex));
+    }
+    else if(matchingState->matchValue == PCRE2_ERROR_PARTIAL && matchingState->highestMatchSeen == NOMATCH){
+        if (NDR_M == true)
+            printf("Partial Match for %s, using regex %s\n", getMatchToken(matchingState), NDR_RSGetStartRegex(NDR_RSGetRegexState(RSWrapper, RSIndex), RegIndex));
+
+        calcBackTrack(matchingState, matchingState->ch);
+        AcknowledgePotentialMatch(matchingState);
+    }
+    else if (matchingState->matchValue == 1){
+        if (NDR_M == true)
+            printf("Match success for %s, using regex %s\n", getMatchToken(matchingState), NDR_RSGetStartRegex(NDR_RSGetRegexState(RSWrapper, RSIndex), RegIndex));
+
+        if (IsBestMatch(matchingState, RSIndex) == true)
+            SetBestMatchIndex(matchingState, RSIndex);
+
+        resetBackTrackAmount(matchingState);
+        AcknowledgeCompleteMatch(matchingState);
+    }
+    else if(matchingState->matchValue != PCRE2_ERROR_PARTIAL){
+        printf("Matching error for \"%s\", using regex %s\n", getMatchToken(matchingState), NDR_RSGetStartRegex(NDR_RSGetRegexState(RSWrapper, RSIndex), RegIndex));
+        return 1;
+    }
+
+    return 0;
+}
 
 /*
 Tokens to manipulate TokenMatchingState structures

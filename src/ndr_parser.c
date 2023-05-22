@@ -97,6 +97,11 @@ static bool sContainsInt(int* arr, int index);
 //static int getLongestParseSequence();
 static void copyTTToMT();
 
+static bool configuringAttempted = false;
+static bool parsingAttempted = false;
+static bool configuringCompleted = false;
+static bool parsingCompleted = false;
+
 static NDR_SequenceInformationWrapper* PIWrapper = NULL;
 extern NDR_TokenInformationWrapper* TIWrapper;
 static NDR_TreeTokenInfoWrapper* TTIWrapper = NULL;
@@ -104,8 +109,15 @@ static NDR_ASTNodeHolder* NWrapper;
 // head refers to the top level node in the syntax tree
 NDR_ASTNode* NDR_ASThead;
 
+
 // The Parse function is the driver for the Parser and should be called after Lex
 int NDR_Configure_Parser(char* fileName){
+
+    if(configuringAttempted == true){
+        printf("\nParser configuration has already been performed\n");
+        return 1;
+    }
+    configuringAttempted = true;
 
     if(fileName == NULL || strcmp(fileName, "") == 0){
         printf("A non-empty filename must be provided for lexer configuration\n");
@@ -187,10 +199,26 @@ int NDR_Configure_Parser(char* fileName){
 
     free(currentToken);
 
+    configuringCompleted = true;
+
+    printf("\nParser configured successfully\n");
+
     return 0;
 
 }
+
+
 int NDR_Parse(){
+
+    if(parsingAttempted == true){
+        printf("\nCode file  parsing has already been performed\n");
+        return 1;
+    }
+    parsingAttempted = true;
+    if(configuringCompleted == false){
+        printf("\nParser configuration failed so parsing cannot proceed\n");
+        return 1;
+    }
 
     if(TIWrapper == NULL){
         printf("\nCall function \"int Lex(char* fileName)\" to read the source file before calling function \"int Parse()\"\n");
@@ -211,6 +239,7 @@ int NDR_Parse(){
 
     NDR_ASThead = malloc(sizeof(NDR_ASTNode));
     if(compareTokenToParsingTable()){
+        parsingCompleted = true;
         printf("\nParsing successful\n");
         return 0;
     }
