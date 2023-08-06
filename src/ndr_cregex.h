@@ -45,7 +45,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "ndr_statecategories.h"
 
-#include "regex_engines/NDR_CRegex/include/ndr_regex.h"
+#include "regex_engines/ndr_regex.h"
 
 typedef struct NDR_RegexState {
     char* keyword;

@@ -93,16 +93,6 @@ void NDR_FreeRegexState(NDR_RegexState* state){
     free(state->compiledEndRegex);
 }
 
-void NDR_AddRegexState(NDR_RegexStateWrapper* regexStateWrapper){
-    if(regexStateWrapper->numStates > regexStateWrapper->memoryAllocated - 5){
-        regexStateWrapper->memoryAllocated = regexStateWrapper->memoryAllocated * 2;
-        regexStateWrapper->regexStates = realloc(regexStateWrapper->regexStates, sizeof(NDR_RegexState*) * regexStateWrapper->memoryAllocated);
-    }
-    regexStateWrapper->regexStates[regexStateWrapper->numStates] = malloc(sizeof(NDR_RegexState));
-    NDR_InitializeRegexState(regexStateWrapper->regexStates[regexStateWrapper->numStates]);
-    regexStateWrapper->numStates++;
-}
-
 int NDR_AddStartRegex(NDR_RegexState* state, char* regex){
 
     state->startRegex = realloc(state->startRegex, sizeof(char*) * (state->numStartStates + 2));
