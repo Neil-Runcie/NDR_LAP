@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['keyword_186',['keyword',['../structNDR__ASTNode.html#a8ba284d84dd5855871f444fc92b2d038',1,'NDR_ASTNode']]]
+  ['endregex_234',['endRegex',['../structNDR__RegexState.html#a88eab2d5068866aba9d146ddb3cf456c',1,'NDR_RegexState']]],
+  ['escaperegex_235',['escapeRegex',['../structNDR__RegexState.html#a558c8535fd47c7efac67410e4ebfa031',1,'NDR_RegexState']]]
 ];

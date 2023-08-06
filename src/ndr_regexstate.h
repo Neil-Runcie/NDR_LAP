@@ -39,37 +39,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "ndr_statecategories.h"
 
-#define PCRE2_STATIC
-#define PCRE2_CODE_UNIT_WIDTH 8
-#include "regex_engines/PCRE2/include/pcre2.h"
+#include "ndr_cregex.h"
 
-//typedef struct NDR_RegexState NDR_RegexState;
-
-//typedef struct NDR_RegexStateWrapper NDR_RegexStateWrapper;
-
-typedef struct NDR_RegexState {
-    char* keyword;
-    bool isState;
-    bool isLiteral;
-    NDR_StateCategories category;
-
-    size_t numStartStates;
-    size_t numAllowStates;
-    size_t numEscapeStates;
-    size_t numEndStates;
-    char** startRegex;
-    char** allowRegex;
-    char** escapeRegex;
-    char** endRegex;
-    pcre2_code** compiledStartRegex;
-    pcre2_code** compiledAllowRegex;
-    pcre2_code** compiledEscapeRegex;
-    pcre2_code** compiledEndRegex;
-    pcre2_match_data** matchStartData;
-    pcre2_match_data** matchAllowData;
-    pcre2_match_data** matchEscapeData;
-    pcre2_match_data** matchEndData;
-} NDR_RegexState;
 
 typedef struct NDR_RegexStateWrapper {
     size_t numStates;
@@ -79,18 +50,10 @@ typedef struct NDR_RegexStateWrapper {
 
 
 void NDR_InitializeRegexStateWrapper(NDR_RegexStateWrapper* regexStateWrapper);
-void NDR_InitializeRegexState(NDR_RegexState* state);
 void NDR_FreeRegexStateWrapper(NDR_RegexStateWrapper* regexStateWrapper);
-void NDR_FreeRegexState(NDR_RegexState* state);
 
 void NDR_AddRegexState(NDR_RegexStateWrapper* regexStateWrapper);
-
 int NDR_CheckAndAddStateRegex(NDR_RegexStateWrapper* regexState, NDR_StateCategories state, char* regexString);
-int NDR_AddStartRegex(NDR_RegexState* state, char* regexString);
-int NDR_AddAllowRegex(NDR_RegexState* state, char* regexString);
-int NDR_AddEscapeRegex(NDR_RegexState* state, char* regexString);
-int NDR_AddEndRegex(NDR_RegexState* state, char* regexString);
-int NDR_CompileStateRegex(pcre2_code** regexTable, pcre2_match_data** matchDataTable, int stateIndex, char* regexString);
 
 int NDR_FindStartRegex(NDR_RegexStateWrapper* regexStateWrapper, char* regexString);
 int NDR_FindAllowRegex(NDR_RegexStateWrapper* regexStateWrapper, char* regexString);
@@ -121,8 +84,6 @@ char* NDR_RSGetStartRegex(NDR_RegexState* regexState, int index);
 char* NDR_RSGetAllowRegex(NDR_RegexState* regexState, int index);
 char* NDR_RSGetEscapeRegex(NDR_RegexState* regexState, int index);
 char* NDR_RSGetEndRegex(NDR_RegexState* regexState, int index);
-
-int NDR_RSGetMatchResult(NDR_RegexState* regexState, char* token, NDR_StateCategories category, int regIndex);
 
 NDR_RegexState** NDR_RSGetRegexStates(NDR_RegexStateWrapper* regexStateWrapper);
 NDR_RegexState* NDR_RSGetRegexState(NDR_RegexStateWrapper* regexStateWrapper, int index);

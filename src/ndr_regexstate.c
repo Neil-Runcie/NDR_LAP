@@ -48,28 +48,6 @@ void NDR_InitializeRegexStateWrapper(NDR_RegexStateWrapper* regexStateWrapper){
     regexStateWrapper->regexStates = malloc(sizeof(NDR_RegexState*) * regexStateWrapper->memoryAllocated);
 }
 
-void NDR_InitializeRegexState(NDR_RegexState* state){
-    state->keyword = malloc(1);
-    state->isState = false;
-    state->isLiteral = false;
-    state->category = ACCEPT;
-    state->numStartStates = 0;
-    state->numAllowStates = 0;
-    state->numEscapeStates = 0;
-    state->numEndStates = 0;
-    state->startRegex = malloc(sizeof(char*));
-    state->allowRegex = malloc(sizeof(char*));
-    state->escapeRegex = malloc(sizeof(char*));
-    state->endRegex = malloc(sizeof(char*));
-    state->compiledStartRegex = malloc(sizeof(pcre2_code*));
-    state->compiledAllowRegex = malloc(sizeof(pcre2_code*));
-    state->compiledEscapeRegex = malloc(sizeof(pcre2_code*));
-    state->compiledEndRegex = malloc(sizeof(pcre2_code*));
-    state->matchStartData = malloc(sizeof(pcre2_match_data*));
-    state->matchAllowData = malloc(sizeof(pcre2_match_data*));
-    state->matchEscapeData = malloc(sizeof(pcre2_match_data*));
-    state->matchEndData = malloc(sizeof(pcre2_match_data*));
-}
 
 void NDR_FreeRegexStateWrapper(NDR_RegexStateWrapper* regexStateWrapper){
 
@@ -78,44 +56,6 @@ void NDR_FreeRegexStateWrapper(NDR_RegexStateWrapper* regexStateWrapper){
         free(regexStateWrapper->regexStates[x]);
     }
     free(regexStateWrapper->regexStates);
-}
-
-void NDR_FreeRegexState(NDR_RegexState* state){
-
-    free(state->keyword);
-
-    for(size_t x = 0; x < state->numStartStates; x++){
-        free(state->startRegex[x]);
-        pcre2_match_data_free(state->matchStartData[x]);              // Release memory used for the match
-        pcre2_code_free(state->compiledStartRegex[x]);                // data and the compiled pattern.
-    }
-    for(size_t x = 0; x < state->numAllowStates; x++){
-        free(state->allowRegex[x]);
-        pcre2_match_data_free(state->matchAllowData[x]);              // Release memory used for the match
-        pcre2_code_free(state->compiledAllowRegex[x]);                // data and the compiled pattern.
-    }
-    for(size_t x = 0; x < state->numEscapeStates; x++){
-        free(state->escapeRegex[x]);
-        pcre2_match_data_free(state->matchEscapeData[x]);              // Release memory used for the match
-        pcre2_code_free(state->compiledEscapeRegex[x]);                // data and the compiled pattern.
-    }
-    for(size_t x = 0; x < state->numEndStates; x++){
-        free(state->endRegex[x]);
-        pcre2_match_data_free(state->matchEndData[x]);              // Release memory used for the match
-        pcre2_code_free(state->compiledEndRegex[x]);                // data and the compiled pattern.
-    }
-    free(state->startRegex);
-    free(state->allowRegex);
-    free(state->escapeRegex);
-    free(state->endRegex);
-    free(state->compiledStartRegex);
-    free(state->compiledAllowRegex);
-    free(state->compiledEscapeRegex);
-    free(state->compiledEndRegex);
-    free(state->matchStartData);
-    free(state->matchAllowData);
-    free(state->matchEscapeData);
-    free(state->matchEndData);
 }
 
 void NDR_AddRegexState(NDR_RegexStateWrapper* regexStateWrapper){
@@ -164,84 +104,6 @@ int NDR_CheckAndAddStateRegex(NDR_RegexStateWrapper* regexStateWrapper, NDR_Stat
 
     return 0;
 }
-
-int NDR_AddStartRegex(NDR_RegexState* state, char* regex){
-
-    state->startRegex = realloc(state->startRegex, sizeof(char*) * (state->numStartStates + 2));
-    state->startRegex[state->numStartStates] = malloc(strlen(regex) + 1);
-    strcpy(state->startRegex[state->numStartStates], regex);
-
-    state->compiledStartRegex = realloc(state->compiledStartRegex, sizeof(pcre2_code*) * (state->numStartStates + 2));
-    state->matchStartData = realloc(state->matchStartData, sizeof(pcre2_match_data*) * (state->numStartStates + 2));
-    int result = NDR_CompileStateRegex(state->compiledStartRegex, state->matchStartData, state->numStartStates, regex);
-
-    state->numStartStates++;
-
-    return result;
-}
-
-int NDR_AddAllowRegex(NDR_RegexState* state, char* regex){
-
-    state->allowRegex = realloc(state->allowRegex, sizeof(char*) * (state->numAllowStates + 2));
-    state->allowRegex[state->numAllowStates] = malloc(strlen(regex) + 1);
-    strcpy(state->allowRegex[state->numAllowStates], regex);
-
-    state->compiledAllowRegex = realloc(state->compiledAllowRegex, sizeof(pcre2_code*) * (state->numAllowStates + 2));
-    state->matchAllowData = realloc(state->matchAllowData, sizeof(pcre2_match_data*) * (state->numAllowStates + 2));
-    int result = NDR_CompileStateRegex(state->compiledAllowRegex, state->matchAllowData, state->numAllowStates, regex);
-
-    state->numAllowStates++;
-
-    return result;
-}
-
-int NDR_AddEscapeRegex(NDR_RegexState* state, char* regex){
-
-    state->escapeRegex = realloc(state->escapeRegex, sizeof(char*) * (state->numEscapeStates + 2));
-    state->escapeRegex[state->numEscapeStates] = malloc(strlen(regex) + 1);
-    strcpy(state->escapeRegex[state->numEscapeStates], regex);
-
-    state->compiledEscapeRegex = realloc(state->compiledEscapeRegex, sizeof(pcre2_code*) * (state->numEscapeStates + 2));
-    state->matchEscapeData = realloc(state->matchEscapeData, sizeof(pcre2_match_data*) * (state->numEscapeStates + 2));
-    int result = NDR_CompileStateRegex(state->compiledEscapeRegex, state->matchEscapeData, state->numEscapeStates, regex);
-
-    state->numEscapeStates++;
-
-    return result;
-}
-
-int NDR_AddEndRegex(NDR_RegexState* state, char* regex){
-
-    state->endRegex = realloc(state->endRegex, sizeof(char*) * (state->numEndStates + 2));
-    state->endRegex[state->numEndStates] = malloc(strlen(regex) + 1);
-    strcpy(state->endRegex[state->numEndStates], regex);
-
-    state->compiledEndRegex = realloc(state->compiledEndRegex, sizeof(pcre2_code*) * (state->numEndStates + 2));
-    state->matchEndData = realloc(state->matchEndData, sizeof(pcre2_match_data*) * (state->numEndStates + 2));
-    int result = NDR_CompileStateRegex(state->compiledEndRegex, state->matchEndData, state->numEndStates, regex);
-
-    state->numEndStates++;
-
-    return result;
-}
-
-int NDR_CompileStateRegex(pcre2_code** regexTable, pcre2_match_data** matchDataTable, int stateIndex, char* regex){
-    // PRCRE2 variables for handling the compilation and error handling of regex
-    int errornumber;
-    PCRE2_SIZE erroroffset;
-    PCRE2_UCHAR buffer[256];
-
-    regexTable[stateIndex] = pcre2_compile((PCRE2_SPTR8)regex, PCRE2_ZERO_TERMINATED, 0, &errornumber, &erroroffset, NULL);
-    if (regexTable[stateIndex] == NULL)
-    {
-      pcre2_get_error_message(errornumber, buffer, sizeof(buffer));
-      return 1;
-    }
-    matchDataTable[stateIndex] = pcre2_match_data_create_from_pattern(regexTable[stateIndex], NULL);
-
-    return 0;
-}
-
 
 int NDR_FindStartRegex(NDR_RegexStateWrapper* regexStateWrapper, char* regexString){
     for(size_t x = 0; x < regexStateWrapper->numStates; x++){
@@ -399,20 +261,6 @@ char* NDR_RSGetEscapeRegex(NDR_RegexState* regexState, int index){
 }
 char* NDR_RSGetEndRegex(NDR_RegexState* regexState, int index){
     return regexState->endRegex[index];
-}
-
-
-int NDR_RSGetMatchResult(NDR_RegexState* regexState, char* token, NDR_StateCategories category, int regIndex){
-    if(category == STARTSTATE)
-        return pcre2_match(regexState->compiledStartRegex[regIndex], (PCRE2_SPTR8)token, strlen(token), 0, PCRE2_PARTIAL_SOFT, regexState->matchStartData[regIndex], NULL);
-    else if(category == ALLOWSTATE)
-        return pcre2_match(regexState->compiledAllowRegex[regIndex], (PCRE2_SPTR8)token, strlen(token), 0, PCRE2_PARTIAL_SOFT, regexState->matchAllowData[regIndex], NULL);
-    else if(category == ESCAPESTATE)
-        return pcre2_match(regexState->compiledEscapeRegex[regIndex], (PCRE2_SPTR8)token, strlen(token), 0, PCRE2_PARTIAL_SOFT, regexState->matchEscapeData[regIndex], NULL);
-    else if(category == ENDSTATE)
-        return pcre2_match(regexState->compiledEndRegex[regIndex], (PCRE2_SPTR8)token, strlen(token), 0, PCRE2_PARTIAL_SOFT, regexState->matchEndData[regIndex], NULL);
-    else
-        return 404;
 }
 
 NDR_RegexState** NDR_RSGetRegexStates(NDR_RegexStateWrapper* regexStateWrapper){

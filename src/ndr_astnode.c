@@ -96,10 +96,11 @@ void NDR_DestroyASTTree(NDR_ASTNode* head){
 
     if(head != NULL){
         size_t duplicatePostDepthTrackerCount = 0;
+        size_t dupeTrackerMemoryAllocated = 500;
 
         NDR_ASTNodeStack* depthTracker = malloc(sizeof(NDR_ASTNodeStack));
         NDR_InitASTStack(depthTracker);
-        NDR_ASTNode** duplicateTracker = malloc(sizeof(NDR_ASTNode*) * 5000);
+        NDR_ASTNode** duplicateTracker = malloc(sizeof(NDR_ASTNode*) * dupeTrackerMemoryAllocated);
         NDR_ASTNode* follow = head;
 
         NDR_ASTStackPush(depthTracker, follow);
@@ -119,6 +120,10 @@ void NDR_DestroyASTTree(NDR_ASTNode* head){
 
             if(!NDR_ASTDuplicate(follow, duplicateTracker, duplicatePostDepthTrackerCount)){
                 duplicateTracker[duplicatePostDepthTrackerCount++] = (follow);
+                if(duplicatePostDepthTrackerCount >= dupeTrackerMemoryAllocated - 2){
+                    dupeTrackerMemoryAllocated = dupeTrackerMemoryAllocated * 2;
+                    duplicateTracker = realloc(duplicateTracker, sizeof(NDR_ASTNode*) * dupeTrackerMemoryAllocated);
+                }
             }
 
             NDR_ASTStackPop(depthTracker);

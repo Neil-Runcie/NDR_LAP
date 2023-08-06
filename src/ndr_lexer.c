@@ -49,17 +49,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "ndr_regexstate.h"
 #include "ndr_debug.h"
 
-#define PCRRE2_REGEX_ENGINE
-
-#ifdef PCRRE2_REGEX_ENGINE
-#define PCRE2_STATIC
-#define PCRE2_CODE_UNIT_WIDTH 8
-#include "regex_engines/PCRE2/include/pcre2.h"
-#endif // PCRRE2_REGEX_ENGINE
-#ifdef NDR_REGEX_ENGINE
-#include "NDR_REGEX.h"
-#endif // NDR_REGEX_ENGINE
-
 // the NEWLINEMULTIPLIER is used because the newline takes two bytes in windows '\r''\n' whereas linux uses one byte '\n'
 #ifdef _WIN32
 #define NEWLINEMULTIPLIER 1
@@ -209,8 +198,8 @@ int NDR_Configure_Lexer(char* fileName){
 
     // beginningString is prepended to regex strings when AUTO_CAP is true to mark the beginning of a token for PCRE2
     // endingString is appended to regex strings when AUTO_CAP is true to mark the end of a token for PCRE2
-    const char beginningString[] = "^";
-    const char endingString[] = "\\z";
+    const char beginningString[] = "$";
+    const char endingString[] = "%";
 
 
     int lexerLineNumber = 1;
@@ -867,22 +856,18 @@ int CompareUsingRegex(TokenMatchingState* matchingState, int RSIndex, int RegInd
 
     matchingState->matchValue = NDR_RSGetMatchResult(NDR_RSGetRegexState(RSWrapper, RSIndex), getMatchToken(matchingState), STARTSTATE, RegIndex);
 
-    if(matchingState->matchValue == 0) {
-        printf("offset vector too small for \"%s\", using regex %s\n", getMatchToken(matchingState), NDR_RSGetStartRegex(NDR_RSGetRegexState(RSWrapper, RSIndex), RegIndex));
-        return 1;
-    }
-    else if(matchingState->matchValue == PCRE2_ERROR_NOMATCH){
+    if(matchingState->matchValue == NDR_REGEX_NOMATCH){
         if (NDR_M == true)
             printf("No match for \"%s\", using regex %s\n", getMatchToken(matchingState), NDR_RSGetStartRegex(NDR_RSGetRegexState(RSWrapper, RSIndex), RegIndex));
     }
-    else if(matchingState->matchValue == PCRE2_ERROR_PARTIAL && matchingState->highestMatchSeen == NOMATCH){
+    else if(matchingState->matchValue == NDR_REGEX_PARTIALMATCH && matchingState->highestMatchSeen == NOMATCH){
         if (NDR_M == true)
             printf("Partial Match for %s, using regex %s\n", getMatchToken(matchingState), NDR_RSGetStartRegex(NDR_RSGetRegexState(RSWrapper, RSIndex), RegIndex));
 
         calcBackTrack(matchingState, matchingState->ch);
         AcknowledgePotentialMatch(matchingState);
     }
-    else if (matchingState->matchValue == 1){
+    else if (matchingState->matchValue == NDR_REGEX_COMPLETEMATCH){
         if (NDR_M == true)
             printf("Match success for %s, using regex %s\n", getMatchToken(matchingState), NDR_RSGetStartRegex(NDR_RSGetRegexState(RSWrapper, RSIndex), RegIndex));
 
@@ -892,7 +877,7 @@ int CompareUsingRegex(TokenMatchingState* matchingState, int RSIndex, int RegInd
         resetBackTrackAmount(matchingState);
         AcknowledgeCompleteMatch(matchingState);
     }
-    else if(matchingState->matchValue != PCRE2_ERROR_PARTIAL){
+    else if(matchingState->matchValue != NDR_REGEX_PARTIALMATCH){
         printf("Matching error for \"%s\", using regex %s\n", getMatchToken(matchingState), NDR_RSGetStartRegex(NDR_RSGetRegexState(RSWrapper, RSIndex), RegIndex));
         return 1;
     }
@@ -1152,7 +1137,7 @@ bool doesCharMatchAllowRegex(int stateIndex, char* comparisonString){
         if(strcmp(NDR_RSGetKeyword(NDR_RSGetRegexState(RSWrapper, stateIndex)), NDR_RSGetKeyword(NDR_RSGetRegexState(RSWrapper, x))) == 0){
             for(size_t i = 0; i < NDR_RSGetNumAllowStates(NDR_RSGetRegexState(RSWrapper, stateIndex)); i++){
                 matchValue = NDR_RSGetMatchResult(NDR_RSGetRegexState(RSWrapper, x), comparisonString, ALLOWSTATE, i);
-                if(matchValue > 0){
+                if(matchValue == NDR_REGEX_COMPLETEMATCH){
                     return true;
                 }
             }
@@ -1167,7 +1152,7 @@ bool doesCharMatchEscapeRegex(int stateIndex, char* comparisonString){
         if(strcmp(NDR_RSGetKeyword(NDR_RSGetRegexState(RSWrapper, stateIndex)), NDR_RSGetKeyword(NDR_RSGetRegexState(RSWrapper, x))) == 0){
             for(size_t i = 0; i < NDR_RSGetNumEscapeStates(NDR_RSGetRegexState(RSWrapper, stateIndex)); i++){
                 matchValue = NDR_RSGetMatchResult(NDR_RSGetRegexState(RSWrapper, x), comparisonString, ESCAPESTATE, i);
-                if(matchValue > 0){
+                if(matchValue == NDR_REGEX_COMPLETEMATCH){
                     return true;
                 }
             }

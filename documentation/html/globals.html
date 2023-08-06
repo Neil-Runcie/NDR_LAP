@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NDR Lexer and Parser
-   &#160;<span id="projectnumber">0.1.0</span>
+   &#160;<span id="projectnumber">0.2.0</span>
    </div>
    <div id="projectbrief">The NDR Lexer and Parser are tools for creating programming languages</div>
   </td>
@@ -66,11 +66,27 @@ $(function() {
 <div class="textblock">Here is a list of all file members with links to the files they belong to:</div>
 
 <h3><a id="index_n"></a>- n -</h3><ul>
+<li>NDR_AddAllowRegex()
+: <a class="el" href="ndr__pcre2_8h.html#aae7962d7188b69f44003a8684097810d">ndr_pcre2.h</a>
+, <a class="el" href="ndr__pcre2_8c.html#aae7962d7188b69f44003a8684097810d">ndr_pcre2.c</a>
+</li>
 <li>NDR_AddChildASTNode()
 : <a class="el" href="ndr__astnode_8h.html#ace78c78cb3b11f19a3c15c7d93b84f16">ndr_astnode.h</a>
 </li>
+<li>NDR_AddEndRegex()
+: <a class="el" href="ndr__pcre2_8c.html#a7f40bf51b7781e96cbdb4a88899bb56f">ndr_pcre2.c</a>
+, <a class="el" href="ndr__pcre2_8h.html#a7f40bf51b7781e96cbdb4a88899bb56f">ndr_pcre2.h</a>
+</li>
+<li>NDR_AddEscapeRegex()
+: <a class="el" href="ndr__pcre2_8c.html#a55d97cff0c8b0d88ae7f23c79bd0f025">ndr_pcre2.c</a>
+, <a class="el" href="ndr__pcre2_8h.html#a55d97cff0c8b0d88ae7f23c79bd0f025">ndr_pcre2.h</a>
+</li>
 <li>NDR_AddNewASTNode()
 : <a class="el" href="ndr__astnode_8h.html#a45e9c560a16306771cbcb3dd7a93d7ae">ndr_astnode.h</a>
+</li>
+<li>NDR_AddStartRegex()
+: <a class="el" href="ndr__pcre2_8c.html#aa339c59b2aceed6a72e0912ea67485c3">ndr_pcre2.c</a>
+, <a class="el" href="ndr__pcre2_8h.html#aa339c59b2aceed6a72e0912ea67485c3">ndr_pcre2.h</a>
 </li>
 <li>NDR_ASTBreadthFirstTraversal()
 : <a class="el" href="ndr__astnode_8h.html#a433966da400f73dbffcacc9e23537021">ndr_astnode.h</a>
@@ -129,6 +145,10 @@ $(function() {
 <li>NDR_ASTStackSize()
 : <a class="el" href="ndr__astnode_8h.html#a1c5861db9aaccd1ed74ac566425eef9a">ndr_astnode.h</a>
 </li>
+<li>NDR_CompileStateRegex()
+: <a class="el" href="ndr__pcre2_8c.html#a62cca070dbe7a03b1bb000f61bf85206">ndr_pcre2.c</a>
+, <a class="el" href="ndr__pcre2_8h.html#a62cca070dbe7a03b1bb000f61bf85206">ndr_pcre2.h</a>
+</li>
 <li>NDR_Configure_Lexer()
 : <a class="el" href="ndr__lexer_8h.html#ab844db49a5f5d2f3a0323db9732c75d8">ndr_lexer.h</a>
 </li>
@@ -158,6 +178,10 @@ $(function() {
 </li>
 <li>NDR_FreeFileInformation()
 : <a class="el" href="ndr__fileprocessor_8h.html#a0765270bd15f43831146782bdc3e5291">ndr_fileprocessor.h</a>
+</li>
+<li>NDR_FreeRegexState()
+: <a class="el" href="ndr__pcre2_8c.html#a9790738c3c9965efc3c3bfbb79e9ac18">ndr_pcre2.c</a>
+, <a class="el" href="ndr__pcre2_8h.html#a9790738c3c9965efc3c3bfbb79e9ac18">ndr_pcre2.h</a>
 </li>
 <li>NDR_GetASTNode()
 : <a class="el" href="ndr__astnode_8h.html#ae05fb1e04a84211b824aa9ab8bce08c6">ndr_astnode.h</a>
@@ -231,6 +255,10 @@ $(function() {
 <li>NDR_InitASTStack()
 : <a class="el" href="ndr__astnode_8h.html#ac89a6993a7b7c0af94b2e30ccaaef68b">ndr_astnode.h</a>
 </li>
+<li>NDR_InitializeRegexState()
+: <a class="el" href="ndr__pcre2_8c.html#a4f108e7e4a4428c0a428a9ca6f0069b3">ndr_pcre2.c</a>
+, <a class="el" href="ndr__pcre2_8h.html#a4f108e7e4a4428c0a428a9ca6f0069b3">ndr_pcre2.h</a>
+</li>
 <li>NDR_Lex()
 : <a class="el" href="ndr__lexer_8h.html#a172bde251ec2485e02bd34952cd31ebd">ndr_lexer.h</a>
 </li>
@@ -270,6 +298,13 @@ $(function() {
 <li>NDR_R
 : <a class="el" href="ndr__debug_8h.html#a8a599a5f07674f66605603c3806426fc">ndr_debug.h</a>
 </li>
+<li>NDR_RegexState
+: <a class="el" href="ndr__pcre2_8h.html#a04eb1f598a1d9190ab028f959caa9dec">ndr_pcre2.h</a>
+</li>
+<li>NDR_RSGetMatchResult()
+: <a class="el" href="ndr__pcre2_8c.html#a3158cf158e368cc11c5ddbb2a8c870a2">ndr_pcre2.c</a>
+, <a class="el" href="ndr__pcre2_8h.html#a3158cf158e368cc11c5ddbb2a8c870a2">ndr_pcre2.h</a>
+</li>
 <li>NDR_Set_Toggles()
 : <a class="el" href="ndr__debug_8h.html#afb0b623a5f91b7e0b17103a0a7ac8f46">ndr_debug.h</a>
 </li>
@@ -299,6 +334,16 @@ $(function() {
 </li>
 <li>NDR_TT
 : <a class="el" href="ndr__debug_8h.html#a3d29bb414321b023d6cfee8dc44e67a9">ndr_debug.h</a>
+</li>
+</ul>
+
+
+<h3><a id="index_p"></a>- p -</h3><ul>
+<li>PCRE2_CODE_UNIT_WIDTH
+: <a class="el" href="ndr__pcre2_8h.html#acff91275abcc225454675d6dfc39a58d">ndr_pcre2.h</a>
+</li>
+<li>PCRE2_STATIC
+: <a class="el" href="ndr__pcre2_8h.html#ab8b8775c2a392cc237de2ab6f9c5afbe">ndr_pcre2.h</a>
 </li>
 </ul>
 </div><!-- contents -->

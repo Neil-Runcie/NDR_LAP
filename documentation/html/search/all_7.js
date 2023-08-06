@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['token_102',['token',['../structNDR__ASTNode.html#a28661ef4d5d43bce21eedb4853e8aa65',1,'NDR_ASTNode']]],
-  ['tokens_103',['tokens',['../structNDR__LineInformation.html#a31a075e3d179f0c3310699a38e4c0cd6',1,'NDR_LineInformation']]],
-  ['totalnodesintree_104',['totalNodesInTree',['../structNDR__ASTNodeHolder.html#a9eeb7230cf0b3cdc1e64d50fc45d55c0',1,'NDR_ASTNodeHolder']]]
+  ['matchallowdata_19',['matchAllowData',['../structNDR__RegexState.html#a36c1c2b69e1af360edeb23c0f0f53248',1,'NDR_RegexState']]],
+  ['matchenddata_20',['matchEndData',['../structNDR__RegexState.html#a0c0b5676674600485a642e6ae203c33e',1,'NDR_RegexState']]],
+  ['matchescapedata_21',['matchEscapeData',['../structNDR__RegexState.html#ad4d54be6c532bb6b31f7bf5bee59e54f',1,'NDR_RegexState']]],
+  ['matchstartdata_22',['matchStartData',['../structNDR__RegexState.html#a0cffcfb747624688075cae158d7718b6',1,'NDR_RegexState']]],
+  ['memoryallocated_23',['memoryAllocated',['../structNDR__ASTNodeHolder.html#ae9e3ff65745281818b22d7968c4439cd',1,'NDR_ASTNodeHolder::memoryAllocated()'],['../structNDR__ASTNodeQueue.html#a4256fa6b2974f9f3bb7056cadf352e3b',1,'NDR_ASTNodeQueue::memoryAllocated()'],['../structNDR__ASTNodeStack.html#a426d7d9d8771eb24126db8405427da78',1,'NDR_ASTNodeStack::memoryAllocated()']]]
 ];
