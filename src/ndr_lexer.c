@@ -204,6 +204,8 @@ int NDR_Configure_Lexer(char* fileName){
 
     int lexerLineNumber = 1;
 
+    if (NDR_R == true)
+        printf("\n\n************** Regex Symbol Compilation ****************\n\n");
 
     for(size_t i = 0; i < NDR_GetNumberOfLines(fileInfo); i++){
         lineCategorizer->tokens = NDR_GetTokens(NDR_GetLine(fileInfo, i));
@@ -410,9 +412,6 @@ int NDR_Lex(char* fileName){
 
     int lineNumber = 1;
     int columnNumber = 1;
-
-    if (NDR_R == true)
-        printf("\n\n************** Regex Symbol Compilation ****************\n\n");
 
     if (NDR_M == true){
         printf("\n\n************** Text File Matching ****************\n\n");
