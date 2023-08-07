@@ -45,7 +45,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "ndr_regex.h"
 #include "ndr_regextracker.h"
 
-
+bool IsPathOptional(NDR_RegexNode* follow);
 
 int checkAllButNewLine(char comp);
 int checkEverything(char comp);
@@ -540,7 +540,7 @@ int NDR_CompileRegex(NDR_Regex* cRegex, char* regexString){
 
                     }
                     else if(regexString[x] == '.'){
-                        NDR_RNodeStackPeek(endStack)->everything = true;
+                        NDR_RNodeStackPeek(endStack)->allButNewLine = true;
                     }
                     else
                         NDR_AddRNodeChar(NDR_RNodeStackPeek(endStack), regexString[x]);
@@ -568,7 +568,7 @@ int NDR_CompileRegex(NDR_Regex* cRegex, char* regexString){
                     }
                 }
                 else if(regexString[x] == '.'){
-                    NDR_RNodeStackPeek(endStack)->everything = true;
+                    NDR_RNodeStackPeek(endStack)->allButNewLine = true;
                 }
                 else{
                     NDR_AddRNodeChar(NDR_RNodeStackPeek(endStack), regexString[x]);
@@ -767,9 +767,7 @@ NDR_MatchResult NDR_MatchRegex(NDR_Regex* cRegex, char* token){
 
         while(follow->end != true){
 
-            //printf("ERTSHSYRJN %i\n", follow->children[0]->end == true);
             if(follow->wordStart == true){
-                //printf("Aegerhg %c\n", follow->children[0]->children[0]->children[0]->acceptChars[0]);
 
                 NDR_RegexTracker* ref = malloc(sizeof(NDR_RegexTracker));
                 NDR_InitRTracker(ref, follow);
@@ -790,7 +788,6 @@ NDR_MatchResult NDR_MatchRegex(NDR_Regex* cRegex, char* token){
                 }
                 else{
                     NDR_TrackerStackPop(wordReferences);
-
                 }
 
                 follow = follow->children[0];
@@ -799,13 +796,11 @@ NDR_MatchResult NDR_MatchRegex(NDR_Regex* cRegex, char* token){
 
             }
 
-            //printf("trying %c %c %i %i\n", token[i], follow->acceptChars[x], follow->minMatches, follow->maxMatches);
             if(IsCharacterAccepted(follow, token[i]) == true){
-                //printf("matched %c %c\n", token[i], follow->acceptChars[x]);
                 numTimesMatched++;
                 result = NDR_REGEX_PARTIALMATCH;
 
-                if(numTimesMatched >= follow->minMatches){//printf("RYNJ7\n");
+                if(numTimesMatched >= follow->minMatches){
                     if(numTimesMatched >= follow->maxMatches){
                         if(follow->children[0]->end == true && strlen(token)-1 == i){
                             NDR_DestroyRegexTrackerStack(wordReferences);
@@ -814,7 +809,7 @@ NDR_MatchResult NDR_MatchRegex(NDR_Regex* cRegex, char* token){
                         }
                     }
                     if(numTimesMatched >= follow->maxMatches && follow->maxMatches != -1){
-                        follow = follow->children[0];            //printf("ERTSHSYRJN %i\n", follow->wordEnd == true);
+                        follow = follow->children[0];
                         numTimesMatched = 0;
                     }
 
@@ -826,32 +821,26 @@ NDR_MatchResult NDR_MatchRegex(NDR_Regex* cRegex, char* token){
 
                     break;
                 }
-                else if(numTimesMatched < follow->minMatches){//printf("RYNJ8\n");
+                else if(numTimesMatched < follow->minMatches){
                     i++;
                 }
 
             }
             else{
-                // Currently only handling anchored regex
-                //printf("RYNDTYM %c %c\n", token[i], follow->acceptChars[0]);
                 bool isWord = false;
                 while(NDR_TrackerStackIsEmpty(wordReferences) == false){
                     isWord = true;
-                    if(NDR_TrackerStackPeek(wordReferences)->reference->optionalPath == true){//printf("RSY1\n");
+                    if(NDR_TrackerStackPeek(wordReferences)->reference->optionalPath == true){
                         i = NDR_TrackerStackPeek(wordReferences)->stringPosition;
                         NDR_RegexTracker* holdRef = NDR_TrackerStackPop(wordReferences);
-                        // The if and else block will allow for an optional path in an or path to continue through the other or options
-                        // if(NDR_TrackerStackIsEmpty(wordReferences) == true){
-                            while(follow->wordReference != holdRef->reference){
-                                follow = follow->children[0];
-                            }
+
+                        while(follow->wordReference != holdRef->reference){
                             follow = follow->children[0];
-                        //}
-                        /*else{
-                            continue;
-                        }*/
+                        }
+                        follow = follow->children[0];
+
                     }
-                    else if(NDR_TrackerStackPeek(wordReferences)->reference->repeatPath == true){//printf("RSY2\n");
+                    else if(NDR_TrackerStackPeek(wordReferences)->reference->repeatPath == true){
 
                         if(NDR_TrackerStackPeek(wordReferences)->reference->minMatches > NDR_TrackerStackPeek(wordReferences)->numberOfRepeats && cRegex->beginString == true){
                             NDR_TrackerStackPop(wordReferences);
@@ -885,7 +874,7 @@ NDR_MatchResult NDR_MatchRegex(NDR_Regex* cRegex, char* token){
                         }
 
                     }
-                    else if(NDR_TrackerStackPeek(wordReferences)->reference->orPath == true){//printf("RSY3\n");
+                    else if(NDR_TrackerStackPeek(wordReferences)->reference->orPath == true){
                         if(NDR_TrackerStackPeek(wordReferences)->reference->numberOfChildren - 1 <= NDR_TrackerStackPeek(wordReferences)->currentChild && cRegex->beginString == true){
                             NDR_TrackerStackPop(wordReferences);
                             if(NDR_TrackerStackIsEmpty(wordReferences) == true){
@@ -913,7 +902,7 @@ NDR_MatchResult NDR_MatchRegex(NDR_Regex* cRegex, char* token){
                         }
 
                     }
-                    else{//printf("RSY4\n");
+                    else{
                         if(cRegex->beginString == true){
                             NDR_TrackerStackPop(wordReferences);
                             if(NDR_TrackerStackIsEmpty(wordReferences) == true){
@@ -941,13 +930,11 @@ NDR_MatchResult NDR_MatchRegex(NDR_Regex* cRegex, char* token){
                     continue;
 
                 if(follow->minMatches > numTimesMatched && cRegex->beginString == true){
-                    //printf("RYNJ5\n");
                     NDR_DestroyRegexTrackerStack(wordReferences);
                     free(wordReferences);
                     return NDR_REGEX_NOMATCH;
                 }
                 else if(follow->minMatches > numTimesMatched){
-                    //printf("RYNJ6\n");
                     i = currentIndex++;
                     follow = cRegex->start->children[0];
                     numTimesMatched = 0;
@@ -955,14 +942,11 @@ NDR_MatchResult NDR_MatchRegex(NDR_Regex* cRegex, char* token){
                         NDR_TrackerStackPop(wordReferences);
                     }
                     result = NDR_REGEX_NOMATCH;
-                    //break;
                 }
                 else if(follow->minMatches <= numTimesMatched){// If matching and there is a failure to match after the min number of matches has been met then proceed to the next node and restart
-                    //printf("RYNJ3\n");
                     numTimesMatched = 0;
                     follow = follow->children[0];
                     i--;
-                    //break;
                 }
 
                 break;
@@ -979,14 +963,72 @@ NDR_MatchResult NDR_MatchRegex(NDR_Regex* cRegex, char* token){
     NDR_DestroyRegexTrackerStack(wordReferences);
     free(wordReferences);
 
-    if(follow->end == false){
+    if(follow->end == false && IsPathOptional(follow) == false){
         return result;
     }
 
     return NDR_REGEX_COMPLETEMATCH;
 }
 
+bool IsPathOptional(NDR_RegexNode* follow){
 
+    NDR_TrackerStack* wordReferences = malloc(sizeof(NDR_TrackerStack));
+    NDR_InitTrackerStack(wordReferences);
+
+    while(follow->end != true){
+        if(follow->wordStart == true){
+            NDR_RegexTracker* ref = malloc(sizeof(NDR_RegexTracker));
+            NDR_InitRTracker(ref, follow);
+            NDR_TrackerStackPush(wordReferences, ref);
+        }
+        else if(follow->wordEnd == true){
+            NDR_TrackerStackPop(wordReferences);
+        }
+        else if(follow->minMatches != 0 && NDR_TrackerStackIsEmpty(wordReferences) == false){
+
+            while(NDR_TrackerStackIsEmpty(wordReferences) == false){
+
+                if(NDR_TrackerStackPeek(wordReferences)->reference->optionalPath == true){
+                    while(follow->wordReference != NDR_TrackerStackPeek(wordReferences)->reference){
+                        follow = follow->children[0];
+                    }
+                    NDR_TrackerStackPop(wordReferences);
+                    break;
+                }
+                else if(NDR_TrackerStackPeek(wordReferences)->reference->orPath == true){
+                    if(NDR_TrackerStackPeek(wordReferences)->reference->numberOfChildren - 1 <= NDR_TrackerStackPeek(wordReferences)->currentChild){
+                        NDR_DestroyRegexTrackerStack(wordReferences);
+                        free(wordReferences);
+                        return false;
+                    }
+                    else{
+                        follow = NDR_TrackerStackPeek(wordReferences)->reference->children[++(NDR_TrackerStackPeek(wordReferences)->currentChild)];
+                    }
+                    break;
+                }
+                else{
+                    NDR_TrackerStackPop(wordReferences);
+                    if((NDR_TrackerStackIsEmpty(wordReferences) == true)){
+                        NDR_DestroyRegexTrackerStack(wordReferences);
+                        free(wordReferences);
+                        return false;
+                    }
+                }
+            }
+        }
+        else if(follow->minMatches != 0 && NDR_TrackerStackIsEmpty(wordReferences) == true){
+            NDR_DestroyRegexTrackerStack(wordReferences);
+            free(wordReferences);
+            return false;
+        }
+        follow = follow->children[0];
+    }
+
+    NDR_DestroyRegexTrackerStack(wordReferences);
+    free(wordReferences);
+
+    return true;
+}
 
 int checkAllButNewLine(char comp){
     char compare[] = {'\n'};
@@ -1331,7 +1373,6 @@ void NDR_DestroyRegexGraph(NDR_Regex* head){
                     follow = NDR_RNodeStackPeek(depthTracker);
             }
 
-            //NDR_FreeRNodeStack(depthTracker);
             for(size_t x = 0; x < duplicatePostDepthTrackerCount; x++){
                 NDR_DestroyRegexNode(duplicateTracker[x]);
                 free(duplicateTracker[x]);
