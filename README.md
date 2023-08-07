@@ -17,3 +17,4 @@ For high level documentation for the NDR_LAP library, open the instruction.html 
 
 For the exposed functionality of the NDR_LAP library, open the doxygen generated documentation by going to documentation/html/index.html and opening the file in your browser
 
+Documentation of the regular expression specification used in this library can be found here https://github.com/Neil-Runcie/NDR_CRegex
