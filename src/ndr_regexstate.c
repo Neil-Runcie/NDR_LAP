@@ -71,25 +71,25 @@ void NDR_AddRegexState(NDR_RegexStateWrapper* regexStateWrapper){
 
 int NDR_CheckAndAddStateRegex(NDR_RegexStateWrapper* regexStateWrapper, NDR_StateCategories state, char* regexString){
 
-    if(state == STARTSTATE){
+    if(state == NDR_STATE_STARTSTATE){
         if(NDR_FindStartRegex(regexStateWrapper, regexString) != -1)
             return -1;
         if(NDR_AddStartRegex(NDR_RSGetLastRegexState(regexStateWrapper), regexString) != 0)
             return -2;
     }
-    else if(state == ALLOWSTATE){
+    else if(state == NDR_STATE_ALLOWSTATE){
         if(NDR_CheckAllowTableDuplicate(regexStateWrapper, NDR_RSGetLastRegexState(regexStateWrapper)->keyword, regexString) != -1)
             return -1;
         if(NDR_AddAllowRegex(NDR_RSGetLastRegexState(regexStateWrapper), regexString) != 0)
             return -2;
     }
-    else if(state == ESCAPESTATE){
+    else if(state == NDR_STATE_ESCAPESTATE){
         if(NDR_CheckEscapeTableDuplicate(regexStateWrapper, NDR_RSGetLastRegexState(regexStateWrapper)->keyword, regexString) != -1)
             return -1;
         if(NDR_AddEscapeRegex(NDR_RSGetLastRegexState(regexStateWrapper), regexString) != 0)
             return -2;
     }
-    else if(state == ENDSTATE){
+    else if(state == NDR_STATE_ENDSTATE){
         if(NDR_CheckEndTableDuplicate(regexStateWrapper, NDR_RSGetLastRegexState(regexStateWrapper)->keyword, regexString) != -1)
             return -1;
         if(NDR_AddEndRegex(NDR_RSGetLastRegexState(regexStateWrapper), regexString) != 0)

@@ -201,7 +201,8 @@ int NDR_Configure_Parser(char* fileName){
 
     configuringCompleted = true;
 
-    printf("\nParser configured successfully\n");
+    if (NDR_STAT == true)
+        printf("\nParser configured successfully\n");
 
     return 0;
 
@@ -240,7 +241,8 @@ int NDR_Parse(){
     NDR_ASThead = malloc(sizeof(NDR_ASTNode));
     if(compareTokenToParsingTable()){
         parsingCompleted = true;
-        printf("\nParsing successful\n");
+        if (NDR_STAT == true)
+            printf("\nParsing successful\n");
         return 0;
     }
     else{
@@ -347,8 +349,8 @@ bool compareTokenToParsingTable(){
                 return false;
             }
 
-            if(matchingState->highestMatchSeen == PARTIALMATCH)
-                matchingState->highestMatchSeen = COMPLETEMATCH;
+            if(matchingState->highestMatchSeen == NDR_COMP_PARTIALMATCH)
+                matchingState->highestMatchSeen = NDR_COMP_COMPLETEMATCH;
 
             addStringToSequence(matchingState, NDR_GetTreeTokenInfo(TTIWrapper, i)->tokenInfo->keyword);
             addStringToSequence(matchingState, " ");
@@ -376,7 +378,7 @@ bool compareTokenToParsingTable(){
             }
             else if(IsPotentialSequenceWrong(matchingState) == true){
                 matchingState->matchBeforeLookAhead = false;
-                matchingState->highestMatchSeen = NOMATCH;
+                matchingState->highestMatchSeen = NDR_COMP_NOMATCH;
             }
 
             if(matchingState->matched == false){
@@ -495,7 +497,7 @@ void InitializeSequenceMatchingState(SequenceMatchingState* matchingState){
 
     matchingState->matched = false;
     matchingState->matchBeforeLookAhead = false;
-    matchingState->highestMatchSeen = NOMATCH;
+    matchingState->highestMatchSeen = NDR_COMP_NOMATCH;
 }
 
 void DestroySequenceMatchingState(SequenceMatchingState* matchingState){
@@ -518,12 +520,12 @@ void AcknowledgePotentialSequence(SequenceMatchingState* matchingState, int tree
     CapturePotentialSequence(matchingState, NDR_GetSequenceInfo(PIWrapper, patternIndex)->keyword);
     matchingState->matched = true;
     matchingState->matchBeforeLookAhead = true;
-    matchingState->highestMatchSeen = PARTIALMATCH;
+    matchingState->highestMatchSeen = NDR_COMP_PARTIALMATCH;
 }
 
 void AcknowledgeCompleteSequence(SequenceMatchingState* matchingState){
     matchingState->matched = true;
-    matchingState->highestMatchSeen = NOMATCH;
+    matchingState->highestMatchSeen = NDR_COMP_NOMATCH;
     strcpy(matchingState->currentSequence, "");
     matchingState->sequenceNumber = 0;
     matchingState->matchBeforeLookAhead = false;
@@ -548,11 +550,11 @@ bool IsPartialSequence(SequenceMatchingState* matchingState, int RSIndex){
 }
 
 bool IsPotentialSequenceWrong(SequenceMatchingState* matchingState){
-    return matchingState->matchBeforeLookAhead == true && matchingState->matched == true && matchingState->highestMatchSeen == COMPLETEMATCH;
+    return matchingState->matchBeforeLookAhead == true && matchingState->matched == true && matchingState->highestMatchSeen == NDR_COMP_COMPLETEMATCH;
 }
 
 bool IsCompleteSequence(SequenceMatchingState* matchingState){
-    return matchingState->matchBeforeLookAhead == true && matchingState->matched == false && matchingState->highestMatchSeen == COMPLETEMATCH;
+    return matchingState->matchBeforeLookAhead == true && matchingState->matched == false && matchingState->highestMatchSeen == NDR_COMP_COMPLETEMATCH;
 }
 
 

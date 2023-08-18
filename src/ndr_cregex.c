@@ -46,7 +46,7 @@ void NDR_InitializeRegexState(NDR_RegexState* state){
     state->keyword = malloc(1);
     state->isState = false;
     state->isLiteral = false;
-    state->category = ACCEPT;
+    state->category = NDR_STATE_ACCEPT;
     state->numStartStates = 0;
     state->numAllowStates = 0;
     state->numEscapeStates = 0;
@@ -166,13 +166,13 @@ int NDR_CompileStateRegex(NDR_Regex** regexTable, int stateIndex, char* regex){
 
 
 int NDR_RSGetMatchResult(NDR_RegexState* regexState, char* token, NDR_StateCategories category, int regIndex){
-    if(category == STARTSTATE)
+    if(category == NDR_STATE_STARTSTATE)
         return NDR_MatchRegex(regexState->compiledStartRegex[regIndex], token);
-    else if(category == ALLOWSTATE)
+    else if(category == NDR_STATE_ALLOWSTATE)
         return NDR_MatchRegex(regexState->compiledAllowRegex[regIndex], token);
-    else if(category == ESCAPESTATE)
+    else if(category == NDR_STATE_ESCAPESTATE)
         return NDR_MatchRegex(regexState->compiledEscapeRegex[regIndex], token);
-    else if(category == ENDSTATE)
+    else if(category == NDR_STATE_ENDSTATE)
         return NDR_MatchRegex(regexState->compiledEndRegex[regIndex], token);
     else
         return 404;

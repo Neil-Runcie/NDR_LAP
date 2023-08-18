@@ -38,6 +38,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <string.h>
 #include "ndr_debug.h"
 
+// STAT is the toggle for printing status messages for the successful completion of the NDR_Configure_Lexer, NDR_Configure_Parser, NDR_Lex, NDR_Parse functions
+bool NDR_STAT = false;
 // ST is the toggle for printing the symbolTable
 bool NDR_ST = false;
 // TT is the toggle for printing the tokenTable
@@ -53,7 +55,9 @@ bool NDR_PT = false;
 
 void NDR_Set_Toggles(int argc, char* argv[]){
     for (int i = 1; i < argc; i++){
-        if (strcmp(argv[i], "--ST") == 0)
+        if (strcmp(argv[i], "--STAT") == 0)
+            NDR_STAT = true;
+        else if (strcmp(argv[i], "--ST") == 0)
             NDR_ST = true;
         else if (strcmp(argv[i], "--TT") == 0)
             NDR_TT = true;

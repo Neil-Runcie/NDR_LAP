@@ -37,6 +37,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef TOGGLES_H
 #define TOGGLES_H
 
+/** @brief STAT is the toggle for printing status messages for the successful completion of the NDR_Configure_Lexer, NDR_Configure_Parser, NDR_Lex, NDR_Parse functions */
+extern bool NDR_STAT;
 /** @brief ST is the toggle for printing the symbolTable */
 extern bool NDR_ST;
 /** @brief TT is the toggle for printing the tokenTable */
@@ -51,7 +53,7 @@ extern bool NDR_R;
 extern bool NDR_PT;
 
 /** @brief NDR_Set_Toggles allows for toggles to be set through command line arguments that will print debugging information used in the NDR_Configure_Lexer, NDR_Configure_Parser, NDR_Lexer, NDR_Parser functions
-* 
+*
 * @param argc represents the number of toggles present
 * @param argv is a list of strings. The strings can be any of the provided toggles.
 */

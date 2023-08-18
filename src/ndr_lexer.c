@@ -224,8 +224,8 @@ int NDR_Configure_Lexer(char* fileName){
 
         // if statement to find if the states keyword has been used
         // only the start and end token are required, the allow and escape will be defaulted to accept all and accept none respectively
-        if (containsCategory(lineCategorizer, STATES) != -1){
-            int index = containsCategory(lineCategorizer, KEYWORD);
+        if (containsCategory(lineCategorizer, NDR_STATE_STATES) != -1){
+            int index = containsCategory(lineCategorizer, NDR_STATE_KEYWORD);
             if (index != -1){
                 NDR_AddRegexState(RSWrapper);
                 NDR_RSTrimAndSetKeyword(NDR_RSGetLastRegexState(RSWrapper), lineCategorizer->tokens[index]);
@@ -239,10 +239,10 @@ int NDR_Configure_Lexer(char* fileName){
                 return 1;
             }
         }
-        else if(containsCategory(lineCategorizer, STARTSTATE) != -1 ||
-                containsCategory(lineCategorizer, ALLOWSTATE) != -1 ||
-                containsCategory(lineCategorizer, ESCAPESTATE) != -1 ||
-                containsCategory(lineCategorizer, ENDSTATE) != -1){
+        else if(containsCategory(lineCategorizer, NDR_STATE_STARTSTATE) != -1 ||
+                containsCategory(lineCategorizer, NDR_STATE_ALLOWSTATE) != -1 ||
+                containsCategory(lineCategorizer, NDR_STATE_ESCAPESTATE) != -1 ||
+                containsCategory(lineCategorizer, NDR_STATE_ENDSTATE) != -1){
 
             int numberOfRegexStrings = ExtractRegexStrings(NDR_GetOriginalLine(NDR_GetLine(fileInfo, i)), extractedStrings);
             if(numberOfRegexStrings == -1){
@@ -275,7 +275,7 @@ int NDR_Configure_Lexer(char* fileName){
             }
 
 
-            if(containsCategory(lineCategorizer, ENDSTATE) != -1){
+            if(containsCategory(lineCategorizer, NDR_STATE_ENDSTATE) != -1){
                 if(NDR_RSGetNumStartStates(NDR_RSGetLastRegexState(RSWrapper)) == 0){
                     printf("Missing start state token around line %i for keyword %s\n", lexerLineNumber, NDR_RSGetKeyword(NDR_RSGetLastRegexState(RSWrapper)));
                     return 1;
@@ -290,11 +290,11 @@ int NDR_Configure_Lexer(char* fileName){
                 stateRepresentation->started = false;
             }
         }
-        else if(containsCategory(lineCategorizer, STATES) == -1 && containsCategory(lineCategorizer, SETTING) == -1){
+        else if(containsCategory(lineCategorizer, NDR_STATE_STATES) == -1 && containsCategory(lineCategorizer, NDR_STATE_SETTING) == -1){
             NDR_AddRegexState(RSWrapper);
 
             char* items;
-            int index = containsCategory(lineCategorizer, KEYWORD);
+            int index = containsCategory(lineCategorizer, NDR_STATE_KEYWORD);
             // Decisioning for how to parse lines based on whether a keyword is present or literal modifier is present
             if (index != -1){
                 items = strstr(NDR_GetOriginalLine(NDR_GetLine(fileInfo, i)), lineCategorizer->tokens[index]);
@@ -371,7 +371,8 @@ int NDR_Configure_Lexer(char* fileName){
 
     configuringCompleted = true;
 
-    printf("\nLexer configured successfully\n");
+    if (NDR_STAT == true)
+        printf("\nLexer configured successfully\n");
 
     return 0;
 
@@ -423,7 +424,7 @@ int NDR_Lex(char* fileName){
 
         setMatchingChar(matchingState, fgetc(code));
         addCharToToken(matchingState, matchingState->ch);
-        matchingState->highestMatchSeen = NOMATCH;
+        matchingState->highestMatchSeen = NDR_COMP_NOMATCH;
         // For each entry in the symbol table we will make a comparison
         // This can be optimized by not checking already failed matches potentially
         for(size_t x = 0; x < NDR_RSGetNumberOfStates(RSWrapper); x++){
@@ -479,7 +480,7 @@ int NDR_Lex(char* fileName){
 
                     setMatchingChar(endMatchingState, fgetc(code));
                     addCharToToken(endMatchingState, endMatchingState->ch);
-                    endMatchingState->highestMatchSeen = NOMATCH;
+                    endMatchingState->highestMatchSeen = NDR_COMP_NOMATCH;
 
                     for(size_t x = 0; x < NDR_RSGetNumberOfStates(RSWrapper); x++){
                         if(NDR_RSGetStateFlag(NDR_RSGetRegexState(RSWrapper, x)) == true && strcmp(NDR_RSGetKeyword(NDR_RSGetRegexState(RSWrapper, matchingState->indexOfBestMatch)), NDR_RSGetKeyword(NDR_RSGetRegexState(RSWrapper, x))) == 0)
@@ -551,11 +552,11 @@ int NDR_Lex(char* fileName){
             DestroyTokenMatchingState(endMatchingState);
             free(endMatchingState);
             // Entering the matched tokens into the tokenTable
-            if(NDR_RSGetCategory(NDR_RSGetRegexState(RSWrapper, matchingState->indexOfBestMatch)) == ERROR){
+            if(NDR_RSGetCategory(NDR_RSGetRegexState(RSWrapper, matchingState->indexOfBestMatch)) == NDR_STATE_ERROR){
                 printf("\nError token found: %s\n", getMatchToken(matchingState));
                 return 1;
             }
-            if(NDR_RSGetCategory(NDR_RSGetRegexState(RSWrapper, matchingState->indexOfBestMatch)) == ACCEPT){
+            if(NDR_RSGetCategory(NDR_RSGetRegexState(RSWrapper, matchingState->indexOfBestMatch)) == NDR_STATE_ACCEPT){
                 NDR_AddNewToken(TIWrapper);
                 NDR_SetTokenInfoKeyword(NDR_TIGetLastTokenInfo(TIWrapper), NDR_RSGetKeyword(NDR_RSGetRegexState(RSWrapper, matchingState->indexOfBestMatch)));
                 NDR_SetTokenInfoToken(NDR_TIGetLastTokenInfo(TIWrapper), getMatchToken(matchingState));
@@ -579,11 +580,11 @@ int NDR_Lex(char* fileName){
                 fseek(code, -1 * getFileBackTrackAmount(matchingState), SEEK_CUR);
             }
 
-            if(NDR_RSGetCategory(NDR_RSGetRegexState(RSWrapper, matchingState->indexOfBestMatch)) == ERROR){
+            if(NDR_RSGetCategory(NDR_RSGetRegexState(RSWrapper, matchingState->indexOfBestMatch)) == NDR_STATE_ERROR){
                 printf("\nError token found: %s\n", getMatchToken(matchingState));
                 return 1;
             }
-            if(NDR_RSGetCategory(NDR_RSGetRegexState(RSWrapper, matchingState->indexOfBestMatch)) == ACCEPT){
+            if(NDR_RSGetCategory(NDR_RSGetRegexState(RSWrapper, matchingState->indexOfBestMatch)) == NDR_STATE_ACCEPT){
                 NDR_AddNewToken(TIWrapper);
                 NDR_SetTokenInfoLine(NDR_TIGetLastTokenInfo(TIWrapper), lineNumber);
                 NDR_SetTokenInfoColumn(NDR_TIGetLastTokenInfo(TIWrapper), columnNumber);
@@ -641,7 +642,8 @@ int NDR_Lex(char* fileName){
 
     lexingCompleted = true;
 
-    printf("\nLexical analysis successful\n");
+    if (NDR_STAT == true)
+        printf("\nLexical analysis successful\n");
 
     return 0;
 }
@@ -658,7 +660,7 @@ bool verifyLineTokens(LexerLineCategorizer* lineCategorizer, StateRepresentation
             printf("Tokens are not allowed after setting \"%s\"\n", lineCategorizer->tokens[0]);
             return false;
         }
-        lineCategorizer->categories[0] = SETTING;
+        lineCategorizer->categories[0] = NDR_STATE_SETTING;
 
         if(IsOneTimeSettingSeen(lineCategorizer) == true){
             printf("\"%s\" should only be set once\n", lineCategorizer->tokens[0]);
@@ -699,7 +701,7 @@ bool verifyLineTokens(LexerLineCategorizer* lineCategorizer, StateRepresentation
                 }
                 else{
                     literal = true;
-                    lineCategorizer->categories[x] = LITERAL;
+                    lineCategorizer->categories[x] = NDR_STATE_LITERAL;
                 }
             }
             else if ((memcmp(lineCategorizer->tokens[x], "k{", 2) == 0 || memcmp(lineCategorizer->tokens[x], "K{", 2) == 0) && lineCategorizer->tokens[x][strlen(lineCategorizer->tokens[x]) - 1] == '}'){
@@ -721,7 +723,7 @@ bool verifyLineTokens(LexerLineCategorizer* lineCategorizer, StateRepresentation
                 }
                 else{
                     keyword = true;
-                    lineCategorizer->categories[x] = KEYWORD;
+                    lineCategorizer->categories[x] = NDR_STATE_KEYWORD;
                 }
             }
             else if(strcmp(lowerCaseStringReturn(lineCategorizer->tokens[x], 7), "states:") == 0){
@@ -739,7 +741,7 @@ bool verifyLineTokens(LexerLineCategorizer* lineCategorizer, StateRepresentation
                 states = true;
                 stateRep->started = true;
                 ResetStates(stateRep);
-                lineCategorizer->categories[x] = STATES;
+                lineCategorizer->categories[x] = NDR_STATE_STATES;
             }
             else if (lineCategorizer->tokens[x][0] == '{'){
                 items = true;
@@ -765,7 +767,7 @@ bool verifyLineTokens(LexerLineCategorizer* lineCategorizer, StateRepresentation
 
 
         if(strcmp(firstTokenLowerCase, "accept") == 0){
-            lineCategorizer->categories[0] = ACCEPT;
+            lineCategorizer->categories[0] = NDR_STATE_ACCEPT;
 
             if (literal == false && keyword == false){
                 printf("\"literal\" or keyword must be present\n");
@@ -773,10 +775,10 @@ bool verifyLineTokens(LexerLineCategorizer* lineCategorizer, StateRepresentation
             }
         }
         if(strcmp(firstTokenLowerCase, "ignore") == 0){
-            lineCategorizer->categories[0] = IGNORE;
+            lineCategorizer->categories[0] = NDR_STATE_IGNORE;
         }
         if(strcmp(firstTokenLowerCase, "error") == 0){
-            lineCategorizer->categories[0] = ERROR;
+            lineCategorizer->categories[0] = NDR_STATE_ERROR;
         }
 
     }
@@ -815,7 +817,7 @@ bool verifyLineTokens(LexerLineCategorizer* lineCategorizer, StateRepresentation
                 return false;
             }
             stateRep->startState = true;
-            lineCategorizer->categories[0] = STARTSTATE;
+            lineCategorizer->categories[0] = NDR_STATE_STARTSTATE;
         }
         else if(strcmp(firstTokenLowerCase, "allow") == 0){
             if(stateRep->startState == false || stateRep->allowState == true){
@@ -823,7 +825,7 @@ bool verifyLineTokens(LexerLineCategorizer* lineCategorizer, StateRepresentation
                 return false;
             }
             stateRep->allowState = true;
-            lineCategorizer->categories[0] = ALLOWSTATE;
+            lineCategorizer->categories[0] = NDR_STATE_ALLOWSTATE;
         }
         else if(strcmp(firstTokenLowerCase, "escape") == 0){
             if(stateRep->startState == false || stateRep->escapeState == true){
@@ -831,7 +833,7 @@ bool verifyLineTokens(LexerLineCategorizer* lineCategorizer, StateRepresentation
                 return false;
             }
             stateRep->escapeState = true;
-            lineCategorizer->categories[0] = ESCAPESTATE;
+            lineCategorizer->categories[0] = NDR_STATE_ESCAPESTATE;
         }
         else if(strcmp(firstTokenLowerCase, "end") == 0){
             if(stateRep->startState == false || stateRep->endState == true){
@@ -839,7 +841,7 @@ bool verifyLineTokens(LexerLineCategorizer* lineCategorizer, StateRepresentation
                 return false;
             }
             stateRep->endState = true;
-            lineCategorizer->categories[0] = ENDSTATE;
+            lineCategorizer->categories[0] = NDR_STATE_ENDSTATE;
         }
     }
     else{
@@ -853,13 +855,13 @@ bool verifyLineTokens(LexerLineCategorizer* lineCategorizer, StateRepresentation
 
 int CompareUsingRegex(TokenMatchingState* matchingState, int RSIndex, int RegIndex){
 
-    matchingState->matchValue = NDR_RSGetMatchResult(NDR_RSGetRegexState(RSWrapper, RSIndex), getMatchToken(matchingState), STARTSTATE, RegIndex);
+    matchingState->matchValue = NDR_RSGetMatchResult(NDR_RSGetRegexState(RSWrapper, RSIndex), getMatchToken(matchingState), NDR_STATE_STARTSTATE, RegIndex);
 
     if(matchingState->matchValue == NDR_REGEX_NOMATCH){
         if (NDR_M == true)
             printf("No match for \"%s\", using regex %s\n", getMatchToken(matchingState), NDR_RSGetStartRegex(NDR_RSGetRegexState(RSWrapper, RSIndex), RegIndex));
     }
-    else if(matchingState->matchValue == NDR_REGEX_PARTIALMATCH && matchingState->highestMatchSeen == NOMATCH){
+    else if(matchingState->matchValue == NDR_REGEX_PARTIALMATCH && matchingState->highestMatchSeen == NDR_COMP_NOMATCH){
         if (NDR_M == true)
             printf("Partial Match for %s, using regex %s\n", getMatchToken(matchingState), NDR_RSGetStartRegex(NDR_RSGetRegexState(RSWrapper, RSIndex), RegIndex));
 
@@ -904,7 +906,7 @@ void InitializeTokenMatchingState(TokenMatchingState* matchingState){
     matchingState->completeMatchFound = false;
     matchingState->potentialMatchFound = false;
     matchingState->numberOfCompleteMatches = 0;
-    matchingState->highestMatchSeen = NOMATCH;
+    matchingState->highestMatchSeen = NDR_COMP_NOMATCH;
 }
 
 void DestroyTokenMatchingState(TokenMatchingState* matchingState){
@@ -925,7 +927,7 @@ void ResetTokenMatchingState(TokenMatchingState* matchingState){
     matchingState->completeMatchFound = false;
     matchingState->potentialMatchFound = false;
     matchingState->numberOfCompleteMatches = 0;
-    matchingState->highestMatchSeen = NOMATCH;
+    matchingState->highestMatchSeen = NDR_COMP_NOMATCH;
 }
 
 void addCharToToken(TokenMatchingState* matchingState, char ch){
@@ -964,13 +966,13 @@ void addStringToToken(TokenMatchingState* matchingState, char* src){
 
 void AcknowledgePotentialMatch(TokenMatchingState* matchingState){
     matchingState->potentialMatchFound = true;
-    matchingState->highestMatchSeen = PARTIALMATCH;
+    matchingState->highestMatchSeen = NDR_COMP_PARTIALMATCH;
 }
 
 void AcknowledgeCompleteMatch(TokenMatchingState* matchingState){
     matchingState->completeMatchFound = true;
     matchingState->numberOfCompleteMatches++;
-    matchingState->highestMatchSeen = COMPLETEMATCH;
+    matchingState->highestMatchSeen = NDR_COMP_COMPLETEMATCH;
 }
 
 bool completeMatchFound(TokenMatchingState* matchingState){
@@ -1037,7 +1039,7 @@ bool ProcessTokensAfterItems(LexerLineCategorizer* lineCategorizer, int index){
             break;
         }
     }
-    lineCategorizer->categories[index] = NOTAPPLICABLE;
+    lineCategorizer->categories[index] = NDR_STATE_NOTAPPLICABLE;
 
     free(indices);
     return true;
@@ -1135,7 +1137,7 @@ bool doesCharMatchAllowRegex(int stateIndex, char* comparisonString){
     for(size_t x = 0; x < NDR_RSGetNumberOfStates(RSWrapper); x++){
         if(strcmp(NDR_RSGetKeyword(NDR_RSGetRegexState(RSWrapper, stateIndex)), NDR_RSGetKeyword(NDR_RSGetRegexState(RSWrapper, x))) == 0){
             for(size_t i = 0; i < NDR_RSGetNumAllowStates(NDR_RSGetRegexState(RSWrapper, stateIndex)); i++){
-                matchValue = NDR_RSGetMatchResult(NDR_RSGetRegexState(RSWrapper, x), comparisonString, ALLOWSTATE, i);
+                matchValue = NDR_RSGetMatchResult(NDR_RSGetRegexState(RSWrapper, x), comparisonString, NDR_STATE_ALLOWSTATE, i);
                 if(matchValue == NDR_REGEX_COMPLETEMATCH){
                     return true;
                 }
@@ -1150,7 +1152,7 @@ bool doesCharMatchEscapeRegex(int stateIndex, char* comparisonString){
     for(size_t x = 0; x < NDR_RSGetNumberOfStates(RSWrapper); x++){
         if(strcmp(NDR_RSGetKeyword(NDR_RSGetRegexState(RSWrapper, stateIndex)), NDR_RSGetKeyword(NDR_RSGetRegexState(RSWrapper, x))) == 0){
             for(size_t i = 0; i < NDR_RSGetNumEscapeStates(NDR_RSGetRegexState(RSWrapper, stateIndex)); i++){
-                matchValue = NDR_RSGetMatchResult(NDR_RSGetRegexState(RSWrapper, x), comparisonString, ESCAPESTATE, i);
+                matchValue = NDR_RSGetMatchResult(NDR_RSGetRegexState(RSWrapper, x), comparisonString, NDR_STATE_ESCAPESTATE, i);
                 if(matchValue == NDR_REGEX_COMPLETEMATCH){
                     return true;
                 }
@@ -1159,53 +1161,6 @@ bool doesCharMatchEscapeRegex(int stateIndex, char* comparisonString){
     }
     return false;
 }
-
-/*bool doesStringMatchEndRegex(FILE* code, int stateIndex, char* startString, char* endString, int MAX_END_LENGTH){
-    strcpy(endString, startString);
-    int EOFInt;
-    int numNewLines = 0;
-    int matchValue;
-    bool endMatch = false;
-    for(int x = 0; x < NDR_RSGetNumberOfStates(RSWrapper); x++){
-        if(strcmp(NDR_RSGetKeyword(NDR_RSGetRegexState(RSWrapper, stateIndex)), NDR_RSGetKeyword(NDR_RSGetRegexState(RSWrapper, x))) == 0){
-            for(int i = 0; i < NDR_RSGetNumEndStates(NDR_RSGetRegexState(RSWrapper, stateIndex)); i++){
-                strcpy(endString, startString);
-                numNewLines = 0;
-                for(int endCount = 0; endCount < MAX_END_LENGTH; endCount++){
-                    matchValue = NDR_RSGetMatchResult(NDR_RSGetRegexState(RSWrapper, x), endString, ENDSTATE, i);
-                    if(matchValue > 0){
-                        endMatch = true;
-                        break;
-                    }
-                    else{
-                        EOFInt = fgetc(code);
-                        // The newline '\n' is represented as '\r''\n' which is two bytes
-                        // fseek operates in bytes so for each newline we need to double the count from 1 to 2
-                        if(((char)EOFInt) == '\n')
-                            numNewLines++;
-                        if (EOFInt == EOF){
-                            strcpy(endString, "");
-                            fseek(code, (-1 * endCount) + (-1 * numNewLines * NEWLINEMULTIPLIER), SEEK_CUR);
-                            break;
-                        }
-                        else{
-                            endString[endCount+1] = (char) EOFInt;
-                            endString[endCount+2] = '\0';
-                        }
-                    }
-                    if(endCount == MAX_END_LENGTH - 1){
-                        strcpy(endString, "");
-                        fseek(code, (-1 * MAX_END_LENGTH) + (-1 * numNewLines * NEWLINEMULTIPLIER), SEEK_CUR);
-                    }
-                }
-                if(endMatch == true)
-                    break;
-            }
-        }
-    }
-    return endMatch;
-}*/
-
 
 
 void updatefilePosition(int* lineNumber, int* columnNumber, char* token){
@@ -1248,13 +1203,6 @@ void ResetLineCategories(LexerLineCategorizer* lineCategorizer, int memAllocated
     }
 }
 
-// condenseString removes an item from a string and shortens the string to compensate
-/*void condenseString(char* text, int num){
-    int hold = (strlen(text) - num);
-    for(int i = 0; i < strlen(text) - num; i++)
-        text[i] = text[i + num];
-    text[hold] = '\0';
-}*/
 
 void trimString(char* string){
     char* middle = malloc(strlen(string)+1);
