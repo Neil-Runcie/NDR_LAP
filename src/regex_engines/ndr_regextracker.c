@@ -42,13 +42,13 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "ndr_regextracker.h"
 
+// Utility function to initialize the struct used to keep track of progression through the regex graph
 void NDR_InitRTracker(NDR_RegexTracker* ref, NDR_RegexNode* node){
     ref->reference = node;
     ref->numberOfRepeats = 0;
     ref->currentChild = 0;
     ref->stringPosition = 0;
 }
-
 
 // Utility function to initialize the stack
 void NDR_InitTrackerStack(NDR_TrackerStack* ndrstack){
@@ -72,15 +72,20 @@ bool NDR_TrackerStackIsEmpty(NDR_TrackerStack* ndrstack) {
 
 // Utility function to add an element `x` to the stack
 void NDR_TrackerStackPush(NDR_TrackerStack* ndrstack, NDR_RegexTracker* node){
+    // Allocate memory if needed and keep track of it
     if(ndrstack->numNodes > ndrstack->memoryAllocated - 5){
         ndrstack->memoryAllocated = ndrstack->memoryAllocated * 2;
         ndrstack->references = realloc(ndrstack->references, sizeof(NDR_RegexTracker*) * ndrstack->memoryAllocated);
     }
+    // Allocate memory if needed and keep track of it for later removal of allocated memory
     if(ndrstack->numNodes > ndrstack->disposalMemoryAllocated - 5){
         ndrstack->disposalMemoryAllocated = ndrstack->disposalMemoryAllocated * 2;
         ndrstack->references = realloc(ndrstack->references, sizeof(NDR_RegexTracker*) * ndrstack->disposalMemoryAllocated);
     }
+    // add the node to the stack
     ndrstack->references[ndrstack->numNodes++] = node;
+
+    // If the node is unique then add it to the disposal array
     bool check = false;
     for(int x = 0; x < ndrstack->numDisposalNodes; x++){
         if(ndrstack->disposal[x] == node){
@@ -92,6 +97,7 @@ void NDR_TrackerStackPush(NDR_TrackerStack* ndrstack, NDR_RegexTracker* node){
     }
 }
 
+// Utility function to return a reference to the top of the stack
 NDR_RegexTracker* NDR_TrackerStackPeek(NDR_TrackerStack* ndrstack){
     if(NDR_TrackerStackIsEmpty(ndrstack))
         return NULL;
@@ -100,7 +106,7 @@ NDR_RegexTracker* NDR_TrackerStackPeek(NDR_TrackerStack* ndrstack){
     }
 }
 
-
+// Utility function to return a reference to the top of the stack and then remove it
 NDR_RegexTracker* NDR_TrackerStackPop(NDR_TrackerStack* ndrstack){
     if (NDR_TrackerStackIsEmpty(ndrstack))
         return NULL;
@@ -109,10 +115,13 @@ NDR_RegexTracker* NDR_TrackerStackPop(NDR_TrackerStack* ndrstack){
     }
 }
 
+// Utility function to free the memory allocated to items with the struct
 void NDR_DestroyRegexTracker(NDR_RegexTracker* tracker){
     free(tracker->reference);
 }
 
+
+// Utility function to free the memory allocated to items with the stack
 void NDR_DestroyRegexTrackerStack(NDR_TrackerStack* stack){
     for(int x = 0; x < stack->numDisposalNodes; x++){
         free(stack->disposal[x]);

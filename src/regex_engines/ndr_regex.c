@@ -45,21 +45,31 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "ndr_regex.h"
 #include "ndr_regextracker.h"
 
-bool IsPathOptional(NDR_RegexNode* follow);
-
-int checkAllButNewLine(char comp);
-int checkEverything(char comp);
-int checkDecimalDigit(char comp);
-int checkNotDecimalDigit(char comp);
-int checkWhiteSpace(char comp);
-int checkNotWhiteSpace(char comp);
-int checkWordChar(char comp);
-int checkNotWordChar(char comp);
-
+// Initialize the values in the struct for later use of the NDR_Regex pointer
 void NDR_InitRegex(NDR_Regex* cRegex);
-
+// Free the memory allocated to the struct for later use of the NDR_Regex pointer
 void NDR_DestroyRegexGraph(NDR_Regex* head);
 
+// For checking if the end of the regex graph can be reached only through optional paths given a node in the graph to start from
+bool IsPathOptional(NDR_RegexNode* follow);
+
+// Below are the functions corresponding to character matching special characters
+// '\N' and '.'
+int checkAllButNewLine(char comp);
+// \e
+int checkEverything(char comp);
+// \d
+int checkDecimalDigit(char comp);
+// \D
+int checkNotDecimalDigit(char comp);
+// \S
+int checkWhiteSpace(char comp);
+// \s
+int checkNotWhiteSpace(char comp);
+// \w
+int checkWordChar(char comp);
+// \W
+int checkNotWordChar(char comp);
 
 
 //Based on a provided regex string, create a reference graph for later matching the regex to other strings
@@ -141,6 +151,7 @@ int NDR_CompileRegex(NDR_Regex* cRegex, char* regexString){
             }
             // When the special character ')' is seen, it is assumed to be the end of a "word"
             else if(regexString[x] == ')' && isCurrentlyEscaped == false && startedCharClass == false){
+                // If the current node is not empty proceed to the next one
                 if(NDR_IsRNodeEmpty(NDR_RNodeStackPeek(endStack)) == false){
                     NDR_InitRegexNode(NDR_RNodeStackPeek(endStack)->children[0]);
                     NDR_RNodeStackSet(endStack, NDR_RNodeStackPeek(endStack)->children[0]);
@@ -149,6 +160,7 @@ int NDR_CompileRegex(NDR_Regex* cRegex, char* regexString){
                 NDR_RNodeStackPeek(endStack)->wordReference = NDR_RNodeStackPeek(startStack);
 
 
+                // If the orPath flag for the start of the word is set to true, this word must have come after an "or" symbol
                 if(NDR_RNodeStackPeek(startStack)->orPath == true){
                     NDR_RNodeStackPeek(endStack)->orPath = true;
 

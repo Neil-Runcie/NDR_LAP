@@ -43,49 +43,14 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "ndr_regexnode.h"
 
 void ContinueAfterWord(NDR_RNodeStack* startStack, NDR_RNodeStack* endStack){
-    /// Will need this commented code
+
     NDR_RegexNode* holdStart = NDR_RNodeStackPop(startStack);
     NDR_RegexNode* holdEnd = NDR_RNodeStackPop(endStack);
-    //NDR_RegexNode* follow = NDR_RNodeStackPeek(startStack);
 
     free(NDR_RNodeStackPeek(endStack)->children[0]);
 
-    //NDR_AddRNodeChild(NDR_RNodeStackPeek(endStack), holdStart);
     NDR_RNodeStackPeek(endStack)->children[0] = holdStart;
     NDR_RNodeStackSet(endStack, holdEnd);
-
-    /*if(NDR_RNodeStackPeek(startStack) == NDR_RNodeStackPeek(endStack) && NDR_IsRNodeEmpty(NDR_RNodeStackPeek(endStack)) == true){
-
-        free(NDR_RNodeStackPeek(startStack));
-        NDR_RNodeStackPop(startStack);
-        NDR_RNodeStackPop(endStack);
-        NDR_RNodeStackPush(startStack, holdStart);
-        NDR_RNodeStackPush(endStack, holdEnd);
-        //NDR_RNodeStackSet(startStack, holdStart);
-        //NDR_RNodeStackSet(endStack, holdEnd);
-
-    }
-    else if(NDR_RNodeStackPeek(startStack) == NDR_RNodeStackPeek(endStack)){
-
-        NDR_RNodeStackPeek(endStack)->children[0] = holdStart;
-        NDR_RNodeStackSet(endStack, holdEnd);
-    }
-    else{
-        if(NDR_IsRNodeEmpty(NDR_RNodeStackPeek(endStack)) == false){
-
-            NDR_RNodeStackPeek(endStack)->children[0] = holdStart;
-            NDR_RNodeStackSet(endStack, holdEnd);
-        }
-        else{
-            while(follow->children[0] != NDR_RNodeStackPeek(endStack)){
-                follow = follow->children[0];
-            }
-            free(follow->children[0]);
-            follow->children[0] = holdStart;
-            NDR_RNodeStackSet(endStack, holdEnd);
-        }
-
-    }*/
 
 }
 
