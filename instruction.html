@@ -45,6 +45,11 @@
             In addition to the above, there is a function <b>"void NDR_Set_Toggles(int argc, char* argv[])"</b> that allows you to set different toggles for debugging which will make the development process much easier. The toggles are below.<br>
             <hr>
             <ul>
+            <li><pre>// STAT is the toggle for printing status messages for the successful completion of the NDR_Configure_Lexer, NDR_Configure_Parser, NDR_Lex, NDR_Parse functions
+bool NDR_STAT</pre>
+            If the NDR_STAT toggle is set, then success messages will be printed for the four driving functions of the NDR_LAP library upon successful execution
+            <br><br>
+                </li>
             <li><pre>// ST is the toggle for printing the symbolTable
 bool NDR_ST</pre>
             If the NDR_ST toggle is set, then the information for eached recognized symbol will be printed in the following order.
